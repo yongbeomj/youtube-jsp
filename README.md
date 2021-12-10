@@ -1,4 +1,12 @@
 # Youtube
+## contentes
+[1. 개요](https://github.com/yongbeomj/youtube-jsp#1-%EA%B0%9C%EC%9A%94)  
+[2. 개발 환경](https://github.com/yongbeomj/youtube-jsp#2-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD)  
+[3. 개발 일정](https://github.com/yongbeomj/youtube-jsp#3-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A0%95)  
+[4. 주요기능 개발 우선순위](https://github.com/yongbeomj/youtube-jsp#4-%EC%A3%BC%EC%9A%94%EA%B8%B0%EB%8A%A5-%EA%B0%9C%EB%B0%9C-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84)  
+[5. 역할 분담](https://github.com/yongbeomj/youtube-jsp#5-%EC%97%AD%ED%95%A0-%EB%B6%84%EB%8B%B4)  
+[6. 프로젝트 협업 규칙](https://github.com/yongbeomj/youtube-jsp#6-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%98%91%EC%97%85-%EA%B7%9C%EC%B9%99)  
+  
 ## 1. 개요
 ### 1.1. 선정이유 : 많은 사람들이 쉽게 접할 수 있고 기능이 많음. 수업 내용 개념 재확립
 ### 1.2. 목적 : 
