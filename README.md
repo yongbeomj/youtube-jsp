@@ -51,15 +51,15 @@
 - 장희동 : 구독 페이지, 동영상 세부 페이지  
  
 ## 6. 프로젝트 협업 규칙
-### 6.1 명명규칙 및 코딩 방식 : Google Java Style Guide에 따름
+### 6.1 명명규칙 및 코딩 방식 : 'Google Java Style Guide'에 따름
 - Project : 첫 글자 대문자로 시작
 - package : 모든 글자 소문자로 구성
 - folder, jsp file : 모든 글자 소문자로 구성
-- class, inderface : PascalCase 적용
-- 메소드 : camelCase 적용
+- class, interface : PascalCase(UpperCamelCase) 적용
+- 메소드 : camelCase(lowerCamelCase) 적용
 - 주석 : 메소드에 대한 설명 기재  
 
-※ 기타 필요사항은 원문([링크](https://google.github.io/styleguide/javaguide.html#s5-naming)) 및 번역본([링크](https://newwisdom.tistory.com/96)) 참조  
+※ 추가 필요사항은 원문([링크](https://google.github.io/styleguide/javaguide.html#s5-naming)) 및 번역본([링크](https://newwisdom.tistory.com/96)) 참조  
 
 ### 6.2. 코드공유방식 : Github, Kakaotalk
 ### 6.3. Font : 노토 산스([눈누링크](https://noonnu.cc/font_page/34))
