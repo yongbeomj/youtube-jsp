@@ -63,3 +63,7 @@
 
 ### 6.2. 코드공유방식 : Github, Kakaotalk
 ### 6.3. Font : 노토 산스([눈누링크](https://noonnu.cc/font_page/34))
+
+## 7. Controller 구조도
+![캡처](https://user-images.githubusercontent.com/88884623/145953221-39e27328-ce88-474f-b0ed-97548f43443b.JPG)
+
