@@ -8,8 +8,8 @@
 </head>
 <body>
 	<%@include file="../header.jsp"%>
+	<br><br><br><br>
 	<div class="container">
-
 		<div id="findid" class="col-md-6 offset-3">
 			<div class="card" style="padding: 30px; width: 30rem;">
 				<div class="card-body">
@@ -17,8 +17,8 @@
 						<h3 class="card-title">아이디 찾기</h3>
 						<p class="card-text">이름 및 연락처를 입력하세요.</p>
 					</div>
-					<input type="text" class="form-control p-2 my-4" placeholder="이름"> <input
-						type="text" class="form-control p-2 my-4" placeholder="연락처">
+					<input type="text" class="form-control p-2 my-4" placeholder="이름">
+					<input type="text" class="form-control p-2 my-4" placeholder="연락처">
 
 					<div class="my-4" style="text-align: right;">
 						<button type="button" class="btn btn-primary">찾기</button>
