@@ -76,7 +76,7 @@
 					
 					
 					<div class = "col">
-						<img class = "hidden-sm rounded mx-auto d-block" src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width = "244" heigth="244">
+						<img class = "hidden-sm rounded mx-auto d-block"  src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width = "244" heigth="244">
 						
 					</div>
 				
