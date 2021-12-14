@@ -65,5 +65,5 @@
 ### 6.3. Font : 노토 산스([눈누링크](https://noonnu.cc/font_page/34))
 
 ## 7. Controller 구조도
-![캡처](https://user-images.githubusercontent.com/88884623/145953221-39e27328-ce88-474f-b0ed-97548f43443b.JPG)
+![ascii-tree-generator com_ (2)](https://user-images.githubusercontent.com/88884623/145959511-a8e69aa6-44ea-4667-8beb-e6c5de2f5c04.png)
 
