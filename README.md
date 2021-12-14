@@ -52,7 +52,7 @@
 
 ## 6. 프로젝트 협업 규칙
 ### 6.1 명명규칙 및 코딩 방식 : 'Google Java Style Guide'에 따름
-- Project : 첫 글자 대문자로 시작
+- project : 첫 글자 대문자로 시작
 - package : 모든 글자 소문자로 구성
 - folder, jsp file : 모든 글자 소문자로 구성
 - class, interface : PascalCase(UpperCamelCase) 적용
@@ -65,5 +65,12 @@
 ### 6.3. Font : 노토 산스([눈누링크](https://noonnu.cc/font_page/34))
 
 ## 7. Controller 구조도
+<details>
+<summary>여기를 눌러주세요</summary>
+<div markdown="1">       
+
 ![ascii-tree-generator com_ (2)](https://user-images.githubusercontent.com/88884623/145959511-a8e69aa6-44ea-4667-8beb-e6c5de2f5c04.png)
+
+</div>
+</details>
 
