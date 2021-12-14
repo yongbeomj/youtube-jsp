@@ -10,7 +10,7 @@
 	<%@include file="header.jsp"%>
 	<br> <br><br><br><br><br><br>
 	<div class="container">
-
+<!--  -->
 		<div class="col-md-6 offset-3">
 			<div class="card" style="padding: 30px; width: 30rem;">
 				<div class="card-body">
