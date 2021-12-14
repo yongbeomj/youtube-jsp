@@ -22,45 +22,43 @@
 	<!-- 본인 js 호출 -->
 	<script src="/장용범/website/js/main.js"></script>
 
+
 	<div class="fixed-top bg-dark">
 		<header>
 			<div class="row my-2">
 				<div class="col-md-3">
-					<a href="#"><img alt="" src="" class="ml-5">유튜브로고</a>
+					<a href="/YoutubeProject/View/Main.jsp"><img src="../IMG/유도부.png"
+						style="width: 120px; height: 30px; margin-top: 6px;" class="ml-5"></a>
 				</div>
-				<div class="col-md-3 offset-1">
+				<div class="col-md-5 offset-1">
 					<div class="row">
-						<div class="col-md-9 offset-1">
-							<input type="text" class="form-control"
-								style="background-color: black; border-style: none;"
-								placeholder="Search">
+						<div class="col-md-10 navbar navbar-expand-md navbar-dark bg-dark"
+							style="padding: 0;">
+							<div class="collapse navbar-collapse">
+								<div class="navbar-nav justify-content-between" style="width: 100%;">
+									<input type="text" class="form-control nav-item col-md-12"
+										style="background-color: black; border-style: none; width: 100%; margin: 0;"
+										placeholder="Search">
+								</div>
+							</div>
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-2" style="padding: 0;">
 							<button class="form-control text-center"
-								style="background-color: gray; border-style: none;">Q</button>
+								style="background-color: gray; border-style: none; width: 100%; height: 40px;">Q</button>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 offset-1 text-right">
+				<div class="col-md-2 offset-1">
 					<div class="row">
-						<div>
-							<span class="form-control bg-dark"
-								style="border-style: none; width: 60px;">접속ID</span><span
-								class="form-control bg-dark"
-								style="border-radius: 5px; width: 60px; font-size: 8px;">이미지</span>
+						<div class="col-md-8 offset-4">
+							<span class="col-md-6 bg-dark"
+								style="border-style: none; width: 60px; color: white;">접속ID</span>
 						</div>
 					</div>
-					<div></div>
 				</div>
 			</div>
 		</header>
 	</div>
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 	<br>
 	<br>
 </body>
