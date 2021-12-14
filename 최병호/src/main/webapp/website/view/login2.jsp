@@ -52,7 +52,7 @@
 								</div>
 							</div>
 						</form>
-						<!--  -->
+						<!-- -->
 						<span> 문자, 숫자, 기호를 조합하여 8자 이상을 사용하세요</span>
 						<div class="form-check">
 							<input class="form-check-input" type="checkbox" checked> 
