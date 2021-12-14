@@ -28,6 +28,7 @@
 				<%@include file="clipviewinfo.jsp" %>
 			</div>
 			
+			
 			<!-- 오른쪽 영상목록 쪽 -->
 			<div class="col-md-5 my-5 ml-0 mr-0 pl-0 pr-0" >
 				<%@include file="clipviewside.jsp" %>
