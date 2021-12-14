@@ -45,13 +45,13 @@
 				<div class="col-md-5 py-3 d-flex flex-direction:row">
 					<div style="font-size: 1.2rem;">댓글 <span>538</span>개 </div>
 				</div>
-				<div class="d-flex justify-content:space-between pt-2 py-3">
+				<div class="d-flex justify-content:end pt-2 py-3">
 					<a  href="#"><img src="../img/user.png" width="40" height="40"></a>
 					<input type="text" placeholder="공개 댓글 추가" class=" form-control">
 				</div>
-				<div class="row col-md-4 offset-8 pl-0 pr-0">
-					<a href="#" class="col-md-6 py-1 pl-0 pr-0"><input type="submit" class="btn btn-light" value="등록"></a>
-					<a href="#" class="col-md-6 py-1 pl-0 pr-0"><input type="submit" class="btn btn-light" value="등록"></a>
+				<div class="row col-md-3 offset-9 pl-0 pr-0">
+					<a href="#" class="col-md-6 py-1 pl-3 pr-0"><input type="submit" class="btn btn-light" value="취소"></a>
+					<a href="#" class="col-md-6 py-1 pl-3 pr-0"><input type="submit" class="btn btn-secondary" value="등록"></a>
 				</div>
 				<div class="pt-3">
 					<div>
