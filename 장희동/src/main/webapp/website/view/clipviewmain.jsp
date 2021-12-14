@@ -26,6 +26,7 @@
 				<%@include file="clipview.jsp" %>
 				<!-- 영상제목 라인 -->
 				<%@include file="clipviewinfo.jsp" %>
+				
 			</div>
 			
 			
