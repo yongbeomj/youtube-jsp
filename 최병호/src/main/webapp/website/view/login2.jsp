@@ -61,11 +61,11 @@
 						<br><br><br>						
 						<div class="row">   
 							<div class=  "col-md-4 "><a href="#">대신 로그인하기</a></div>
-							<div class= "offset-4"></div>
-							<div class= "col-md-3 ">
-								<div>
-									<button type="button" class="btn btn-primary"> 다음</button>
-								</div>
+							
+							<div class= "col-md-4 px-0 d-flex justify-content-end offset-4">
+								
+									<button type="button" class="btn btn-primary "> 다음</button>
+								
 							</div>
 							
 							<br><br>
@@ -75,8 +75,9 @@
 					</div>
 					
 					
-					<div class = "d-lg-block">
-						미지이qweqweqwewqewqewqeqwewqewqewqqwewqeqwewqeqwqweewq
+					<div class = "col">
+						<img class = "hidden-sm rounded mx-auto d-block" src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width = "244" heigth="244">
+						
 					</div>
 				
 				
