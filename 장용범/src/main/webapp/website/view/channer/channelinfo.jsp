@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file="channerheader.jsp"%>
+	<%@include file="channelheader.jsp"%>
 	<div class="container">
 		<div class="row col-md-10 offset-1 py-2">
 			<div class="col-md-8 my-3">

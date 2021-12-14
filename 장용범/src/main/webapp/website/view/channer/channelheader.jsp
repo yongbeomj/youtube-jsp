@@ -44,9 +44,9 @@
 					<li class="nav-item"><a href="#" class="nav-link">홈</a></li>
 					<li class="nav-item"><a href="#" class="nav-link">동영상</a></li>
 					<li class="nav-item"><a href="#" class="nav-link">재생목록</a></li>
-					<li class="nav-item"><a href="#" class="nav-link">커뮤니티</a></li>
+					<li class="nav-item"><a href="channelboard.jsp" class="nav-link">커뮤니티</a></li>
 					<li class="nav-item"><a href="#" class="nav-link">채널</a></li>
-					<li class="nav-item"><a href="channerinfo.jsp" class="nav-link">정보</a></li>
+					<li class="nav-item"><a href="channelinfo.jsp" class="nav-link">정보</a></li>
 					<li class="nav-item"><a href="#" class="nav-link">검색</a></li>
 				</ul>
 			</div>
