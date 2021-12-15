@@ -77,3 +77,14 @@
 </div>
 </details>
 
+## 8. Database 구조도
+- Table : Total 5EA
+<details>
+<summary>여기를 눌러주세요</summary>
+<div markdown="1">       
+
+![test (1)](https://user-images.githubusercontent.com/87436495/146139769-e773c76c-06db-49a2-ae39-228fd47911f7.png)
+
+</div>
+</details>
+
