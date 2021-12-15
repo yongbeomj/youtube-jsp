@@ -31,7 +31,18 @@
 						</div>
 					</div>
 					
-					<br> <br> <br> <br><br><br><br>
+					<div class="row my-4">
+					<div class="col-md-4 no-gutters">
+						<a href = "signup.jsp" class="col-md-4">계정 만들기</a>
+					</div>
+					<div class="col-md-8 d-flex justify-content-end no-gutters ">
+						<a href = "findid.jsp" class="col-md-5 ml-1">아이디 찾기</a>
+						<a href = "findpw.jsp" class="col-md-5">비밀번호 찾기</a>
+					</div>
+					
+					</div>
+					
+					<br> <br> <br> <br><br><br>
 					
 				</div>
 			</div>

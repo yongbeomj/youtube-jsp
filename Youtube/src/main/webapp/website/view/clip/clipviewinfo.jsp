@@ -24,9 +24,9 @@
 	<div
 		class="col-md-12 mainclip d-flex justify-content:space-between pl-0 pr-0 pt-2 py-3"
 		style="border-bottom: 1px solid #cccccc;">
-		<a href="#"><img src="../../img/user.png" width="48px" height="48px"></a>
+		<a href="../channel/channelinfo.jsp"><img src="../../img/user.png" width="48px" height="48px"></a>
 		<div class="col-md-4 pl-2">
-			<a href="#">채널wdasdsadasdda이름</a><br> <span>구독자 : 1202만명</span>
+			<a href="../channel/channelinfo.jsp">채널wdasdsadasdda이름</a><br> <span>구독자 : 1202만명</span>
 		</div>
 		<a href="#" class="offset-6 pt-1"><input type="submit"
 			class="btn btn-danger" value="구독"></a>
