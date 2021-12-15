@@ -7,7 +7,7 @@
 [5. 역할 분담](https://github.com/yongbeomj/youtube-jsp#5-%EC%97%AD%ED%95%A0-%EB%B6%84%EB%8B%B4)  
 [6. 프로젝트 협업 규칙](https://github.com/yongbeomj/youtube-jsp#6-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%98%91%EC%97%85-%EA%B7%9C%EC%B9%99)  
 [7. Controller 구조도](https://github.com/yongbeomj/youtube-jsp#7-controller-%EA%B5%AC%EC%A1%B0%EB%8F%84)  
-
+[8. Database 구조도](https://github.com/yongbeomj/youtube-jsp#8-database-%EA%B5%AC%EC%A1%B0%EB%8F%84)
 ## 1. 개요
 ### 1.1. 선정이유 :
 - 많은 사람들이 쉽게 접할 수 있고 다양한 기능 이용 가능
@@ -35,7 +35,7 @@
 |2021.12.14|Controller 구조도 제작|
 |2021.12.15|Database 설계|
 |2021.12.17 ~ 2021.12.27|기능 구현(Back-end)|
-|2021.12.28 ~ 2021.12.30|트러블 슈팅, Front 추가 등|
+|2021.12.28 ~ 2021.12.30|트러블 슈팅, Front 수정 등|
 |2021.12.31|프로젝트 발표|
 
 ## 4. 주요기능 개발 우선순위
