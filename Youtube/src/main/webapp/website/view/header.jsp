@@ -20,7 +20,7 @@
       <header>
          <div class="row my-2">
             <div class="col-md-3">
-               <a href="/YoutubeProject/View/Main.jsp"><img src = "../IMG/임시로고.png" style="width: 120px; height: 30px; margin-top: 4px;" class="ml-5"></a>
+               <a href="/youtube/view/main.jsp"><img src = "../img/logo.png" style="width: 120px; height: 30px; margin-top: 4px;" class="ml-5"></a>
             </div>
             <div class="col-md-5 offset-1">
                <div class="row">

@@ -13,7 +13,7 @@
 </style>
 </head>
 <body>
-   <%@ include file="Header.jsp"%>
+   <%@ include file="header.jsp"%>
    <div style="background-color: black;">
       <div class="row mr-2">
          <div class="col-md-2 bg-dark" style="margin-top: 55px; overflow-y: auto; height: 30px; position: fixed; height: 100%;">
@@ -51,10 +51,10 @@
                %>
                <div class="col-md-3">
                   <div class="row p-2">
-                     <img alt="" src="../IMG/1.jpg"
+                     <img alt="" src="../img/나이키.png"
                         style="width: 100%; height: 100%;">
                      <div class="col-md-3 ml-0 col-sm-2 col-xs-2 mt-2">
-                        <img alt="" src="../IMG/2.jpg"
+                        <img alt="" src="../img/profile.jpg"
                            style="width: 35px; height: 35px; border-radius: 70%; float: left;">
                      </div>
                      <div class="col-md-8 col-sm-8 col-xs-8 mt-2">
