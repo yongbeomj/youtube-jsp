@@ -14,10 +14,10 @@
 </head>
 <body>
    <%@ include file="header.jsp"%>
-   <div style="background-color: black;">
-      <div class="row mr-2">
-         <div class="col-md-2 bg-dark" style="margin-top: 55px; overflow-y: auto; height: 30px; position: fixed; height: 100%;">
-         	<div class = "row">
+   <div style="background-color: white;">
+      <div class="row">
+         <div class="col-md-2" style="margin-top: 44px; overflow-y: auto; height: 100%; position: fixed; height: 100%;">
+         	<div class = "row" style="background-color: #0A1931; padding-top: 10px;">
          		<div class = "col-md-4">
          			<img alt="" src="">이미지
          			<img alt="" src="">이미지
@@ -26,11 +26,11 @@
          			<img alt="" src="">이미지
          		</div>
          		<div class = "col-md-8">
-		            <h3 style="color: white;">홈</h3>
-		            <h3 style="color: white;">구독</h3>
-		            <h3 style="color: white;">보관함</h3>
-		            <h3 style="color: white;">재생목록</h3>
-		            <h3 style="color: white;">구독목록</h3>
+		            <h4 style="color: white;">홈</h4>
+		            <h4 style="color: white;">구독</h4>
+		            <h4 style="color: white;">보관함</h4>
+		            <h4 style="color: white;">재생목록</h4>
+		            <h4 style="color: white;">구독목록</h4>
 		            <div>
 		            	<p>유튜버1
 		            	<p>유튜버2
@@ -44,15 +44,15 @@
          		</div>
          	</div>
          </div>
-         <div class="col-md-9 offset-2" style="margin-top: 80px; overflow-y: auto; float: right;">
+         <div class="col-md-9 offset-2 rounded" style=" margin-top: 80px; overflow-y: auto; width: 100%;">
             <div class="row">
                <%
                for (int i = 0; i < 107; i++) {
                %>
                <div class="col-md-3">
-                  <div class="row p-2">
+                  <div class="row p-2" style=" background-color: white;">
                      <img alt="" src="../IMG/영상화면.jpg"
-                        style="width: 100%; height: 100%;">
+                        style="width: 100%; height: 100%; border-radius: 15px;">
                      <div class="col-md-3 ml-0 col-sm-2 col-xs-2 mt-2">
                         <img alt="" src="../IMG/채널.jpg"
                            style="width: 35px; height: 35px; border-radius: 70%; float: left;">
