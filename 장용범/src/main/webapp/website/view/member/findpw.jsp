@@ -13,22 +13,48 @@
 	<br>
 	<br>
 	<div class="container">
-		<div id="findid" class="col-md-6 offset-3">
-			<div class="card" style="padding: 30px; width: 30rem;">
+		<div id="findpw" class="col-md-6 offset-2";>
+			<div class="card" style="padding: 30px; width: 50rem;">
 				<div class="card-body">
-					<div style="text-align: center;">
+					<div>
 						<h3 class="card-title">비밀번호 찾기</h3>
-						<p class="card-text">아이디, 이름 및 연락처를 입력하세요.</p>
+						<p class="card-text">회원가입 시 입력한 정보로 비밀번호를 찾을 수 있습니다.</p>
 					</div>
-					<input type="text" class="form-control p-2 my-4" placeholder="아이디">
-					<input type="text" class="form-control p-2 my-4" placeholder="이름">
-					<input type="text" class="form-control p-2 my-4" placeholder="연락처">
 
-					<div class="my-4" style="text-align: right;">
-						<button type="button" class="btn btn-primary">찾기</button>
+					<hr>
+
+					<div class="row">
+						<div class="col-md-3 offset-1 my-2">
+							<label>아이디</label>
+						</div>
+						<div class="col-md-7">
+							<input type="text" class="form-control p-2" placeholder="아이디">
+						</div>
 					</div>
-					<br>
-					<br>
+					<div class="row my-3">
+						<div class="col-md-3 offset-1 my-2">
+							<label>이름</label>
+						</div>
+						<div class="col-md-7">
+							<input type="text" class="form-control p-2" placeholder="이름">
+						</div>
+					</div>
+					<div class="row my-3">
+						<div class="col-md-3 offset-1 my-2">
+							<label>연락처</label>
+						</div>
+						<div class="col-md-7">
+							<input type="text" class="form-control p-2" placeholder="연락처">
+						</div>
+					</div>
+
+					<hr>
+					<div class="my-4" style="text-align: center;">
+						<a href="#"> <input class="btn btn-success btn-lg"
+							type="submit" value="확인">
+						</a>
+					</div>
+					<br> <br> <br>
 				</div>
 
 				<nav class="navbar navbar-expand-lg navbar-light bg-white">
