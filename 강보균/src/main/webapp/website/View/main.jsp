@@ -14,11 +14,16 @@
 </head>
 <body>
    <%@ include file="header.jsp"%>
-   <div style="background-color: white;">
+   <div style="background-color: white; height: 100%; min">
       <div class="row">
-         <div class="col-md-2" style="margin-top: 44px; overflow-y: auto; height: 100%; position: fixed; height: 100%;">
-         	<div class = "row" style="background-color: #0A1931; padding-top: 10px;">
-         		<div class = "col-md-4">
+         <div class="col-md-2" style="margin-top: 44px; overflow-y: auto; height: 100%; position: fixed; height: 100%; background-color: #0A1931;">
+         	<div class = "row" style="background-color: #0A1931; padding-top: 10px; height: 100%;">
+         		<div class = "col-md-4" style=" height: 100%; background-color: #0A1931;">
+         			<div class = "navbar navbar-expand-lg navbar-light bg-#0A1931">
+         				<a class = "navbar-toggler" data-toggle = "collapse" data-target = "#homemenu">
+         					<span><img alt="" src="../IMG/임시로고.jpg">하위</span>
+         				</a>
+         			</div>
          			<img alt="" src="">이미지
          			<img alt="" src="">이미지
          			<img alt="" src="">이미지
@@ -26,11 +31,19 @@
          			<img alt="" src="">이미지
          		</div>
          		<div class = "col-md-8">
-		            <h4 style="color: white;">홈</h4>
-		            <h4 style="color: white;">구독</h4>
-		            <h4 style="color: white;">보관함</h4>
-		            <h4 style="color: white;">재생목록</h4>
-		            <h4 style="color: white;">구독목록</h4>
+         			<div class = "collpase navbar-collapse" id = "homemenu">
+         				<ul class = "navbar-nav">
+         					<li class = "nav-item"><h4 style="color: white; font-size: 1rem;">홈</h4>
+         					<li class = "nav-item"><h4 style="color: white; font-size: 1rem;">보관함</h4>
+         					<li class = "nav-item"><h4 style="color: white; font-size: 1rem;">재생목록</h4>
+         					<li class = "nav-item"><h4 style="color: white; font-size: 1rem;">구독목록</h4>
+         				</ul>
+         			</div>
+		            
+		            <!-- <h4 style="color: white; font-size: 1rem;">구독</h4>
+		            <h4 style="color: white; font-size: 1rem;">보관함</h4> 
+		            <h4 style="color: white; font-size: 1rem;">재생목록</h4>
+		            <h4 style="color: white; font-size: 1rem;">구독목록</h4> -->
 		            <div>
 		            	<p>유튜버1
 		            	<p>유튜버2
@@ -39,6 +52,12 @@
 		            	<p>유튜버5
 		            	<p>유튜버6
 		            	<p>유튜버7
+		            	<p>유튜버8
+		            	<p>유튜버8
+		            	<p>유튜버8
+		            	<p>유튜버8
+		            	<p>유튜버8
+		            	<p>유튜버8
 		            	<p>유튜버8
 		            </div>
          		</div>
