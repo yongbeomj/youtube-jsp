@@ -16,7 +16,7 @@
    crossorigin="anonymous">
 </head>
 <body>
-   <div class="fixed-top bg-dark">
+   <div class="fixed-top" style="background-color: #0A1931;">
       <header>
          <div class="row my-2">
             <div class="col-md-3">
@@ -24,18 +24,18 @@
             </div>
             <div class="col-md-5 offset-1">
                <div class="row">
-                  <div class="col-md-10 navbar navbar-expand-md navbar-dark bg-dark" style="padding: 0;">
+                  <div class="col-md-10 navbar navbar-expand-md" style="padding: 0;">
                      <div class="collapse navbar-collapse">
                         <div class="navbar-nav justify-content-between" style="width: 100%;">
-                           <input type="text" class="form-control nav-item col-md-12"
-                              style="background-color: black; border-style: none; width: 100%; margin: 0;"
+                           <input type="text" class="form-control nav-item col-md-12 rounded-left border border-dark"
+                              style="background-color: #eeeeee; border-radius:8px; width: 100%; margin: 0;"
                               placeholder="Search">
                         </div>
                      </div>
                   </div>
                   <div class="col-md-2" style="padding: 0;">
                      <button class="form-control text-center"
-                        style="background-color: gray; border-style: none; width: 100%; height: 40px;">Q</button>
+                        style="background-color: #185ADB; border-radius:12px;   color:white; border-style: none; width: 30%; height: 38px;">Q</button>
                   </div>
                </div>
             </div>
