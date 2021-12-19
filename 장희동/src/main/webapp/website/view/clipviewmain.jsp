@@ -5,19 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<style type="text/css">
-		*{
-			;
-			font-family: 'Noto Sans KR';
-			color: #black;
-			
-		}
-		@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-
-		.notosanskr * { 
-		 font-family: 'Noto Sans KR', sans-serif;
-		}
-	</style>
 	<link rel="stylesheet" href="../css/clipview.css">
 </head>
 <body>

@@ -1,5 +1,17 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+		
+body{
+	font-family: 'Noto Sans KR';
+	color: black;
+}
+
 .recommendclips:hover{
 	box-shadow: 1px 1px 20px #808080;
 	transform:translate(0,-5px);
   	transition: all 0.7s ease;
 }
+
