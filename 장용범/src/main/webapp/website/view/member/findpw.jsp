@@ -13,10 +13,10 @@
 	<br>
 	<br>
 	<div class="container">
-		<div id="findpw" class="col-md-6 offset-2";>
-			<div class="card" style="padding: 30px; width: 50rem;">
+		<div id="findpw" class="col-md-6 offset-3";>
+			<div class="card" style="padding: 30px; width: 40rem;">
 				<div class="card-body">
-					<div>
+					<div class="text-center">
 						<h3 class="card-title">비밀번호 찾기</h3>
 						<p class="card-text">회원가입 시 입력한 정보로 비밀번호를 찾을 수 있습니다.</p>
 					</div>
@@ -49,8 +49,8 @@
 					</div>
 
 					<hr>
-					<div class="my-4" style="text-align: center;">
-						<a href="#"> <input class="btn btn-success btn-lg"
+					<div class="col-md-4 offset-4 my-4" style="text-align: center;">
+						<a href="#"> <input class="form-control p-2 bg-danger text-white"
 							type="submit" value="확인">
 						</a>
 					</div>

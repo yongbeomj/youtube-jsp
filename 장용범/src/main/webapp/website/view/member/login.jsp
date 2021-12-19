@@ -7,44 +7,71 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file="../header.jsp" %>
+
+	<%@include file="../header.jsp"%>
+
 	<br>
 	<br>
 	<br>
 	<br>
 	<div class="container">
-		<!--  -->
-		<div class="col-md-6 offset-3">
-			<div class="card" style="padding: 30px; width: 30rem;">
+		<div id="findid" class="col-md-6 offset-3">
+			<div class="card" style="padding: 30px; width: 40rem;">
 				<div class="card-body">
-					<div style="text-align: center;">
+					<div class="text-center">
 						<h3 class="card-title">로그인</h3>
-						<p class="card-text">Google 계정 사용</p>
+						<p class="card-text">아이디 및 비밀번호를 입력해주세요.</p>
 					</div>
-					<input type="text" class="form-control p-2 my-4" placeholder="이메일 또는 휴대전화">
-					<input type="text" class="form-control p-2 my-4" placeholder="비밀번호">
 
+					<hr>
 					<div class="row">
-						<div class="col-md-4 "></div>
-						<div class="col-md-4 px-0 d-flex justify-content-end offset-4">
-							<button type="button" class="btn btn-primary ">다음</button>
+						<div class="col-md-3 offset-1 my-2">
+							<label>아이디</label>
+						</div>
+						<div class="col-md-7">
+							<input type="text" class="form-control p-2" placeholder="아이디">
 						</div>
 					</div>
-					
-					<div class="row my-4">
-					<div class="col-md-4 no-gutters">
-						<a href = "signup.jsp" class="col-md-4">계정 만들기</a>
+					<div class="row my-3">
+						<div class="col-md-3 offset-1 my-2">
+							<label>비밀번호</label>
+						</div>
+						<div class="col-md-7">
+							<input type="text" class="form-control p-2" placeholder="비밀번호">
+						</div>
 					</div>
-					<div class="col-md-8 d-flex justify-content-end no-gutters ">
-						<a href = "findid.jsp" class="col-md-5 ml-1">아이디 찾기</a>
-						<a href = "findpw.jsp" class="col-md-5">비밀번호 찾기</a>
+
+					<hr>
+					<div class="col-md-4 offset-4 my-4" style="text-align: center;">
+						<a href="#"> <input class="form-control p-2 bg-danger text-white"
+							type="submit" value="로그인">
+						</a>
 					</div>
-					
-					</div>
-					
-					<br> <br> <br> <br><br><br>
-					
+					<br> <br> <br>
 				</div>
+				
+				<div>
+					<ul class="d-flex">
+						<li>아이디 및 비밀번호가 생각나지 않으세요?</li>
+						<li><a href = "findid.jsp" class="ml-3">아이디 찾기</a></li>
+						<li><a href = "findpw.jsp" class="ml-3">비밀번호 찾기</a></li>
+						
+					</ul>
+					<ul class="d-flex">
+						<li>가입하신 아이디가 없다면, 회원가입을 진행해주세요.
+						<li><a href = "signup.jsp" class="ml-3">회원가입</a></li>
+					</ul>
+				</div>
+				<nav class="navbar navbar-expand-lg navbar-light bg-white">
+					<div class="row" id="main_manu" style="font-size: 12px;">
+						<ul class="navbar-nav col-md-12 justify-content-start">
+							<li class="nav-item"><a href="#" class="nav-link">한국어</a></li>
+							<li class="nav-item"><a href="#" class="nav-link">도움말</a></li>
+							<li class="nav-item"><a href="#" class="nav-link">개인정보처리방침</a></li>
+							<li class="nav-item"><a href="#" class="nav-link">약관</a></li>
+						</ul>
+					</div>
+				</nav>
 			</div>
 		</div>
 	</div>

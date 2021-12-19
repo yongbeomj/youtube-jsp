@@ -15,10 +15,10 @@
 	<br>
 	<br>
 	<div class="container">
-		<div id="findid" class="col-md-6 offset-2">
-			<div class="card" style="padding: 30px; width: 50rem;">
+		<div id="findid" class="col-md-6 offset-3">
+			<div class="card" style="padding: 30px; width: 40rem;">
 				<div class="card-body">
-					<div>
+					<div class="text-center">
 						<h3 class="card-title">아이디 찾기</h3>
 						<p class="card-text">회원가입 시 입력한 정보로 아이디를 찾을 수 있습니다.</p>
 					</div>
@@ -42,8 +42,8 @@
 					</div>
 
 					<hr>
-					<div class="my-4" style="text-align: center;">
-						<a href="#"> <input class="btn btn-success btn-lg"
+					<div class="col-md-4 offset-4 my-4" style="text-align: center;">
+						<a href="#"> <input class="form-control p-2 bg-danger text-white"
 							type="submit" value="확인">
 						</a>
 					</div>
@@ -53,15 +53,11 @@
 				<div>
 					<ul class="d-flex">
 						<li>비밀번호가 생각나지 않으세요?</li>
-						<li><button type="button" class="form-control btn-sm ml-3">
-								<a href="#" class="text-secondary">비밀번호찾기</a>
-							</button></li>
+						<li><a href = "findpw.jsp" class="ml-3">비밀번호 찾기</a></li>
 					</ul>
 					<ul class="d-flex">
 						<li>가입하신 아이디가 없다면, 회원가입을 진행해주세요.
-						<li><button type="button" class="form-control btn-sm ml-3">
-								<a href="#" class="text-secondary">회원가입</a>
-							</button></li>
+						<li><a href = "signup.jsp" class="ml-3">회원가입</a></li>
 					</ul>
 				</div>
 				<nav class="navbar navbar-expand-lg navbar-light bg-white">

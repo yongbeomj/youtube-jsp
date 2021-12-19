@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,91 +7,98 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file ="../header.jsp" %>
-	<br> <br><br><br><br><br><br>
-	<div class = "container">
-		<div class = "card">
-			<div class ="card-body rounded">
-				<div>
-				 	로고
-				</div>
-				<br>
-				<div>
-					<span>구글 계정 만들기</span>
-				</div>
-				<br>
-				<div class ="row">
-					<div class = "col">
-						<form>
-							<div class="row">
-								<div class="col">
-									<input type="text" class="form-control" placeholder="성">
-								</div>
-								<div class="col">
-									<input type="text" class="form-control" placeholder="이름">
-								</div>
-							</div>
-						</form>
-						<br>
-						<form>
-							<div>
-								<input type="text" class="form-control" placeholder="Email">
-							</div>
-						</form>
-						<span> 문자, 숫자, 마침표를 사용할 수 있습니다.</span>
-						<br>
-						<div><a href="#">대신 현재 이메일 주소 사용</a></div>
-						<br><br>
-						<form>
-							<div class="row">
-								<div class="col">
-									<input type="text" class="form-control" placeholder="비밀번호">
-								</div>
-								<div class="col">
-									<input type="text" class="form-control" placeholder="확인">
-								</div>
-							</div>
-						</form>
-						<!-- -->
-						<span> 문자, 숫자, 기호를 조합하여 8자 이상을 사용하세요</span>
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" checked> 
-							
-							<label class="form-check-label" for="flexCheckChecked"> 비밀번호 표시 </label>
-						</div>
-						<br><br><br>						
-						<div class="row">   
-							<div class=  "col-md-4 "><a href="#">대신 로그인하기</a></div>
-							
-							<div class= "col-md-4 px-0 d-flex justify-content-end offset-4">
-								
-									<button type="button" class="btn btn-primary "> 다음</button>
-								
-							</div>
-							
-							<br><br>
-						</div>
-						
-						
+	<%@include file="../header.jsp"%>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		<div id="findpw" class="col-md-6 offset-3";>
+			<div class="card" style="padding: 30px; width: 40rem;">
+				<div class="card-body">
+					<div class="text-center">
+						<h3 class="card-title">회원 가입</h3>
 					</div>
-					
-					
-					<div class = "col">
-						<img class = "hidden-sm rounded mx-auto d-block"  src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width = "244" heigth="244">
-						
+
+					<hr>
+
+					<div class="row">
+						<div class="col-md-3 offset-1 my-2">
+							<label>아이디</label>
+						</div>
+						<div class="col-md-7">
+							<input type="text" class="form-control p-2" placeholder="아이디">
+						</div>
 					</div>
-				
-				
-				</div><!-- 구글 계정 row 구현하기  -->
+					<div class="row my-3">
+						<div class="col-md-3 offset-1 my-2">
+							<label>비밀번호</label>
+						</div>
+						<div class="col-md-7">
+							<input type="text" class="form-control p-2" placeholder="비밀번호">
+						</div>
+					</div>
+					<div class="row my-3">
+						<div class="col-md-3 offset-1 my-2">
+							<label>비밀번호확인</label>
+						</div>
+						<div class="col-md-7">
+							<input type="text" class="form-control p-2" placeholder="비밀번호확인">
+						</div>
+					</div>
+					<div class="row my-3">
+						<div class="col-md-3 offset-1 my-2">
+							<label>이름</label>
+						</div>
+						<div class="col-md-7">
+							<input type="text" class="form-control p-2" placeholder="이름">
+						</div>
+					</div>
+					<div class="row my-3">
+						<div class="col-md-3 offset-1 my-2">
+							<label>생년월일</label>
+						</div>
+						<div class="col-md-7">
+							<input type="text" class="form-control p-2" placeholder="생년월일">
+						</div>
+					</div>
+					<div class="row my-3">
+						<div class="col-md-3 offset-1 my-2">
+							<label>연락처</label>
+						</div>
+						<div class="col-md-7">
+							<input type="text" class="form-control p-2" placeholder="연락처">
+						</div>
+					</div>
+
+					<hr>
+					<div class="col-md-4 offset-4 my-4" style="text-align: center;">
+						<a href="#"> <input
+							class="form-control p-2 bg-danger text-white" type="submit"
+							value="확인">
+						</a>
+					</div>
+					<p>
+						이미 계정이 있으신가요? <span class="ml-3"><a href="login.jsp">로그인</a></span>
+					</p>
+
+					<br> <br>
+				</div>
+
+				<nav class="navbar navbar-expand-lg navbar-light bg-white">
+					<div class="row" id="main_manu" style="font-size: 12px;">
+						<ul class="navbar-nav col-md-12 justify-content-start">
+							<li class="nav-item"><a href="#" class="nav-link">한국어</a></li>
+							<li class="nav-item"><a href="#" class="nav-link">도움말</a></li>
+							<li class="nav-item"><a href="#" class="nav-link">개인정보처리방침</a></li>
+							<li class="nav-item"><a href="#" class="nav-link">약관</a></li>
+						</ul>
+					</div>
+				</nav>
 			</div>
 		</div>
 	</div>
-	
-	
-	
-	
-	
-	
-	
+
+
 </body>
 </html>
