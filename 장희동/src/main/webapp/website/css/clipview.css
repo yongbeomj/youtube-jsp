@@ -1,0 +1,5 @@
+.recommendclips:hover{
+	box-shadow: 1px 1px 20px #808080;
+	transform:translate(0,-5px);
+  	transition: all 0.7s ease;
+}
