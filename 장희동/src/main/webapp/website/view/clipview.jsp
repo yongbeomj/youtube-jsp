@@ -11,7 +11,7 @@
 </head>
 <body>
 	
-	<video style="border-radius: 10px;"  controls="controls" width="100%">
+	<video style="border-radius: 10px;" controls="controls" width="100%">
 		<!-- 영상 자체에 소리가 없음 -->
 		<source src="../clip/Seoul.mp4">
 	</video>

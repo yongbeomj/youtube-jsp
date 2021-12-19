@@ -16,34 +16,33 @@
    crossorigin="anonymous">
 </head>
 <body>
-   <div class="fixed-top" style="background-color: #0A1931;">
-      <header>
-         <div class="row my-2">
+   <div class="fixed-top">
+      <header style="background-color: #0A1931">
+         <div class="row" style="height: 45px;">
             <div class="col-md-3">
-               <a href="/YoutubeProject/View/Main.jsp"><img src = "../IMG/유도부.png" style="width: 120px; height: 30px; margin-top: 6px;" class="ml-5"></a>
+               <a href="/YoutubeProject/View/main.jsp"><img src = "../img/로고.png" style="width: 120px; height: 50px; margin-top: 4px;" class="ml-5"></a>
             </div>
             <div class="col-md-5 offset-1">
                <div class="row">
-                  <div class="col-md-10 navbar navbar-expand-md" style="padding: 0;">
+                  <div class="col-md-10 navbar navbar-expand-md navbar-light bg-light" style="padding: 0;">
                      <div class="collapse navbar-collapse">
                         <div class="navbar-nav justify-content-between" style="width: 100%;">
-                           <input type="text" class="form-control nav-item col-md-12 rounded-left border border-dark"
-                              style="background-color: #eeeeee; border-radius:8px; width: 100%; margin: 0;"
+                           <input type="text" class="form-control nav-item col-md-12"
+                              style="background-color: white; border-style: none; width: 100%; margin: 0; border: solid 2px #0A1931;"
                               placeholder="Search">
                         </div>
                      </div>
                   </div>
                   <div class="col-md-2" style="padding: 0;">
-                     <button class="form-control text-center"
-                        style="background-color: #185ADB; border-radius:12px;   color:white; border-style: none; width: 30%; height: 38px;">Q</button>
+                     <button class="form-control text-center" style="background-color: #185ADB; border-style: none; width: 100%; height: 35px; color: white;">Q</button>
                   </div>
                </div>
             </div>
             <div class="col-md-2 offset-1">
                <div class="row">
                   <div class="col-md-8 offset-4">
-                     <span class="col-md-6 bg-dark"
-                        style="border-style: none; width: 60px; color: white;">접속ID</span>
+                     <span class="col-md-7"
+                        style="border-style: none; width: 60px; color: black;">접속ID</span>
                   </div>
                </div>
             </div>
