@@ -60,17 +60,21 @@
 				<a href="#"><button class="btn btn-dark mr-3">등록</button></a>
 				<a href="#"><button class="btn btn-light">취소</button></a>
 			</div>
-		</div>
+		</div>222
 		<hr style="border-style: dashed;">
-		<div class="col-md-12 d-flex justify-content-start mt-1">
-			
+		<%
+        for (int i = 0; i < 108; i++) {
+    	 %>
+		<section>
+			<div class="col-md-12 d-flex justify-content-start mt-1 row">
 				<a href="#" class="col-md-1 px-0"><img src="../img/woman.jpg" class="col-md-12 p-0"  style=" width: 40px; height: 40px; border-radius: 50%;"></a>
 				<div class="col-md-10 pl-2 mr-0">
 					<a  href="#">채널명</a>
 					<div class="pl-0 my-2">댓글내용</div>
 				</div>
-			
-		</div>
+			</div>
+		</section>
+		<%} %>
 	</div>
 </body>
 </html>

@@ -20,7 +20,7 @@
 					<%@include file="clipviewinfo.jsp" %>
 					<!-- 추천영상 라인 -->
 					
-					<%@include file="clipviewrecommand.jsp" %>
+					<%@include file="clipviewside.jsp" %>
 			
 				</div>
 			</div>	

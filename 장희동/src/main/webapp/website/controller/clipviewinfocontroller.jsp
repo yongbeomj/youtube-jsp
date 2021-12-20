@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<!-- 영상 정보 컨트롤러 -->
-	aa
-</body>
-</html>
+<%
+int item = Integer.parseInt(request.getParameter("item"));
+ for(int i = item; i<item+1; i++ ){
+	 
+ }
+%>
