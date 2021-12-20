@@ -27,16 +27,16 @@
 							
 						</div>
 
-						<div class="col-md-4 px-0 d-flex justify-content-end offset-4">
-
-							<button type="button" class="btn btn-primary ">다음</button>
-
+						<div class="col-md-4 px-1 d-flex justify-content-end offset-4">
+							<button type="button" class="btn btn-primary">다음</button>
 						</div>
-
 						<br>
 						<br>
 					</div>
-					<br> <br> <br> <br>
+					<div><a href="#">아이디 찾기</a></div>
+					<br>
+					<div><a href="#">비밀번호 찾기</a></div>
+					<br> <br> 
 				</div>
 			</div>
 			
