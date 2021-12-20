@@ -17,13 +17,13 @@
 			<%
 	        for (int i = 0; i < 107; i++) {
 	    	 %>
-			<div class="col-md-3 mb-4" style="border-radius: 15px;">
+			<div class="col-md-2 pl-0 mb-4" style="border-radius: 15px;">
 				<div>
 					<a href="clipviewmain.jsp">
 						<img src="../img/land.jpg" class="recommendclips" style="border-radius: 15px; width: 100%;">
 					</a>
 				</div>
-				<div class="col-md-12 mt-2 pr-0">
+				<div class="col-md-12 mt-2 pl-0 pr-0">
 				    <h5>Card title</h5>
 				    <a  href="#">
 						<img src="../img/woman.jpg" width="20" height="20" style="border-radius: 50%;">
