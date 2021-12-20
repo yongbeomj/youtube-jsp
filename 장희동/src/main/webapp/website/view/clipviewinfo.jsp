@@ -8,7 +8,7 @@
 </head>
 <body>
 	
-	<div class="col-md-6 mt-3 " style="border:solid 1px #cccccc; border-radius: 15px;">
+	<div class="col-md-12 mt-3 " style="border:solid 1px #cccccc; border-radius: 15px;">
 		<div class="col-md-12 mt-3" style="font-size: 2rem;">영상 제목</div>
 		<div class="mainclip col-md-12 d-flex justify-content:space-between py-1" style="border-bottom: 1px solid #cccccc;">
 			<div class="col-md-5  pl-0">
@@ -47,30 +47,9 @@
 		</div>
 		<hr>
 		
-		<!-- 댓글 -->
-		<div class="col-md-5 d-flex flex-direction:row">
-			<div style="font-size: 1.2rem;">댓글 <span>538</span>개 </div>
-		</div>
-		<div class="col-md-12 d-flex justify-content:end py-2">
-			<a  href="#"><img src="../img/woman.jpg" width="40" height="40" style="border-radius: 50%;"></a>
-			<input type="text" placeholder="공개 댓글 추가" class=" form-control ml-3">
-		</div>
-		<div class="col-md-12 d-flex justify-content-end py-2">
-			<div class="row">
-				<a href="#"><button class="btn btn-dark mr-3">등록</button></a>
-				<a href="#"><button class="btn btn-light">취소</button></a>
-			</div>
-		</div>
+		
 		<hr style="border-style: dashed;">
-		<div class="col-md-12 d-flex justify-content-start mt-1">
-			
-				<a href="#" class="col-md-1 px-0"><img src="../img/woman.jpg" class="col-md-12 p-0"  style=" width: 40px; height: 40px; border-radius: 50%;"></a>
-				<div class="col-md-10 pl-2 mr-0">
-					<a  href="#">채널명</a>
-					<div class="pl-0 my-2">댓글내용</div>
-				</div>
-			
-		</div>
+		
 	</div>
 </body>
 </html>

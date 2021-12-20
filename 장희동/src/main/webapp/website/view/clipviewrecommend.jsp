@@ -12,13 +12,13 @@
 </head>
 <body>
 	<!-- 추천 영상 목록 -->
-	<div class="col-md-6 pr-0 mt-3">
-		<div class="row col-md-12 m-0 p-0 " style="justify-content:space-around;">
+	<div class="col-md-12   pr-2 pd-2 pl-0 mt-3">
+		<div class="row col-md-12 m-0 ">
 			<%
-	        for (int i = 0; i < 108; i++) {
+	        for (int i = 0; i < 107; i++) {
 	    	 %>
-			<div class="col-md-6 p-0 mb-4" style="border-radius: 15px;">
-				<div class="col-md-12 pr-0">
+			<div class="col-md-3 mb-4" style="border-radius: 15px;">
+				<div>
 					<a href="clipviewmain.jsp">
 						<img src="../img/land.jpg" class="recommendclips" style="border-radius: 15px; width: 100%;">
 					</a>
