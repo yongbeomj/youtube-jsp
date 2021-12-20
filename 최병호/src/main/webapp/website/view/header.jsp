@@ -18,7 +18,7 @@
       <header>
          <div class="row my-2">
             <div class="col-md-3">
-               <a href="#"><img alt="" src="" class="ml-5">유튜브로고</a>
+               <a href="#"><img src = "../img/유도부.png" style="width: 120px; height: 30px; margin-top: 6px;" class="ml-5"></a>
             </div>
             <div class="col-md-3 offset-1">
                <div class="row">
