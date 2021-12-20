@@ -11,23 +11,23 @@
 	<%@include file="header.jsp" %>
 	
 	<div style=" background-color: white;">
-		<div class="col-md-10 p-0" style="overflow-y: auto;  margin: 0 auto;">
-			<!-- 메인 영상 -->
-			<div class="col-md-12 my-5" style="margin-top: 20px; padding-top:10px; ">
-				<%@include file="clipview.jsp" %>
-				<!-- 영상 상세정보 라인 -->
+		<div class="row m-0">
+			<div class="col-md-10 p-0" style="overflow-y: auto;  margin: 0 auto;">
 				<div class="row m-0">
-					<%@include file="clipviewinfo.jsp" %>
-					<!-- 추천영상 라인 -->
+				<!-- 메인 영상 -->
+					<div class="col-md-12 my-5" style="margin-top: 20px; padding-top:10px; ">
+					<%@include file="clipview.jsp" %>
 					
-					<%@include file="clipviewside.jsp" %>
-			
+					<!-- 영상 상세정보 라인 -->
+						<%@include file="clipviewinfo.jsp" %>
+						<!-- 추천영상 라인 -->
+						
+						<%@include file="clipviewrecommend.jsp" %>
+				
+					</div>
 				</div>
 			</div>	
 		</div>
-	</div>
-	<div>
-	
 	</div>
 </body>
 </html>
