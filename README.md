@@ -8,6 +8,7 @@
 [6. 프로젝트 협업 규칙](https://github.com/yongbeomj/youtube-jsp#6-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%98%91%EC%97%85-%EA%B7%9C%EC%B9%99)  
 [7. Controller 구조도](https://github.com/yongbeomj/youtube-jsp#7-controller-%EA%B5%AC%EC%A1%B0%EB%8F%84)  
 [8. Database 구조도](https://github.com/yongbeomj/youtube-jsp#8-database-%EA%B5%AC%EC%A1%B0%EB%8F%84)
+
 ## 1. 개요
 ### 1.1. 선정이유 :
 - 많은 사람들이 쉽게 접할 수 있고 다양한 기능 이용 가능
@@ -34,8 +35,9 @@
 |2021.12.13 ~ 2021.12.15|Front 초안 구현|
 |2021.12.14|Controller 구조도 제작|
 |2021.12.15|Database 설계|
-|2021.12.16 ~ 2021.12.27|기능 구현(Back-end)|
-|2021.12.28 ~ 2021.12.30|트러블 슈팅, Front 수정 등|
+|2021.12.16 ~ 2021.12.19|Front 1차 수정|
+|2021.12.20 ~ 2021.12.27|기능 구현(Back-end)|
+|2021.12.28 ~ 2021.12.30|디버깅, Front 수정 등|
 |2021.12.31|프로젝트 발표|
 
 ## 4. 주요기능 개발 우선순위
@@ -48,10 +50,10 @@
 |4|기타 (대댓글 등)|
  
 ## 5. 역할 분담
-- 장용범(조장) : ID찾기, PW찾기, 채널페이지, 스케쥴 관리 및 Github readme 정리  
+- 장용범(조장) : 회원 페이지(회원가입, 로그인, ID찾기, PW찾기, 회원정보), 스케쥴 관리 및 Github readme 정리, 조원 서포트
 - 강보균 : Home  
-- 최병호 : 로그인, 회원가입, 보관함  
-- 장희동 : 영상 세부 페이지, 구독 페이지  
+- 최병호 : 채널 페이지(채널 Home, 채널 커뮤니티, 채널정보)
+- 장희동 : 영상 세부 페이지
 
 ## 6. 프로젝트 협업 규칙
 ### 6.1 명명규칙 및 코딩 방식 : 'Google Java Style Guide'에 따름
@@ -65,7 +67,8 @@
 ※ 추가 필요사항은 원문([링크](https://google.github.io/styleguide/javaguide.html#s5-naming)) 및 번역본([링크](https://newwisdom.tistory.com/96)) 참조  
 
 ### 6.2. 코드공유방식 : Github, Kakaotalk
-### 6.3. Font : 노토 산스([눈누링크](https://noonnu.cc/font_page/34))
+### 6.3. Font : 노토 산스 
+- 눈누 CDN([링크](https://noonnu.cc/font_page/34))
 
 ## 7. Controller 구조도
 <details>
