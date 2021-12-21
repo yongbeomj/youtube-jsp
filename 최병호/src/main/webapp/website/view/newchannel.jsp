@@ -8,7 +8,10 @@
 </head>
  <body>
 	<%@include file ="header.jsp" %>
-	<br><br><br><br><br>
+	
+	<div class = "col-md-2">
+		<%@ include file = "sidebar.jsp" %>
+	</div>
 	<div class = "container" >
 		
 		<div class = "col">

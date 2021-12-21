@@ -14,52 +14,17 @@
 	<link rel="stylesheet" href="/최병호/website/css/main.css"/>
 	<!-- 본인 js -->
     <script src ="/최병호/website/js/main.js?ver=123"></script>
-  
+    <!-- sidebar js -->
+    <script src ="/최병호/website/js/simple-sidebar.js?ver=123"></script>
+    
+  	<link rel = "stylesheet" href = "/최병호/website/css/simple-sidebar.css">
 	
 </head>
 <body>
-   <div class="fixed-top bg-dark">
-      <header>
-         <div class="row my-2">
-            <div class="col-md-3">
-               <a href="#"><img src = "../img/유도부.png" style="width: 120px; height: 30px; margin-top: 6px;" class="ml-5"></a>
-            </div>
-            <div class="col-md-3 offset-1">
-               <div class="row">
-                  <div class="col-md-9 offset-1">
-                     <input type="text" class="form-control"
-                        style="background-color: black; border-style: none;"
-                        placeholder="Search">
-                  </div>
-                  <div class="col-md-2">
-                     <button class="form-control text-center"
-                        style="background-color: gray; border-style: none;">Q</button>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-3 offset-1 text-right">
-               <div class = "row">
-                  <div>
-                     <span class="form-control bg-dark"
-                        style="border-style: none; width: 60px;">접속ID</span><span
-                        class="form-control bg-dark"
-                        style="border-radius: 5px; width: 60px; font-size: 8px;">이미지</span>
-                  </div>
-               </div>
-               <div></div>
-            </div>
-         </div>
-      </header>
-   </div>
-
+	
    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-   <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"></script>
-   <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <script src = "/최병호/website/JS/simple-sidebar.js"></script>
 </body>
 </html>
