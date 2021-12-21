@@ -11,9 +11,17 @@
 	<br>
 	<br>
 	<br>
+
+	<%
+	// 로그인 되어있는 경우
+	if (loginid != null) {
+		out.print("<script>alert('로그인이 되어있습니다.');</script>");
+		out.println("<script>location.href='../main.jsp';</script>");
+	}
+	%>
 	<div class="container">
 		<div class="col-md-6 offset-3">
-			<form id="signupform" action="../../controller/member/signupcontroller.jsp" method="post">
+			<form id="signupform" action="../../controller/member/signupcontroller.jsp" method="post" onsubmit="return signupcheck()">
 				<div class="card" style="padding: 30px; width: 40rem;">
 					<div class="card-body">
 						<div class="text-center">
@@ -27,7 +35,10 @@
 								<label>아이디</label>
 							</div>
 							<div class="col-md-7">
-								<input id="id" type="text" class="form-control p-2" name="id" placeholder="아이디">
+								<input id="id" type="text" class="form-control p-2" name="id" onchange="signupcheck()" placeholder="아이디">
+							</div>
+							<div class="offset-1">
+								<span id="idresult"></span>
 							</div>
 						</div>
 						<div class="row my-3">
@@ -35,7 +46,10 @@
 								<label>비밀번호</label>
 							</div>
 							<div class="col-md-7">
-								<input id="pw" type="password" class="form-control p-2" name="pw" placeholder="비밀번호">
+								<input id="pw" type="password" class="form-control p-2" name="pw" onchange="signupcheck()" placeholder="비밀번호">
+							</div>
+							<div class="offset-1">
+								<span id="pwresult"></span>
 							</div>
 						</div>
 						<div class="row my-3">
@@ -43,7 +57,10 @@
 								<label>비밀번호확인</label>
 							</div>
 							<div class="col-md-7">
-								<input id="pwconfirm" type="password" class="form-control p-2" name="pwconfirm" placeholder="비밀번호확인">
+								<input id="pwconfirm" type="password" class="form-control p-2" name="pwconfirm" onchange="signupcheck()" placeholder="비밀번호확인">
+							</div>
+							<div class="offset-1">
+								<span id="pwconfirmresult"></span>
 							</div>
 						</div>
 						<div class="row my-3">
@@ -51,7 +68,10 @@
 								<label>이름</label>
 							</div>
 							<div class="col-md-7">
-								<input id="name" type="text" class="form-control p-2" name="name" placeholder="이름">
+								<input id="name" type="text" class="form-control p-2" name="name" onchange="signupcheck()" placeholder="이름">
+							</div>
+							<div class="offset-1">
+								<span id="nameresult"></span>
 							</div>
 						</div>
 						<div class="row my-3">
@@ -59,7 +79,10 @@
 								<label>생년월일</label>
 							</div>
 							<div class="col-md-7">
-								<input id="birth" type="text" class="form-control p-2" name="birth" placeholder="생년월일">
+								 <input id="birth" type="date" class="form-control p-2" name="birth" onchange="signupcheck();">
+							</div>
+							<div class="offset-1">
+								<span id="birthresult"></span>
 							</div>
 						</div>
 						<div class="row my-3">
@@ -67,14 +90,16 @@
 								<label>연락처</label>
 							</div>
 							<div class="col-md-7">
-								<input id="phone" type="text" class="form-control p-2" name="phone" placeholder="연락처">
+								 <input id="phone" type="text" class="form-control p-2" name="phone" onchange="signupcheck()" placeholder="000-0000-0000">
+							</div>
+							<div class="offset-1">
+								<span id="phoneresult"></span>
 							</div>
 						</div>
 
 						<hr>
 						<div class="col-md-4 offset-4 my-4" style="text-align: center;">
-							<a href="#"> <input class="form-control p-2 bg-danger text-white" type="submit" value="확인">
-							</a>
+							<input class="form-control p-2 bg-danger text-white" type="submit" value="확인">
 						</div>
 						<p>
 							이미 계정이 있으신가요? <span class="ml-3"><a href="login.jsp">로그인</a></span>

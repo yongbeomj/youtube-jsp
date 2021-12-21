@@ -45,6 +45,7 @@ public class MemberDao extends DB {
 				return true;
 			}
 		} catch (Exception e) {
+			System.out.println(e);
 		}
 		return false;
 	}
@@ -60,6 +61,7 @@ public class MemberDao extends DB {
 				return resultSet.getInt(1);
 			}
 		} catch (Exception e) {
+			System.out.println(e);
 		}
 		return 0;
 	}
@@ -76,6 +78,7 @@ public class MemberDao extends DB {
 				return resultSet.getString(1);
 			}
 		} catch (Exception e) {
+			System.out.println(e);
 		}
 		return null;
 	}
@@ -93,8 +96,26 @@ public class MemberDao extends DB {
 				return resultSet.getString(1);
 			}
 		} catch (Exception e) {
+			System.out.println(e);
 		}
 		return null;
+	}
+	
+	// 아이디 중복 체크
+	public boolean idcheck(String userid) {
+		
+		String sql = "select m_id from member where m_id = ?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, userid);
+			resultSet = preparedStatement.executeQuery();
+			if(resultSet.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
 	}
 	
 }
