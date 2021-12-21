@@ -8,145 +8,23 @@
 <title>Insert title here</title>
 <style type="text/css">
 * {
-   /* border: 1px solid black; */
+   border: 1px solid black; 
    
 }
 </style>
 </head>
 <body>
-<<<<<<< HEAD
-
 	<%@ include file = "header.jsp" %>
-	
-	
-	<div class="sidebar">
-    <span class="sidebar-brand">
-		        <a href="javascript:void(0)" data-toggle="sidebar"><i class="glyphicon glyphicon-arrow-left"></i> HIDE</a><br/>
-		        JDA Laboratory<br/>
-		        <small>Simple Sidebar </small>
-		    </span>
-		    <ul class="sidebar-nav">
-		        <li>
-		            <a href="javascript:void(0)">
-		                Menu 1
-		            </a>
-		        </li>
-		        <li>
-		            <a href="javascript:void(0)" data-toggle="collapse" data-target="#menu-collapse-1">
-		                Menu 2
-		                <div class="caret"></div>
-		            </a>
-		            <ul id="menu-collapse-1" class="collapse in">
-		                <li>
-		                    <a href="javascript:void(0)">
-		                        Menu 2-1
-		                    </a>
-		                </li>
-		                <li>
-		                    <a href="javascript:void(0)">
-		                        Menu 2-2
-		                    </a>
-		                </li>
-		                <li>
-		                    <a href="javascript:void(0)">
-		                        Menu 2-2
-		                    </a>
-		                </li>
-		            </ul>
-		        </li>
-		        <li>
-		            <a href="javascript:void(0)" data-toggle="collapse" data-target="#menu-collapse-2">
-		                Menu 3
-		                <div class="caret"></div>
-		            </a>
-		            <ul id="menu-collapse-2" class="collapse in">
-		                <li>
-		                    <a href="javascript:void(0)">
-		                        Menu 3-1
-		                    </a>
-		                </li>
-		                <li>
-		                    <a href="javascript:void(0)">
-		                        Menu 3-2
-		                    </a>
-		                </li>
-		                <li>
-		                    <a href="javascript:void(0)">
-		                        Menu 3-3
-		                    </a>
-		                </li>
-		            </ul>
-		        </li>
-		        <li>
-		            <a href="javascript:void(0)" data-toggle="collapse" data-target="#menu-collapse-3">
-		                Menu 4
-		                <div class="caret"></div>
-		            </a>
-		            <ul id="menu-collapse-3" class="collapse in">
-		                <li>
-		                    <a href="javascript:void(0)" data-toggle="collapse" data-target="#menu-collapse-4">
-		                        Menu 4-1
-		                        <div class="caret"></div>
-		                    </a>
-		                    <ul id="menu-collapse-4" class="collapse">
-		                        <li>
-		                            <a href="javascript:void(0)">
-		                                Menu 4-1-1
-		                            </a>
-		                        </li>
-		                        <li>
-		                            <a href="javascript:void(0)">
-		                                Menu 4-1-2
-		                            </a>
-		                        </li>
-		                    </ul>
-		                </li>
-		                <li>
-		                    <a href="javascript:void(0)">
-		                        Menu 4-2
-		                    </a>
-		                </li>
-		            </ul>
-		        </li>
-		    </ul>
-		</div>
-		
-		<div class="container-fluid">
-		    사이드바를 보려면 오른쪽 버튼을 클릭하세요. 사이드바가 나타나면서. 이 화면을 덮어씁니다.
-		    <a href="javascript:void(0)" class="btn btn-default" data-toggle="sidebar" style="margin: auto;">
-		        Toggle Button
-		    </a>
-		</div>
-	
-	
-	
-	
-	
-	
 	<div class = "row" style="height: 100%;">
-		<div class = "col-md-1 col-sm-2 col-xs-4 d-flex justify-content-center align-items-center" style="position: fixed; height: 100%; background-color: gray;">
-			<div class = "navbar navbar-expand-lg navbar-light bg-light ml-3">
-				<div class = "navbar-toggler" data-toggle = "collapse" data-target = "#sidebar">
-					<span class = "navbar-toggler-icon" style="background-image: ../IMG/로고.png"></span>
-				</div>
-				<div class = "collapse navbar-collapse" id = "sidebar">
-					<ul class = "nav navbar-nav row ml-2">
-						<li><img alt="" src="../IMG/로고.png" class = "active col-md-12" style="width: 100%;">
-						<li class = "col-md-12">HOME
-						<li class = "col-md-12">Subcribe
-						<li class = "col-md-12">VideoBox
-						<li class = "col-md-12">
-						<li class = "navbar-toggler" data-target = "#sidemenu">SubsList
-					</ul>
-				</div>
-			</div>
+		<div class = "col-md-2">
+			<%@ include file = "sidebar.jsp" %>
 		</div>
 		<div class = "container col-md-9 offset-md-2 col-sm-10 offset-sm-2 col-xs-6 offset-xs-2 mt-2">
-			<div class = "row justify-content-center">
+			<div class = "row justify-content-between">
 				<%
 					for(int i = 0; i < 16; i++){
 				%>
-						<div class = "card col-xs-8 offset-xs-2 mt-2" style="width: 16rem; margin-right: 2px;">
+						<div class = "card col-xs-8 offset-xs-2 mt-2 ml-0" style="width: 30rem; height: 28rem;">
 							<img alt="" src="../IMG/영상화면.jpg" class = "card-img-top">
 							<div class = "card-body row" style="height: 6rem;">
 								<div class = "col-md-2 pt-2 col-xs-2 col-sm-2" style=" padding-left: 0; margin-left: 0">
@@ -164,83 +42,5 @@
 			</div>
 		</div>
 	</div>
-=======
-   <%@ include file="header.jsp"%>
-   <div style="background-color: white; height: 100%; min">
-      <div class="row">
-         <div class="col-md-2" style="margin-top: 44px; overflow-y: auto; height: 100%; position: fixed; height: 100%; background-color: #0A1931;">
-         	<div class = "row" style="background-color: #0A1931; padding-top: 10px; height: 100%;">
-         		<div class = "col-md-4" style=" height: 100%; background-color: #0A1931;">
-         			<div class = "navbar navbar-expand-lg navbar-light bg-#0A1931">
-         				<a class = "navbar-toggler" data-toggle = "collapse" data-target = "#homemenu">
-         					<span><img alt="" src="../IMG/임시로고.jpg">하위</span>
-         				</a>
-         			</div>
-         			<img alt="" src="">이미지
-         			<img alt="" src="">이미지
-         			<img alt="" src="">이미지
-         			<img alt="" src="">이미지
-         			<img alt="" src="">이미지
-         		</div>
-         		<div class = "col-md-8">
-         			<div class = "collpase navbar-collapse" id = "homemenu">
-         				<ul class = "navbar-nav">
-         					<li class = "nav-item"><h4 style="color: white; font-size: 1rem;">홈</h4>
-         					<li class = "nav-item"><h4 style="color: white; font-size: 1rem;">보관함</h4>
-         					<li class = "nav-item"><h4 style="color: white; font-size: 1rem;">재생목록</h4>
-         					<li class = "nav-item"><h4 style="color: white; font-size: 1rem;">구독목록</h4>
-         				</ul>
-         			</div>
-		            
-		            <!-- <h4 style="color: white; font-size: 1rem;">구독</h4>
-		            <h4 style="color: white; font-size: 1rem;">보관함</h4> 
-		            <h4 style="color: white; font-size: 1rem;">재생목록</h4>
-		            <h4 style="color: white; font-size: 1rem;">구독목록</h4> -->
-		            <div>
-		            	<p>유튜버1
-		            	<p>유튜버2
-		            	<p>유튜버3
-		            	<p>유튜버4
-		            	<p>유튜버5
-		            	<p>유튜버6
-		            	<p>유튜버7
-		            	<p>유튜버8
-		            	<p>유튜버8
-		            	<p>유튜버8
-		            	<p>유튜버8
-		            	<p>유튜버8
-		            	<p>유튜버8
-		            	<p>유튜버8
-		            </div>
-         		</div>
-         	</div>
-         </div>
-         <div class="col-md-9 offset-2 rounded" style=" margin-top: 80px; overflow-y: auto; width: 100%;">
-            <div class="row">
-               <%
-               for (int i = 0; i < 107; i++) {
-               %>
-               <div class="col-md-3">
-                  <div class="row p-2" style=" background-color: white;">
-                     <img alt="" src="../IMG/영상화면.jpg"
-                        style="width: 100%; height: 100%; border-radius: 15px;">
-                     <div class="col-md-3 ml-0 col-sm-2 col-xs-2 mt-2">
-                        <img alt="" src="../IMG/채널.jpg"
-                           style="width: 35px; height: 35px; border-radius: 70%; float: left;">
-                     </div>
-                     <div class="col-md-8 col-sm-8 col-xs-8 mt-2">
-                        <p>title
-                        <p>contents
-                     </div>
-                  </div>
-               </div>
-               <%
-               }
-               %>
-            </div>
-         </div>
-      </div>
-   </div>
->>>>>>> branch 'main1' of https://github.com/yongbeomj/youtube-jsp
 </body>
 </html>
