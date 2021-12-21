@@ -18,18 +18,21 @@
 </head>
 <body>
 	<div class="sidebar fixed">
-	    <span class="sidebar-brand">
+	    <span class="sidebar-brand" aria-hidden="true">
 	        <a href="#" data-toggle="sidebar">
-	        	<i class="glyphicon glyphicon-arrow-left" style="white;"></i>
+	        	<i class="glyphicon glyphicon-arrow-left">◀</i>
 	       	</a>
-	       	<br/>
-	        <a href = "main.jsp"><img alt="" src="../IMG/로고.png" style="width: 40%; float: left"></a>
+	       	<br>
 	    </span>
+	        <a href = "main.jsp" style="margin-left: 20px;"><img alt="" src="../IMG/로고.png"></a>
 	    <ul class="sidebar-nav">
 	        <li>
 	            <a href="main.jsp">
 	               사용자ID
 	            </a>
+	        </li>
+	        <li>
+	        	<input type = "text" placeholder="Search" style="margin-left: 20px; margin-bottom: 5px; width: 11rem;" class = "form-control">
 	        </li>
 	        <li>
 	            <a href="main.jsp">
@@ -85,8 +88,8 @@
 	</div>
 	
 	<div class="container-fluid">
-	    <a href="main.jsp" class="btn btn-default" data-toggle="sidebar" style="margin: auto;">
-	        <img alt="" src="../IMG/메인로고.png" style="width: 100%;" id = "">
+	    <a href="main.jsp" class="btn btn-default" data-toggle="sidebar" style="width: 100%;">
+	        <img alt="" src="../IMG/메인로고.png">
 	    </a>
 	</div>
 	
