@@ -14,6 +14,7 @@
 </style>
 </head>
 <body>
+<<<<<<< HEAD
 
 	<%@ include file = "header.jsp" %>
 	
@@ -163,5 +164,83 @@
 			</div>
 		</div>
 	</div>
+=======
+   <%@ include file="header.jsp"%>
+   <div style="background-color: white; height: 100%; min">
+      <div class="row">
+         <div class="col-md-2" style="margin-top: 44px; overflow-y: auto; height: 100%; position: fixed; height: 100%; background-color: #0A1931;">
+         	<div class = "row" style="background-color: #0A1931; padding-top: 10px; height: 100%;">
+         		<div class = "col-md-4" style=" height: 100%; background-color: #0A1931;">
+         			<div class = "navbar navbar-expand-lg navbar-light bg-#0A1931">
+         				<a class = "navbar-toggler" data-toggle = "collapse" data-target = "#homemenu">
+         					<span><img alt="" src="../IMG/임시로고.jpg">하위</span>
+         				</a>
+         			</div>
+         			<img alt="" src="">이미지
+         			<img alt="" src="">이미지
+         			<img alt="" src="">이미지
+         			<img alt="" src="">이미지
+         			<img alt="" src="">이미지
+         		</div>
+         		<div class = "col-md-8">
+         			<div class = "collpase navbar-collapse" id = "homemenu">
+         				<ul class = "navbar-nav">
+         					<li class = "nav-item"><h4 style="color: white; font-size: 1rem;">홈</h4>
+         					<li class = "nav-item"><h4 style="color: white; font-size: 1rem;">보관함</h4>
+         					<li class = "nav-item"><h4 style="color: white; font-size: 1rem;">재생목록</h4>
+         					<li class = "nav-item"><h4 style="color: white; font-size: 1rem;">구독목록</h4>
+         				</ul>
+         			</div>
+		            
+		            <!-- <h4 style="color: white; font-size: 1rem;">구독</h4>
+		            <h4 style="color: white; font-size: 1rem;">보관함</h4> 
+		            <h4 style="color: white; font-size: 1rem;">재생목록</h4>
+		            <h4 style="color: white; font-size: 1rem;">구독목록</h4> -->
+		            <div>
+		            	<p>유튜버1
+		            	<p>유튜버2
+		            	<p>유튜버3
+		            	<p>유튜버4
+		            	<p>유튜버5
+		            	<p>유튜버6
+		            	<p>유튜버7
+		            	<p>유튜버8
+		            	<p>유튜버8
+		            	<p>유튜버8
+		            	<p>유튜버8
+		            	<p>유튜버8
+		            	<p>유튜버8
+		            	<p>유튜버8
+		            </div>
+         		</div>
+         	</div>
+         </div>
+         <div class="col-md-9 offset-2 rounded" style=" margin-top: 80px; overflow-y: auto; width: 100%;">
+            <div class="row">
+               <%
+               for (int i = 0; i < 107; i++) {
+               %>
+               <div class="col-md-3">
+                  <div class="row p-2" style=" background-color: white;">
+                     <img alt="" src="../IMG/영상화면.jpg"
+                        style="width: 100%; height: 100%; border-radius: 15px;">
+                     <div class="col-md-3 ml-0 col-sm-2 col-xs-2 mt-2">
+                        <img alt="" src="../IMG/채널.jpg"
+                           style="width: 35px; height: 35px; border-radius: 70%; float: left;">
+                     </div>
+                     <div class="col-md-8 col-sm-8 col-xs-8 mt-2">
+                        <p>title
+                        <p>contents
+                     </div>
+                  </div>
+               </div>
+               <%
+               }
+               %>
+            </div>
+         </div>
+      </div>
+   </div>
+>>>>>>> branch 'main1' of https://github.com/yongbeomj/youtube-jsp
 </body>
 </html>
