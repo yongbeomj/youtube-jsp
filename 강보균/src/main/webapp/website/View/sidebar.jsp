@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="../CSS/simple-sidebar.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
@@ -17,7 +17,7 @@
     <![endif]-->
 </head>
 <body>
-	<div class="sidebar">
+	<div class="sidebar fixed">
 	    <span class="sidebar-brand">
 	        <a href="#" data-toggle="sidebar">
 	        	<i class="glyphicon glyphicon-arrow-left" style="white;"></i>
@@ -86,7 +86,7 @@
 	
 	<div class="container-fluid">
 	    <a href="main.jsp" class="btn btn-default" data-toggle="sidebar" style="margin: auto;">
-	        <img alt="" src="../IMG/메인로고.png" style="width: 100%;">
+	        <img alt="" src="../IMG/메인로고.png" style="width: 100%;" id = "">
 	    </a>
 	</div>
 	

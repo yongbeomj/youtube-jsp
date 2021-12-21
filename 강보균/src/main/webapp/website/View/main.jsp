@@ -15,12 +15,12 @@
 </head>
 <body>
 	<%@ include file = "header.jsp" %>
-	<div class = "row" style="height: 100%;">
+	<div class = "row" style="height: 100%;" id = "rapper">
 		<div class = "col-md-2">
 			<%@ include file = "sidebar.jsp" %>
 		</div>
-		<div class = "container col-md-9 offset-md-2 col-sm-10 offset-sm-2 col-xs-6 offset-xs-2 mt-2">
-			<div class = "row justify-content-between">
+		<div class = "container col-md-9 offset-md-2 col-sm-10 offset-sm-2 col-xs-6 offset-xs-2 mt-2 toggled">
+			<div class = "row justify-content-center">
 				<%
 					for(int i = 0; i < 16; i++){
 				%>
