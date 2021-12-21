@@ -17,6 +17,7 @@
 	String pwconfirm = request.getParameter("pwconfirm");
 	String name = request.getParameter("name");
 	String birth = request.getParameter("birth");
+	System.out.println(birth);
 	String phone = request.getParameter("phone");
 
 	Member member = new Member (id, pw, name, birth, phone);

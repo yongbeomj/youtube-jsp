@@ -42,9 +42,19 @@
 						</div>
 
 						<hr>
+						
+						<%
+						String result = request.getParameter("result");
+						if( result != null ){
+						%>
+							<div>
+								<span class="text-danger">회원정보가 올바르지 않습니다.</span>
+							</div>
+						<%
+						}
+						%>
 						<div class="col-md-4 offset-4 my-4" style="text-align: center;">
-							<a href="#"> <input class="form-control p-2 bg-danger text-white" type="submit" value="로그인">
-							</a>
+							<input class="form-control p-2 bg-danger text-white" type="submit" value="로그인">
 						</div>
 						<br> <br> <br>
 					</div>

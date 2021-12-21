@@ -4,18 +4,17 @@ public class Login {
 
 	// 필드
 	private int m_no;
-	private String m_id;
+	private String id;
 	
 	// 생성자
 	public Login() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Login(int m_no, String m_id) {
+	public Login(int m_no, String id) {
 		this.m_no = m_no;
-		this.m_id = m_id;
+		this.id = id;
 	}
-
 
 	// 메소드
 	public int getM_no() {
@@ -26,14 +25,13 @@ public class Login {
 		this.m_no = m_no;
 	}
 
-	public String getM_id() {
-		return m_id;
+	public String getId() {
+		return id;
 	}
 
-	public void setM_id(String m_id) {
-		this.m_id = m_id;
+	public void setId(String id) {
+		this.id = id;
 	}
-
 	
 
 	
