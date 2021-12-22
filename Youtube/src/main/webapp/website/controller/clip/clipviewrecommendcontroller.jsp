@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<!-- 오른쪽 사이드 영상들(추천영상) -->
 </body>
 </html>

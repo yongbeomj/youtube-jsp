@@ -5,31 +5,46 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-
-</style>
+<link rel="stylesheet" href="../css/clipview.css">
 </head>
 <body>
+		<%@include file="../sidebar.jsp"%>
 
-	<%@include file="../header.jsp"%>
-	
-	<div class="container" style="margin-top: 45px;">
-		<div class="row">
-			<!-- 메인 영상 -->
-			<div class="col-md-7 my-5" style="margin: 0 auto; padding: 0px 24px 0 0;">
-				<%@include file="clipview.jsp"%>
-				<!-- 영상제목 라인 -->
-				<%@include file="clipviewinfo.jsp"%>
+	<div style="background-color: white;">
+		<div class="row m-0">
+			<div class="col-md-10 p-0" style="overflow-y: auto; margin: 0 auto;">
+				<div class="row m-0">
+					<!-- 메인 영상 -->
+					<div class="row">
 
-			</div>
+						<div class="col-md-8 my-5"
+							style="margin-top: 20px; padding-top: 10px;">
+							<%@include file="clipview.jsp"%>
+							<!-- 영상 상세정보 라인 -->
+							<%@include file="clipviewinfo.jsp"%>
+						</div>
+
+						<div class="col-md-4">
+							<%@include file="clipviewreply.jsp" %>
+						</div>
+					</div>
 
 
-			<!-- 오른쪽 영상목록 쪽 -->
-			<div class="col-md-5 my-5 ml-0 mr-0 pl-0 pr-0">
-				<%@include file="clipviewside.jsp"%>
+
+
+
+
+					<!-- 추천영상 라인 -->
+					<div>
+
+
+
+						<%@include file="clipviewrecommend.jsp"%>
+
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div></div>
 </body>
 </html>

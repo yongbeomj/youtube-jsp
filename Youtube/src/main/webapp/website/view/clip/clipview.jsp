@@ -6,22 +6,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 	<style type="text/css">
-		*{
-			font-family: 'Noto Sans KR';
-		}
-		@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-
-		.notosanskr * { 
-		 font-family: 'Noto Sans KR', sans-serif;
-		}
+		
 	</style>
 </head>
 <body>
-	
-	<video  controls="controls" width="100%">
-		<!-- 영상 자체에 소리가 없음 -->
-		<source src="../../img/Seoul.mp4">
-	</video>
-	
+	<div class="row">
+			<video style="border-radius: 10px;" controls="controls" width="100%">
+				<!-- 영상 자체에 소리가 없음 -->
+				<source src="../../img/Seoul.mp4">
+			</video>
+		
+	</div>
 </body>
 </html>
