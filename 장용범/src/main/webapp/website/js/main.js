@@ -81,11 +81,3 @@ function signupcheck() {
 
 /* 회원가입 유효성검사 end */
 
-function findidcheck() {
-	var name = document.getElementById("findidform").name.value;
-	var phone = document.getElementById("findidform").phone.value;
-	
-	
-}
-
-

@@ -1,3 +1,4 @@
+<%@page import="dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,14 +9,13 @@
 <body>
 
 	<%@include file="../header.jsp"%>
-
 	<br>
 	<br>
 	<br>
 	<br>
 	<div class="container">
 		<div id="findid" class="col-md-6 offset-3">
-			<form id="findidform" action="../../controller/member/findidcontroller.jsp" method="post">
+			<form id="findidform" action="../../controller/member/findidcontroller.jsp" method="post"  onsubmit="return findidcheck()">
 				<div class="card" style="padding: 30px; width: 40rem;">
 					<div class="card-body">
 						<div class="text-center">
@@ -29,7 +29,7 @@
 								<label>이름</label>
 							</div>
 							<div class="col-md-7">
-								<input id="name" type="text" class="form-control p-2" name="name" placeholder="이름">
+								<input id="name" type="text" class="form-control p-2" name="name" onchange="findidcheck()" placeholder="이름">
 							</div>
 						</div>
 						<div class="row my-3">
@@ -37,14 +37,19 @@
 								<label>연락처</label>
 							</div>
 							<div class="col-md-7">
-								<input id="phone" type="text" class="form-control p-2" name="phone" placeholder="연락처">
+								<input id="phone" type="text" class="form-control p-2" name="phone" onchange="findidcheck()" placeholder="연락처">
 							</div>
 						</div>
 
 						<hr>
 						
+						<div>
+							<span id="findidresult"></span>
+						</div>
+						
 						<%
 						String result = request.getParameter("result");
+						System.out.println(result);
 						if( result == null ){
 						%>
 							<div>
@@ -55,7 +60,7 @@
 						%>
 						
 						<div class="col-md-4 offset-4 my-4" style="text-align: center;">
-							<input class="form-control p-2 bg-danger text-white" type="submit" value="확인">
+							<input id = "btnfindid" class="form-control p-2 bg-danger text-white" type="submit" value="확인">
 						</div>
 						<br> <br> <br>
 					</div>
@@ -71,7 +76,7 @@
 						</ul>
 					</div>
 					<nav class="navbar navbar-expand-lg navbar-light bg-white">
-						<div class="row" id="main_manu" style="font-size: 12px;">
+						<div class="row" id="main_manu" style="font-size: 12px">
 							<ul class="navbar-nav col-md-12 justify-content-start">
 								<li class="nav-item"><a href="#" class="nav-link">한국어</a></li>
 								<li class="nav-item"><a href="#" class="nav-link">도움말</a></li>

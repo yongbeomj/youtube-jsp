@@ -9,20 +9,18 @@
 <body>
 
 	<%
+	request.setCharacterEncoding("UTF-8");
 	String name = request.getParameter("name");
 	String phone = request.getParameter("phone");
-
+	
 	String result = MemberDao.getMemberDao().findid(name, phone);
-	System.out.println("ID : " + result);
 	if (result != null) {
-		out.print(result);
-		out.print("<script>alert('123');</script>");
+		out.print("<script>alert('아이디 : "+result+"');</script>");
 		out.println("<script>location.href='../../view/member/login.jsp';</script>");
-
 	} else {
-		out.print("<script>alert('일치하는 정보가 존재하지 않습니다.');</script>");
-		out.println("<script>location.href='../../view/member/findid.jsp';</script>");
+	response.sendRedirect("../../view/member/findid.jsp");
 	}
 	%>
+	
 </body>
 </html>

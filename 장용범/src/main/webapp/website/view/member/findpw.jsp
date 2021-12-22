@@ -49,9 +49,19 @@
 						</div>
 
 						<hr>
+						<%
+						String result = request.getParameter("result");
+						System.out.println(result);
+						if( result == null ){
+						%>
+							<div>
+								<span class="text-danger">일치하는 정보가 존재하지 않습니다.</span>
+							</div>
+						<%
+						}
+						%>
 						<div class="col-md-4 offset-4 my-4" style="text-align: center;">
-							<a href="#"> <input class="form-control p-2 bg-danger text-white" type="submit" value="확인">
-							</a>
+							<input class="form-control p-2 bg-danger text-white" type="submit" value="확인">
 						</div>
 						<br> <br> <br>
 					</div>
