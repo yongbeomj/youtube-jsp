@@ -9,6 +9,7 @@
  <body>
 	<%@include file ="header.jsp" %>
 	
+	
 	<div class = "col-md-2">
 		<%@ include file = "sidebar.jsp" %>
 	</div>
@@ -49,6 +50,13 @@
 						</div>	
 						<div class="">
 							<span style ="font-weight: bold">7M</span> 좋아요
+						</div>
+						<div class = "offset-6">
+						</div>
+						<div class ="mx-4">
+						</div>
+						<div class ="mx-5">
+							<button type ="button" class ="btn btn-danger">업로드</button>
 						</div>	
 					</div>
 					<div style ="font-weight: bold">
