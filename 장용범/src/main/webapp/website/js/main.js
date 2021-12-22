@@ -81,3 +81,38 @@ function signupcheck() {
 
 /* 회원가입 유효성검사 end */
 
+
++function ($) {
+    'use strict';
+
+    $(document).on('click.bs.sidebar.data-api', '[data-toggle="sidebar"]', function (e) {
+        e.preventDefault();
+        $(".sidebar").toggleClass("toggled");
+        $(".has-sidebar").toggleClass("toggled");
+    });
+}(jQuery);
+
+
+/* 회원탈퇴 [ ajax : jquery  ] */ 
+
+	$( function(){ 
+		$("#delete").click( function(){ 
+			$.ajax({
+				url : "../../controller/signoutcontroller.jsp" ,
+				data : {password:document.getElementById("deleteform").password.value} ,
+				success : function( result  ){
+					if( result == 1 ){
+						alert('회원탈퇴 되었습니다');
+						location.href='../../controller/signoutcontroller.jsp';
+					}else{
+						document.getElementById("deleteresult").innerHTML = "회원정보가 다릅니다.";
+					}
+				
+				}
+			});
+		} ); // 버튼 클릭했을때 함수 끝
+	 }); // 전체 함수 끝 
+
+	
+
+/* 회원탈퇴 */

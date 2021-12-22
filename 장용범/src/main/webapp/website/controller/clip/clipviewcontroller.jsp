@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<!-- 영상 컨트롤러 -->
 </body>
 </html>
