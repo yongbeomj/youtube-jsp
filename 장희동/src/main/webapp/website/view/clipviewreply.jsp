@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="col-md-4" style=" margin: 0 auto; height: 600px;" >
-		<div>
-			<div id=replylist style="overflow-y: auto; height:420px;" >
+<br><br><br>
+	<div style=" margin: 0 auto; height: 1000px;" >
+		<div >
+			<div id=replylist style="overflow-y: auto; height:800px;" >
 				<%
 		        for (int i = 0; i < 100; i++) {
 		    	 %>

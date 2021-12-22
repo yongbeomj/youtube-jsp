@@ -8,7 +8,8 @@
 </head>
 <body>
 	
-	<div class="col-md-12 mt-3 " style="border:solid 1px #cccccc; border-radius: 15px;">
+	
+	
 		<div class="col-md-12 mt-3" style="font-size: 2rem;">영상 제목</div>
 		<div class="mainclip col-md-12 d-flex justify-content:space-between py-1" style="border-bottom: 1px solid #cccccc;">
 			<div class="col-md-5  pl-0">
@@ -50,6 +51,6 @@
 		
 		<hr style="border-style: dashed;">
 		
-	</div>
+	
 </body>
 </html>
