@@ -8,18 +8,17 @@
 <title>Insert title here</title>
 <style type="text/css">
 * {
-   /* border: 1px solid black; */ 
+   border: 1px solid black;
    
 }
 </style>
 </head>
 <body>
-	<%@ include file = "header.jsp" %>
 	<div class = "row" style="height: 100%;">
-		<div class = "col-md-2">
+		<div class = "col-md-2 fixed">
 			<%@ include file = "sidebar.jsp" %>
 		</div>
-		<div class = "container col-md-9 offset-md-2 col-sm-10 offset-sm-2 col-xs-6 offset-xs-2 mt-2 ml-2">
+		<div class = "container col-md-9  offset-md-3 col-sm-10 offset-sm-2 col-xs-6 offset-xs-2 mt-2 ml-2">
 			<div class = "row justify-content-between ml-3">
 				<%
 					for(int i = 0; i < 16; i++){
