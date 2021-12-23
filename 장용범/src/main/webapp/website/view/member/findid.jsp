@@ -15,7 +15,7 @@
 	<br>
 	<div class="container">
 		<div id="findid" class="col-md-6 offset-3">
-			<form id="findidform" action="../../controller/member/findidcontroller.jsp" method="post"  onsubmit="return findidcheck()">
+			<form id="findidform" method="post" onsubmit="return findidcheck()">
 				<div class="card" style="padding: 30px; width: 40rem;">
 					<div class="card-body">
 						<div class="text-center">
@@ -47,17 +47,6 @@
 							<span id="findidresult"></span>
 						</div>
 						
-						<%
-						String result = request.getParameter("result");
-						System.out.println(result);
-						if( result == null ){
-						%>
-							<div>
-								<span class="text-danger">일치하는 정보가 존재하지 않습니다.</span>
-							</div>
-						<%
-						}
-						%>
 						
 						<div class="col-md-4 offset-4 my-4" style="text-align: center;">
 							<input id = "btnfindid" class="form-control p-2 bg-danger text-white" type="submit" value="확인">

@@ -35,6 +35,26 @@ public class MemberDao extends DB {
 		}
 		return false;
 	}
+	// 회원가입
+	public boolean imgsignup(Member member) {
+		
+		String sql = "insert into member(m_id , m_pw , m_name , m_birth , m_phone, m_image) value (?,?,?,?,?,?)";
+		
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, member.getM_id());
+			preparedStatement.setString(2, member.getM_pw());
+			preparedStatement.setString(3, member.getM_name());
+			preparedStatement.setString(4, member.getM_birth());
+			preparedStatement.setString(5, member.getM_phone());
+			preparedStatement.setString(6, member.getM_image());
+			preparedStatement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
 
 	// 로그인
 	public boolean login(String id, String pw) {
@@ -78,7 +98,8 @@ public class MemberDao extends DB {
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Member member = new Member(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3),
-						resultSet.getString(4), resultSet.getString(5), resultSet.getString(6));
+						resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7),
+						resultSet.getString(8));
 				return member;
 			}
 		} catch (Exception e) {

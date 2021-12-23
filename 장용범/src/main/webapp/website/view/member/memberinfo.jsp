@@ -23,8 +23,9 @@
 			<div class="row">
 				<div class="col-md-3">
 					<div class="nav flex-column nav-pills">
-						<a class="nav-link" data-toggle="pill" href="#pills-memberupdate"> 회원정보수정 </a> <a class="nav-link" data-toggle="pill" href="#pills-password">
-							회원탈퇴 </a> <a class="nav-link" data-toggle="pill" href="#pills-channel"> 채널등록 </a>
+						<a class="nav-link" data-toggle="pill" href="#pills-memberupdate"> 회원정보수정 </a>
+						<a class="nav-link" data-toggle="pill" href="#pills-password"> 회원탈퇴 </a>
+						<a class="nav-link" data-toggle="pill" href="#pills-channel"> 채널등록 </a>
 					</div>
 				</div>
 				<div class="col-md-9">
@@ -36,8 +37,7 @@
 										<img src="../../img/profile.jpg" class="rounded-circle" width="75px">
 									</div>
 									<div class="col-md-9 justify-content-center align-self-center">
-										<p style="font-size: 20px;">아이디</p>
-										<%-- <p style="font-size: 20px;"><%=member.getM_id() %></p> --%>
+										<p style="font-size: 20px;"><%=member.getM_id()%></p>
 									</div>
 								</div>
 							</div>
@@ -53,14 +53,14 @@
 											<a href="#">비밀번호 변경</a>
 										</p>
 									</div>
+									
 								</div>
 								<div class="row p-4">
 									<div class="col-md-3 justify-content-center align-self-center">
 										<p>이름</p>
 									</div>
-									<div class="col-md-9 justify-content-center align-self-center">
-										<%-- <p><%=member.getM_name() %></p> --%>
-										<p>홍길동</p>
+									<div class="col-md-7 justify-content-center align-self-center">
+										<p><%=member.getM_name()%></p>
 									</div>
 								</div>
 								<div class="row p-4">
@@ -68,8 +68,7 @@
 										<p>생년월일</p>
 									</div>
 									<div class="col-md-9 justify-content-center align-self-center">
-										<p>2021-03-19</p>
-										<%-- <p><%=member.getM_birth() %></p> --%>
+										<p><%=member.getM_birth()%></p>
 									</div>
 								</div>
 								<div class="row p-4">
@@ -77,10 +76,13 @@
 										<p>연락처</p>
 									</div>
 									<div class="col-md-9 justify-content-center align-self-center">
-										<p>010-0000-0000</p>
-										<%-- <p><%=member.getM_phone() %></p> --%>
+										<p><%=member.getM_phone()%></p>
 									</div>
 								</div>
+							</div>
+							<br> <br>
+							<div class="col-md-4 offset-4">
+								<input type="button" id="update" value="수정" class="form-control p-3 bg-danger text-white">
 							</div>
 
 
@@ -99,9 +101,9 @@
 								<br> <br>
 								<h5 class="text-center">회원 탈퇴 하시겠습니까?</h5>
 								<div class="col-md-6 offset-3 text-center">
-									<form>
+									<form id="deleteform">
 										<br> <input type="password" name="password" class="form-control p-2" placeholder="패스워드"> <br>
-										<div class="offset-1">
+										<div>
 											<span id="deleteresult"></span>
 										</div>
 										<br> <input type="button" id="delete" value="확인" class="form-control p-2 bg-danger text-white"> <br>
@@ -124,7 +126,7 @@
 								<br> <br>
 								<div class="row">
 									<div class="col-md-3 d-flex justify-content-end align-self-center">
-										<img src="../../img/profile.jpg" class="rounded-circle" width="130px">
+										<img id="preview" src="../../img/profile.jpg" class="rounded-circle" width="130px">
 									</div>
 									<div class="col-md-8">
 										<div class="p-4 justify-content-start align-self-center">
@@ -135,7 +137,7 @@
 										<div class="p-4 justify-content-start align-self-center">
 
 											<h5>채널 프로필 사진</h5>
-											<input class="my-1" type="file" name="file">
+											<input class="my-1" type="file" onchange="readURL(this);">
 										</div>
 									</div>
 								</div>

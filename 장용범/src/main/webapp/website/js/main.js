@@ -1,4 +1,5 @@
 
+
 /* 회원가입 유효성검사 */
 function signupcheck() {
 	
@@ -81,6 +82,24 @@ function signupcheck() {
 
 /* 회원가입 유효성검사 end */
 
+/* 아이디 중복체크 */
+	$( function(){
+		$("#id").change( function() { 
+			$.ajax({ 
+				url : "../../controller/member/idcheck.jsp" ,	
+				data :{userid:document.getElementById("signupform").id.value} , 	
+				success : function( result ){ 
+					if( result == 1 ){
+						document.getElementById("idresult").innerHTML = "사용중인 아이디입니다";
+						document.getElementById("idresult").style.color = "red";
+					}else{
+						
+					}
+				}
+			});
+		});
+	});
+/* 아이디 중복체크 end */
 
 +function ($) {
     'use strict';
@@ -92,27 +111,62 @@ function signupcheck() {
     });
 }(jQuery);
 
+/* 아이디찾기 유효성검사 */
+
+$(function(){
+	$("#btnfindid").click(function(){ // 버튼 클릭이벤트 발생 시
+		$.ajax({
+			url : "../../controller/member/findidcontroller.jsp" ,
+			data : {
+				name : document.getElementById("findidform").name.value,
+				phone : document.getElementById("findidform").phone.value
+				},
+			success : function(result){
+				alert(result);
+				if (result == 1){
+					alert("qwe");
+				} else {
+					document.getElementById("findidresult").innerHTML = "일치하는 정보가 없습니다.";
+				}
+			}
+		});
+	});
+});
+
+/* 아이디찾기 유효성검사 end */
+
 
 /* 회원탈퇴 [ ajax : jquery  ] */ 
 
 	$( function(){ 
 		$("#delete").click( function(){ 
 			$.ajax({
-				url : "../../controller/signoutcontroller.jsp" ,
+				url : "../../controller/member/memberdeletecontroller.jsp" ,
 				data : {password:document.getElementById("deleteform").password.value} ,
 				success : function( result  ){
 					if( result == 1 ){
 						alert('회원탈퇴 되었습니다');
-						location.href='../../controller/signoutcontroller.jsp';
+						location.href='../../controller/member/logoutcontroller.jsp'; // 세션 초기화
 					}else{
 						document.getElementById("deleteresult").innerHTML = "회원정보가 다릅니다.";
 					}
 				
 				}
 			});
-		} ); // 버튼 클릭했을때 함수 끝
-	 }); // 전체 함수 끝 
+		} );
+	 }); 
 
 	
+/* 회원탈퇴 end */
 
-/* 회원탈퇴 */
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('preview').src = e.target.result;
+    };
+    reader.readAsDataURL(input.files[0]);
+  } else {
+    document.getElementById('preview').src = "";
+  }
+}

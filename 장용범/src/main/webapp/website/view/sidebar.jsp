@@ -32,6 +32,7 @@
 	<!-- 본인 js 호출 -->
 	<script src="/장용범/website/js/main.js"></script>
 	
+	
 	<%
 		Login login = (Login)session.getAttribute("login");
 		String loginid = null;
@@ -55,12 +56,12 @@
 	    	%>
 	    	<li class = "d-flex justify-content-end" style="font-size: 13px;">
 	        	<a href="main.jsp">
-	               <span><%=member.getM_id() %>님</span>
+	               <span><%=loginid %>님</span>
 	            </a>
-	            <a href="main.jsp">
+	            <a href="member/memberinfo.jsp">
 	               <span>회원정보</span>
 	            </a>
-	            <a href="main.jsp">
+	            <a href="../controller/member/logoutcontroller.jsp">
 	               <span>로그아웃</span>
 	            </a>
 	        </li>
