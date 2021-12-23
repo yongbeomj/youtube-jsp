@@ -1,3 +1,5 @@
+<%@page import="dao.MemberDao"%>
+<%@page import="dto.Member"%>
 <%@page import="dto.Login"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,24 +11,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel = "stylesheet" href = "/Youtube/website/css/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	<!-- 부트스트랩css 설정 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	
+	<!-- 본인 css 호출 -->
+	<link rel="stylesheet" href="/Youtube/website/css/main.css">
 </head>
 <body>
+	
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	
+	<!-- google CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	
+	<!-- 부트스트랩 js 설정 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
+	<!-- 본인 js 호출 -->
+	<script src="/Youtube/website/js/main.js"></script>
+	
 	<%
 		Login login = (Login)session.getAttribute("login");
 		String loginid = null;
 		if (login != null) { // 세션 있을경우 (로그인)
 			loginid = login.getM_id(); // 아이디 반환
 		}
+		Member member = MemberDao.getMemberDao().getmember(loginid);
 	%>
-
 
 	<div class="sidebar fixed">
 	    <span class="sidebar-brand" aria-hidden="true">
@@ -37,11 +50,35 @@
 	    </span>
 	        <a href = "main.jsp" style="margin-left: 20px;"><img alt="" src="../img/로고.png"></a>
 	    <ul class="sidebar-nav my-3">
-	        <li class = "d-flex justify-content-end" style="font-size: 10px;">
+	    	<%
+	    		if (loginid != null){
+	    	%>
+	    	<li class = "d-flex justify-content-end" style="font-size: 13px;">
+	        	<a href="main.jsp">
+	               <span><%=member.getM_id() %>님</span>
+	            </a>
 	            <a href="main.jsp">
-	               사용자ID
+	               <span>회원정보</span>
+	            </a>
+	            <a href="main.jsp">
+	               <span>로그아웃</span>
 	            </a>
 	        </li>
+	    	<%		
+	    		} else {
+	    	%>		
+	    	<li class = "d-flex justify-content-end" style="font-size: 13px;">
+	            <a href="member/login.jsp">
+	               <span>로그인</span>
+	            </a>
+	            <a href="member/signup.jsp">
+	               <span>회원가입</span>
+	            </a>
+	        </li>	
+	    	<%	
+	    		}
+	    	%>
+	        
 	        <li class = "my-2">
 	        	<input type = "text" placeholder="Search" style="margin-left: 20px; margin-bottom: 5px; width: 11rem;" class = "form-control">
 	        </li>
@@ -123,10 +160,6 @@
 	        <img alt="" src="../img/메인로고.png">
 	    </a>
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-   <script src = "/Youtube/website/js/main.js"></script>
+	
 </body>
 </html>
