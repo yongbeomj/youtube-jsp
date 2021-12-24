@@ -14,7 +14,7 @@
 
 	<%
 	// 로그인 되어있는 경우
-	if (loginid != null) {
+	if (loginid != null) { 
 		out.print("<script>alert('로그인이 되어있습니다.');</script>");
 		out.println("<script>location.href='../main.jsp';</script>");
 	}

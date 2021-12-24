@@ -76,17 +76,26 @@
 	        	<input type = "text" placeholder="Search" style="margin-left: 20px; margin-bottom: 5px; width: 11rem;" class = "form-control">
 	        </li>
 	        <li>
-	            <a href="main.jsp">
+	            <a href="/강보균/web/view/main.jsp">
 	               <h4>홈</h4>
 	            </a>
 	        </li>
 	        <li class = "my-2">
+	            <a href="channel/newchannel.jsp">
+	                <h4>내 채널</h4>
+	            </a>
+	        </li>
+	        <li class = "my-2">
 	            <a href="#" data-toggle="collapse" data-target="#menu-collapse-1">
+	            </a>
+	            <a href = "#">
 	                <h4>구독</h4>
 	            </a>
 	        </li>
 	        <li class = "my-2">
 	            <a href="#" data-toggle="collapse" data-target="#menu-collapse-2">
+	            </a>
+	            <a href = "#">
 	                <h4>보관함</h4>
 	            </a>
 	            <ul id="menu-collapse-2" class="collapse"> <!-- class="collapse in" : 콜랩스가 펼쳐진 상태 -->
@@ -116,9 +125,10 @@
 	                   	<%
 	                   		for(int i = 0; i < 13; i++){
 	                   	%>
-			                    <a href="#" data-toggle="collapse" data-target="#menu-collapse-4">
-			                    	<img alt="" src="">&emsp;image<span>&emsp;채널명</span><br>
-			                    </a>
+		                    	<a href = "#">
+			                    	<img alt="" src="">&emsp;image
+			                    	<span>&emsp;채널명</span><br>
+		                    	</a>
 	                   	<%	
 	                   		}
 	                   	%>
