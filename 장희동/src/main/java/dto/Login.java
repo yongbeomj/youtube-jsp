@@ -17,6 +17,7 @@ public class Login {
 	}
 
 
+	
 	// 메소드
 	public int getM_no() {
 		return m_no;
