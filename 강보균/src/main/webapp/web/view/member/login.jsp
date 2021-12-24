@@ -8,7 +8,6 @@
 <body>
 
 	<%@include file="../sidebar.jsp"%>
-
 	<br>
 	<br>
 	<br>
