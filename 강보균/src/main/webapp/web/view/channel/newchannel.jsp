@@ -1,3 +1,4 @@
+<%@page import="dao.ChannelDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,11 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
 	<div class="col-md-2">
 		<%@include file="../sidebar.jsp"%>
-
 	</div>
 	<div class="container">
 
@@ -28,14 +26,14 @@
 							<h3>채널 이름</h3>
 							<span>계정이름</span>
 							<div class="md-2 pt-2">
-								<a href="#" class="md-4"><button type="button"
-										class="btn btn-danger btn-block">
+								<a href="#" class="md-4">
+									<button type="button" class="btn btn-danger btn-block">
 										<span>팔로우</span>
-									</button></a>
+									</button>
+								</a>
 							</div>
 						</div>
 						<div class="col" style="width: 1000px; height: 180px;">
-
 							<img src="../../img/land.jpg" alt="" width="100%" height="100%"
 								style="border-radius: 15px;" />
 						</div>
@@ -71,17 +69,13 @@
 				<div class="card-body">
 					<form class ="form-control" style = "border : none;" >
 						<div class="row py-2 justify-content-center">
-								
-								<div class="card col-md-2 mx-3">
-								
-									<button type = "submit" formaction="newchannel.jsp" class="btn"
-										style="background-color: white; border: white;">
-										<span style="font-weight: bold">HOME</span>
-										<hr style = "border: solid 1px;">
-									</button>
-									
-								</div>
-								
+							<div class="card col-md-2 mx-3">
+								<button type = "submit" formaction="newchannel.jsp" class="btn"
+									style="background-color: white; border: white;">
+									<span style="font-weight: bold">HOME</span>
+									<hr style = "border: solid 1px;">
+								</button>
+							</div>
 							<div class="card col-md-2 mx-3">
 								<button type = "submit" formaction="newchannel2.jsp" class="btn"
 									style="background-color: white; border: white;">
@@ -89,7 +83,6 @@
 									<hr style = "border: solid 1px;">
 								</button>
 							</div>
-	
 							<div class="card col-md-2 mx-3">
 								<button type = "submit" formaction="newchannel3.jsp" class="btn"
 									style="background-color: white; border: white;">
@@ -97,7 +90,6 @@
 									<hr style = "border: solid 1px;">
 								</button>
 							</div>
-	
 							<div class="card col-md-2 mx-3">
 								<button type = "submit" formaction="newchannel4.jsp" class="btn"
 									style="background-color: white; border: white;">
@@ -105,7 +97,6 @@
 									<hr style = "border: solid 1px;">
 								</button>
 							</div>
-							
 							<!-- 
 							<a href="clipviewmain.jsp"> <img src="../../img/land.jpg"
 												class="recommendclips"
@@ -143,17 +134,10 @@
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
-
-
-
-
 		</div>
 		<!-- 컨테이너 end -->
 	</div>
-
-
 </body>
 </html>

@@ -14,6 +14,9 @@
 </style>
 </head>
 <body>
+<%
+	
+%>
 	<div class = "row" style="height: 100%;">
 		<div class = "col-md-2 fixed">
 			<%@ include file = "sidebar.jsp" %> 
