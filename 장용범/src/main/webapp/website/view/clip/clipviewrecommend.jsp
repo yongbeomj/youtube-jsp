@@ -20,13 +20,12 @@
 	<div class="col-md-12   pr-2 pd-2 pl-0 mt-3">
 		<div class="row col-md-12 m-0 ">
 			<%
-			
 	        for (int i = 0; i < 107; i++) {
 	    	 %>
 			<div class="col-md-2 pl-0 mb-4" style="border-radius: 15px;">
 				<div>
 					<a href="clipviewmain.jsp">
-						<img src="../../img/land.jpg"<%//v_thumbnail %> class="recommendclips" style="border-radius: 15px; width: 100%;">
+						<span><%=i %></span><img src="../../img/land.jpg"<%//v_thumbnail %> class="recommendclips" style="border-radius: 15px; width: 100%;">
 					</a>
 				</div>
 				<div class="col-md-12 mt-2 pl-0 pr-0">

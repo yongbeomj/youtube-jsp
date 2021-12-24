@@ -29,15 +29,8 @@
 						</div>
 					</div>
 
-
-
-
-
-
 					<!-- 추천영상 라인 -->
 					<div>
-
-
 
 						<%@include file="clipviewrecommend.jsp"%>
 
