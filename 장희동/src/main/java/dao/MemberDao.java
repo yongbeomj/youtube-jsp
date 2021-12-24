@@ -97,4 +97,26 @@ public class MemberDao extends DB {
 		return null;
 	}
 	
+	//원래 있었던 것들
+//	=========================================
+	//추가한 것들
+	
+	//회원아이디 검색 메소드(댓글단 사람 이름 출력하기 위해서)
+	
+	public String getchannelname(int m_no){
+		String sql = "select m_id from channel where c_no=?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, m_no);
+			resultSet = preparedStatement.executeQuery();
+			if(resultSet.next()) {
+				return resultSet.getString(1);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+			
+	
 }

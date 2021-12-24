@@ -28,6 +28,7 @@ public class VideoDao extends DB{
 			e.printStackTrace();
 		}
 		return false;
+		//댓글 등록할때 m_no가져와서 달게 만들기
 	}
 	
 	//영상 목록 출력
@@ -48,7 +49,8 @@ public class VideoDao extends DB{
 						resultSet.getString(4), 
 						resultSet.getString(5), 
 						resultSet.getString(6),  
-						resultSet.getString(7));
+						resultSet.getString(7),
+						resultSet.getString(8));
 				return video;
 			}
 		} catch (Exception e) {

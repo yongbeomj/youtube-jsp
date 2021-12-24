@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="dao.ReplyDao"%>
+<%@page import="dto.Reply"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,20 +13,22 @@
 <br><br><br>
 	<div style=" margin: 0 auto; height: 1000px;" >
 		<div >
-			<div id=replylist style="overflow-y: auto; height:800px;" >
-				<%
-		        for (int i = 0; i < 100; i++) {
-		    	 %>
+			<div id=replylist style="overflow-y: auto; height:700px;" >
+				<%-- <%
+				//ArrayList <Reply> replies2 = ReplyDao.getReplyDao().replies(v_no);
+				
+		        for (Reply temp : replies2) {
+		    	 %> --%>
 				<section >
-					<div class="col-md-12 d-flex justify-content-start mt-1 row">
-					<a href="#" class="col-md-1 px-0"><img src="../img/woman.jpg" class="col-md-12 p-0"  style="width: 40px; height: 40px; border-radius: 50%;"></a>
+				<div class="col-md-12 d-flex justify-content-start mt-1 row">
+					<a href="Main.jsp" class="col-md-1 px-0"><img src="../img/woman.jpg" class="col-md-12 p-0"  style="width: 40px; height: 40px; border-radius: 50%;"></a>
 					<div class="col-md-11 pl-2 mr-0">
-						<a  href="#">채널명</a>
-						<div class="pl-0 my-2">댓글내용</div>
+						<%-- <a  href="#"><%=temp.getC_name() %></a>
+						<div class="pl-0 my-2"><%=temp.getR_contents() %></div> --%>
 					</div>
 				</div>
 				</section>
-				<%} %>
+				<%-- <%} %> --%>
 			</div>
 		</div>
 		<!-- 댓글 쓰기 -->
@@ -37,8 +42,8 @@
 			</div>
 			<div class="col-md-12 d-flex justify-content-end py-2">
 				<div class="row">
-					<a href="#"><button class="btn btn-dark mr-3">등록</button></a>
-					<a href="#"><button class="btn btn-light">취소</button></a>
+					<button class="btn btn-dark mr-3" onclick="replyreg();">등록</button>
+					<button class="btn btn-light" id="replycancel">취소</button>
 				</div>
 			</div>
 		</div>
