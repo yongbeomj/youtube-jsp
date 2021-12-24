@@ -55,11 +55,8 @@
 	    		if (loginid != null){
 	    	%>
 	    	<li class = "d-flex justify-content-end" style="font-size: 13px;">
-	        	<a href="main.jsp">
+	        	<a href="member/memberinfo.jsp">
 	               <span><%=loginid %>님</span>
-	            </a>
-	            <a href="member/memberinfo.jsp">
-	               <span>회원정보</span>
 	            </a>
 	            <a href="../controller/member/logoutcontroller.jsp">
 	               <span>로그아웃</span>
@@ -71,9 +68,6 @@
 	    	<li class = "d-flex justify-content-end" style="font-size: 13px;">
 	            <a href="member/login.jsp">
 	               <span>로그인</span>
-	            </a>
-	            <a href="member/signup.jsp">
-	               <span>회원가입</span>
 	            </a>
 	        </li>	
 	    	<%	
