@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	
 	<!-- 본인 css 호출 -->
-	<link rel="stylesheet" href="/강보균/website/css/main.css">
+	<link rel="stylesheet" href="/장용범/website/css/main.css">
 </head>
 <body>
 	
@@ -30,7 +30,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 	<!-- 본인 js 호출 -->
-	<script type = "text/javascript" src="/강보균/website/js/main.js?ver=1"></script>
+	<script type = "text/javascript" src="/장용범/website/js/main.js"></script>
 	
 	<%
 		Login login = (Login)session.getAttribute("login");
