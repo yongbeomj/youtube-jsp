@@ -59,7 +59,7 @@
 						<div class="offset-6"></div>
 						<div class="mx-4"></div>
 						<div class="mx-5">
-							<a href="../channel/upload.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
+							<a href="../channel/upload3.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
 						</div>
 					</div>
 					<div style="font-weight: bold">아직 자기소개가 없습니다.</div>
@@ -118,29 +118,48 @@
 					</form>	
 					<div class="card">
 						<div class="card-body">
-							<div class="col-md-12   pr-2 pd-2 pl-0 mt-3">
-								<div class="row col-md-12 m-0 ">
-									<%
-									for (int i = 0; i < 5; i++) {
-									%>
-									<div class="col-md-3 mb-4" style="border-radius: 15px;">
-										<div>
-											<a href="clipviewmain.jsp"> <img src="../../img/land.jpg"
-												class="recommendclips"
-												style="border-radius: 15px; width: 100%;">
-											</a>
-										</div>
-										<div class="col-md-12 mt-2 pr-0">
-											<h5>Card title</h5>
-											<a href="#"> <img src="../../img/woman.jpg" width="20"
-												height="20" style="border-radius: 50%;">
-											</a> <a href="#"> <span>채널명</span>
-											</a>
-										</div>
+							<div class ="row d-flex justify-content-center ">
+								<div class = "col-md-7 ">
+									<div>
+										<h6>설명</h6> 
 									</div>
-									<%}%>
+									
+									<div>
+										<p>
+											안녕하세요 새로운 채널을 맡은 최병호입니다. <br>
+											반갑습니다. 안녕하세요 최병호 입니다. <br>
+										</p>
+										
+									</div>
+									
+									<hr>
+									<div>
+										<h6>세부정보</h6>
+										<p>비지니스 문의</p><br> 
+										
+										<p>위치</p> 
+									</div>
+									
 								</div>
+								<div class = "col-md-5" >
+								
+									<div>통계</div>
+									<hr>
+									<div>가입일: <span>2016.04.25</span></div>
+									<hr>
+									<div>조회수: <span>5,000,000</span>회</div>
+								
+								</div>
+							
 							</div>
+									
+								
+									
+									
+									
+								
+								
+							
 						</div>
 					</div>
 

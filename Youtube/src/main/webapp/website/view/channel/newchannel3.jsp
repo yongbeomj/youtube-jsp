@@ -59,14 +59,17 @@
 						<div class="offset-6"></div>
 						<div class="mx-4"></div>
 						<div class="mx-5">
-							<a href="../channel/upload.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
+							<a href="../channel/upload2.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
 						</div>
 					</div>
 					<div style="font-weight: bold">아직 자기소개가 없습니다.</div>
 				</div>
 			</div>
 			<!-- 팔로잉 팔로워 좋아요 end -->
-
+			<!-- <form>
+					<button type="submit" formaction="/">TEST</button>
+			</form> -->
+			
 			<div class="card pt-0" style="border-radius: 15px;">
 				<div class="card-body">
 					<form class ="form-control" style = "border : none;" >
@@ -118,28 +121,49 @@
 					</form>	
 					<div class="card">
 						<div class="card-body">
-							<div class="col-md-12   pr-2 pd-2 pl-0 mt-3">
-								<div class="row col-md-12 m-0 ">
-									<%
-									for (int i = 0; i < 5; i++) {
-									%>
-									<div class="col-md-3 mb-4" style="border-radius: 15px;">
-										<div>
+							<div class="col-md-12  pr-2 pd-2 pl-0 mt-3">
+								<div class="">
+									<!-- 커뮤니티 사진 게시 -->
+										<div class = "">
 											<a href="clipviewmain.jsp"> <img src="../../img/land.jpg"
 												class="recommendclips"
 												style="border-radius: 15px; width: 100%;">
 											</a>
 										</div>
-										<div class="col-md-12 mt-2 pr-0">
-											<h5>Card title</h5>
+									<!-- 커뮤니티 사진 게시 end -->
+									
+									<!-- 커뮤니티 채널명 및 내용 작성 -->
+									<div class = "row">
+										<div class="mt-2 ml-3 pr-0 d-flex justify-content-center" style = "border:  ; border-radius : 5px;">
+											
 											<a href="#"> <img src="../../img/woman.jpg" width="20"
 												height="20" style="border-radius: 50%;">
-											</a> <a href="#"> <span>채널명</span>
+											</a> <a href="#"> <span> 채널명</span>
 											</a>
 										</div>
+										
+										<div class ="col-md-10 mt-2 ml-4" style = "border: solid 1px ; border-radius : 5px;">
+											<span>
+												내용입니다. 안녕하세요 최병호 입니다. <br>
+												반갑습니다. 안녕하세요 최병호 입니다. <br>
+											</span>
+											<span>
+												내용입니다. 안녕하세요 최병호 입니다. <br>
+												반갑습니다. 안녕하세요 최병호 입니다. <br>
+											</span>
+											<span>
+												내용입니다. 안녕하세요 최병호 입니다. <br>
+												반갑습니다. 안녕하세요 최병호 입니다. <br>
+											</span>
+										</div>
 									</div>
-									<%}%>
+									
+									<!-- 커뮤니티 채널명 및 내용 작성 end -->
+									
+									
+									
 								</div>
+								
 							</div>
 						</div>
 					</div>
