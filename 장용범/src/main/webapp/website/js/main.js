@@ -30,6 +30,7 @@ function signupcheck() {
 	
 	// 비밀번호
 	if(!pwj.test(pw) || !pwj.test(pwconfirm)) {
+		
 		document.getElementById("pwresult").innerHTML = "영문자 대소문자와 숫자 조합 5~15 사이만 가능합니다";
 		document.getElementById("pwresult").style.color = "red";
 		document.getElementById("pwconfirmresult").innerHTML = "영문자 대소문자와 숫자 조합 5~15 사이만 가능합니다";
@@ -111,29 +112,75 @@ function signupcheck() {
     });
 }(jQuery);
 
-/* 아이디찾기 유효성검사 */
+/* 회원정보 수정 */
 
-$(function(){
-	$("#btnfindid").click(function(){ // 버튼 클릭이벤트 발생 시
-		$.ajax({
-			url : "../../controller/member/findidcontroller.jsp" ,
-			data : {
-				name : document.getElementById("findidform").name.value,
-				phone : document.getElementById("findidform").phone.value
-				},
-			success : function(result){
-				alert(result);
-				if (result == 1){
-					alert("qwe");
-				} else {
-					document.getElementById("findidresult").innerHTML = "일치하는 정보가 없습니다.";
+function namechange(){ 
+		
+	document.getElementById("tdname").innerHTML = "<input type='text' id='name' class='form-control'>";
+	document.getElementById("btnname").innerHTML = "<button id='namechangebtn' class='form-control'>확인</button>";
+
+	$( function(){
+		$("#namechangebtn").click( function() { 
+			$.ajax({ 
+				url : "../../controller/member/memberupdate.jsp" ,	
+				data :{ newname:document.getElementById("name").value} , 	
+				success : function( result ){ 
+					if( result == 1 ){
+						document.getElementById("tdname").innerHTML =  document.getElementById("name").value;
+					}else{
+						alert("수정 오류 [관리자에게 문의 바랍니다]");
+					}
 				}
-			}
+			});
 		});
 	});
-});
+}
 
-/* 아이디찾기 유효성검사 end */
+function bitrhchange(){ 
+		
+	document.getElementById("tdbirth").innerHTML = "<input type='text' id='birth' class='form-control'>";
+	document.getElementById("btnbirth").innerHTML = "<button id='bitrhchangebtn' class='form-control'>확인</button>";
+
+	$( function(){
+		$("#birthchangebtn").click( function() { 
+			$.ajax({ 
+				url : "../../controller/member/memberupdate.jsp" ,	
+				data :{ newbirth:document.getElementById("birth").value} , 	
+				success : function( result ){ 
+					if( result == 1 ){
+						document.getElementById("tdbirth").innerHTML =  document.getElementById("birth").value;
+					}else{
+						alert("수정 오류 [관리자에게 문의 바랍니다]");
+					}
+				}
+			});
+		});
+	});
+}
+
+function phonechange(){ 
+		
+	document.getElementById("tdphone").innerHTML = "<input type='text' id='phone' class='form-control'>";
+	document.getElementById("btnphone").innerHTML = "<button id='phonechangebtn' class='form-control'>확인</button>";
+
+	$( function(){
+		$("#phonechangebtn").click( function() { 
+			$.ajax({ 
+				url : "../../controller/member/memberupdate.jsp" ,	
+				data :{ newphone:document.getElementById("phone").value} , 	
+				success : function( result ){ 
+					if( result == 1 ){ 	// js 변수는 자료형 없다
+						document.getElementById("tdphone").innerHTML =  document.getElementById("phone").value;
+					}else{
+						alert("수정 오류 [관리자에게 문의 바랍니다]");
+					}
+				}
+			});
+		});
+	});
+}
+
+/* 회원정보 수정 end */
 
 
 /* 회원탈퇴 [ ajax : jquery  ] */ 
