@@ -1,3 +1,5 @@
+<%@page import="dao.ChannelDAO"%>
+<%@page import="dto.Channel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,14 +11,18 @@
 <body>
 	<!-- fsdfds -->
 	
-	
 	<div class = "col-md-2">
 		<%@include file="../sidebar.jsp"%>
 
 	</div>
-	
+	<%	
+		int m_no = MemberDao.getMemberDao().getmemberno(loginid);
+		System.out.println(m_no);
+		Channel channel = ChannelDAO.getChannelDAO().getChannelinfo(m_no);
+		System.out.println(channel.getC_name());
+	%>
 	<div class = "container" style ="margin-top: 100px;  ">
-		
+			<form action="../../controller/channel/channelinfocontroller.jsp" method ="post" enctype = "multipart/form-data">
 			<div class = "card col" >
 				<div class = "card-body" >
 					
@@ -43,28 +49,37 @@
 									<span style ="font-size: 3px;">720x1280 해상도 이상</span>
 								</div>
 								<br>
-								<div class = "d-flex justify-content-center">
-									<button type ="button" class ="btn btn-danger">파일 선택</button>
-								</div>
+								<!-- 이전 이미지 파일 받는 태그 -->
+								<input type = "hidden" name="oldfile" value = "<%=channel.getC_image() %>" >
+								
+								<!-- 이미지 파일 첨부 -->
+								<input id="c_image" name="c_image" class ="form-control" type = "file" style ="" > *<%=channel.getC_image() %>
+								
 						</div>
-						<div class ="offset-md-2 col-md-7">
-							<label >설명</label> 
-							<input class="form-control">
-							<br>
-							<label >내용</label> 
-							<textarea class="form-control" > </textarea>
-							<br><br><br><br><br><br><br>
-							
-							<button type ="button" class ="btn btn-danger">게시</button>
-							<button type ="button" class ="btn btn-danger">취소</button>
-						</div>
+						
+							<div class ="offset-md-2 col-md-7">
+								
+									<label>	채널 이름 </label>
+									<input id = "c_name" name="c_name" type="text" class="form-control" placeholder = "채널 이름" value = "<%=channel.getC_name() %>"> 
+									<br>
+									<label >자기소개</label> 
+									<input id = "c_presentation" name="c_presentation" type="text" class="form-control" placeholder = "채널 자기 소개" value = "<%=channel.getC_present()%>">
+									<br>
+									<label >설명</label> 
+									<textarea id = "c_info" name="c_info" class="form-control" > <%=channel.getC_info() %> </textarea>
+									<br><br><br><br><br><br><br>
+									
+									<button type ="submit" class ="btn btn-danger">게시</button>
+									<a href = "../../view/channel/newchannel4.jsp"> <button type ="button" class ="btn btn-danger">취소</button></a>
+								
+							</div>
 						
 					</div>
 					
 					
 				</div>
 			</div>
-			
+			</form>
 		
 	</div>
 </body>

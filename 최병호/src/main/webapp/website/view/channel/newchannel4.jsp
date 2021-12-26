@@ -1,3 +1,5 @@
+<%@page import="dao.ChannelDAO"%>
+<%@page import="dto.Channel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,6 +15,12 @@
 		<%@include file="../sidebar.jsp"%>
 
 	</div>
+	<%	
+		int m_no = MemberDao.getMemberDao().getmemberno(loginid);
+		System.out.println(m_no);
+		Channel channel = ChannelDAO.getChannelDAO().getChannelinfo(m_no);
+		System.out.println(channel.getC_name());
+	%>
 	<div class="container">
 
 		<div class="col">
@@ -21,12 +29,13 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="pl-2">
-							<a href="#"><img src="../../img/woman.jpg" width="116px"
+							<!-- 21.12.25 임시적으로 이미지 채널 배경이미지로 했음 추후에 member에서 이미지 가져오기 -->
+							<a href="#"><img src="../../upload/<%=channel.getC_image()%>" width="116px"
 								height="116px" style="border-radius: 50%;"></a>
 						</div>
 						<div class="col-md-2">
-							<h3>채널 이름</h3>
-							<span>계정이름</span>
+							<h3><%=channel.getC_name() %></h3>
+							<span><%=member.getM_id() %></span>
 							<div class="md-2 pt-2">
 								<a href="#" class="md-4"><button type="button"
 										class="btn btn-danger btn-block">
@@ -36,7 +45,7 @@
 						</div>
 						<div class="col" style="width: 1000px; height: 180px;">
 
-							<img src="../../img/land.jpg" alt="" width="100%" height="100%"
+							<img src="../../upload/<%=channel.getC_image()%>" alt="" width="100%" height="100%"
 								style="border-radius: 15px;" />
 						</div>
 					</div>
@@ -62,7 +71,12 @@
 							<a href="../channel/upload3.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
 						</div>
 					</div>
-					<div style="font-weight: bold">아직 자기소개가 없습니다.</div>
+					
+					<%if(channel.getC_present() == null){ %>
+						<div style="font-weight: bold">아직 자기소개가 없습니다.</div>
+					<%}else{%>
+						<div style="font-weight: bold"><%=channel.getC_present() %></div>
+					<%}%>
 				</div>
 			</div>
 			<!-- 팔로잉 팔로워 좋아요 end -->
@@ -126,8 +140,7 @@
 									
 									<div>
 										<p>
-											안녕하세요 새로운 채널을 맡은 최병호입니다. <br>
-											반갑습니다. 안녕하세요 최병호 입니다. <br>
+											<%=channel.getC_info() %>
 										</p>
 										
 									</div>
@@ -145,8 +158,10 @@
 								
 									<div>통계</div>
 									<hr>
-									<div>가입일: <span>2016.04.25</span></div>
+									<!-- 채널 가입일 날짜만 나오도록 조정 해야됨-->
+									<div>가입일: <span><%=member.getM_date()%></span></div>
 									<hr>
+									<!-- 팔로잉 팔로우 이후 동영상 조회수 갱신시 총 조회수를 갱신해서 넣을 예정  -->
 									<div>조회수: <span>5,000,000</span>회</div>
 								
 								</div>
