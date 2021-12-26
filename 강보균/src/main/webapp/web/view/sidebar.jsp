@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	
 	<!-- 본인 css 호출 -->
-	<link rel="stylesheet" href="/장용범/website/css/main.css">
+	<link rel="stylesheet" href="/Youtube/website/css/main.css">
 </head>
 <body>
 	
@@ -30,7 +30,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 	<!-- 본인 js 호출 -->
-	<script type = "text/javascript" src="/장용범/website/js/main.js"></script>
+	<script type = "text/javascript" src="/Youtube/website/js/main.js"></script>
 	
 	<%
 		Login login = (Login)session.getAttribute("login");
@@ -81,7 +81,7 @@
 	            </a>
 	        </li>
 	        <li class = "my-2">
-	            <a href="channel/newchannel.jsp">
+	            <a href="../controller/channel/mychannelcontroller.jsp?id=<%= loginid %>">
 	                <h4>내 채널</h4>
 	            </a>
 	        </li>

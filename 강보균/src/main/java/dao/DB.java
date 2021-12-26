@@ -14,7 +14,7 @@ public class DB {
 	public DB() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/youtube?serverTimezone=UTC", "root", "1234");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/youtube?serverTimezone=UTC", "root", "1234");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

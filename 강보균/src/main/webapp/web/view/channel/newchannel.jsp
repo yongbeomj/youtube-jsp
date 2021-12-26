@@ -12,7 +12,6 @@
 		<%@include file="../sidebar.jsp"%>
 	</div>
 	<div class="container">
-
 		<div class="col">
 			<!-- 프로필 사진 및 팔로우 버튼  -->
 			<div class="card " style="border-radius: 15px;">
@@ -23,8 +22,8 @@
 								height="116px" style="border-radius: 50%;"></a>
 						</div>
 						<div class="col-md-2">
-							<h3>채널 이름</h3>
-							<span>계정이름</span>
+							<h3><%= loginid %></h3>
+							<span>계정이름</span> <!-- 계정명이 뭐지; -->
 							<div class="md-2 pt-2">
 								<a href="#" class="md-4">
 									<button type="button" class="btn btn-danger btn-block">

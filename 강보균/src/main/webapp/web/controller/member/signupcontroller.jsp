@@ -14,7 +14,8 @@
 </head>
 <body>
 <%
-	String folderpath = "C:/Users/ez201206/git/youtube-jsp/강보균/src/main/webapp/web/upload";
+	String folderpath = "C:/Users/강보균/git/youtube-jsp/강보균/src/main/webapp/web/upload"; // 집
+	// String folderpath = "C:/Users/ez201206/git/youtube-jsp/강보균/src/main/webapp/web/upload"; // 학원
 	MultipartRequest multi = new MultipartRequest(request, folderpath, 1024 * 1024 * 10, "UTF-8",
 			new DefaultFileRenamePolicy());
 	

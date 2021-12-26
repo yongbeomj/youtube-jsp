@@ -25,7 +25,7 @@
 								height="116px" style="border-radius: 50%;"></a>
 						</div>
 						<div class="col-md-2">
-							<h3>채널 이름</h3>
+							<h3><%= loginid %></h3>
 							<span>계정이름</span>
 							<div class="md-2 pt-2">
 								<a href="#" class="md-4"><button type="button"

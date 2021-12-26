@@ -11,7 +11,7 @@ public class ChannelDAO extends DB {
 		return channelDAO;
 	}
 	
-	// ȸ�����ԵǸ� ä�λ����ϱ�
+	// 회원가입과 동시에 채널생성하는 메소드
 	public boolean createChannel(Channel channel) {
 		try {
 			
@@ -34,6 +34,7 @@ public class ChannelDAO extends DB {
 		}
 	}
 	
+	// 멤버 번호를 반환하는 메소드
 	public int getMemberNo(String m_id) {
 		try {
 			
@@ -54,6 +55,7 @@ public class ChannelDAO extends DB {
 		} 
 	}
 	
+	// 기본 채널 명
 	public String getDefaultChannelName(int m_no) {
 		try {
 			String sql;
@@ -67,6 +69,28 @@ public class ChannelDAO extends DB {
 				return rs.getString(1);
 			}
 
+			return null;
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+	}
+	
+	// 채널명 가져오기
+	public String getChannelName(int m_no) {
+		try {
+			
+			String sql = "select c_name from channel where m_no = ?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, m_no);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);
+			}
+			
 			return null;
 			
 		} catch (SQLException e) {

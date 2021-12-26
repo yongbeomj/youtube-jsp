@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import dto.Member;
 
@@ -182,5 +183,4 @@ public class MemberDao extends DB {
 		}
 		return false;
 	}
-
 }

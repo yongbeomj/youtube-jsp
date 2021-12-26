@@ -81,7 +81,7 @@ function signupcheck() {
 
 /* 회원가입 유효성검사 end */
 
-
+// 사이드바
 +function ($) {
     'use strict';
 
@@ -91,3 +91,29 @@ function signupcheck() {
         $(".has-sidebar").toggleClass("toggled");
     });
 }(jQuery);
+
+// 이미지 미리보기
+var upload = document.querySelector("#upload");
+var preview = document.querySelector("#preview");
+preview.addEventListener('change', function(e){
+	var get_file = e.target.files;
+	var img = document.createElement('img');
+	
+	// 파일리더 객체 생성
+	var reader = new FileReader();
+	
+	// 리더 시작시 함수 구현
+	reader.onload = (function(aImg) {
+		console.log(1);
+		return function(e) {
+			console.log(3);
+			// base64 인코딩 된 스트링 데이터
+			aImg = e.targer.result
+		}
+	})(img)
+	if(get_file) {
+		reader.readAsDataURL(get_file[0]);
+		console.log(2);
+	}
+	preview.appendChild(img);
+});
