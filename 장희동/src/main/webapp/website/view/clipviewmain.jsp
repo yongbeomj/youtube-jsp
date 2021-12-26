@@ -1,3 +1,5 @@
+<%@page import="dao.VideoDao"%>
+<%@page import="dto.Video"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.ReplyDao"%>
 <%@page import="dto.Reply"%>
@@ -8,24 +10,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/clipview.css">
 </head>
 <body>
-	<%@include file="header.jsp"%>
+
+	
 
 	<%
-		
-		int v_no = 1; 
-		//Integer.parseInt(request.getParameter("v_no"));
+		//Login login = (Login)session.getAttribute("login");
+		//System.out.print("login : "+login);
+		int v_no = Integer.parseInt(request.getParameter("v_no"));
+		System.out.println("clipviewmain v_no : " + v_no);
 		ArrayList <Reply> replies2 = ReplyDao.getReplyDao().replies(1);
-										
-		System.out.print(String.valueOf(replies2));
-		
-		
+		ArrayList<Video> videos = VideoDao.getVideoDAO().getAllVideo();
+		// System.out.println(thumb);
+		int r_count = ReplyDao.getReplyDao().replycount();
+		String path = request.getSession().getServletContext().getRealPath("web/upload");
+		//System.out.print("path : "+path);
 	%>
 	
 	<div style="background-color: white;">
 		<div class="row m-0">
+			<div class = "col-md-1 fixed">
+				<%@ include file = "sidebar.jsp" %> 
+			</div>
 			<div class="col-md-10 p-0" style="overflow-y: auto; margin: 0 auto;">
 				<div class="row m-0">
 					<!-- 메인-->
@@ -35,7 +42,7 @@
 							<div class="row">
 									<video style="border-radius: 10px;" controls="controls" width="100%">
 										<!-- 영상 자체에 소리가 없음 -->
-										<source src="../clip/Seoul.mp4">
+										<source src="../video/Seoul.mp4">
 									</video>
 								
 							</div>
@@ -77,59 +84,70 @@
 								</div>
 							</div>
 							<hr>
-		
 						</div>
 
-						<div class="col-md-4" style="margin-top: 50px;">
-							<!-- 댓글 -->
+						<!-- 댓글 -->
+						<div id="replybox" class="col-md-4" style="margin-top: 50px;">
 							<div style=" margin: 0 auto; height: 1000px;" >
-								<div >
-									<div id=replylist style="overflow-y: auto; height:700px;" >
+									<div class="mr=0" id=replylist style="overflow-y: auto; height:700px;" >
 										<%
-											for (int i = 0; i<replies2.size(); i++) {
-												System.out.print(replies2.size());
+											for (Reply temp : replies2) {
+												//System.out.print(replies2.size());
+												for(int i = 0; i < videos.size(); i++){
+													String thumb = videos.get(i).getV_thumbnail().split("_")[0];
+													//System.out.println(videos.get(i).getV_path() + "/" + thumb);
+													String c_img = VideoDao.getVideoDAO().getImg(videos.get(i).getM_no());
 										%>
-											<section>
-											<div class="col-md-12 d-flex justify-content-start mt-1 row">
-												<a href="Main.jsp" class="col-md-1 px-0"><img src="../img/woman.jpg" class="col-md-12 p-0"  style="width: 40px; height: 40px; border-radius: 50%;"></a>
-												<div class="col-md-11 pl-2 mr-0">
-													<a  href="#"><%=replies2.get(i).getC_name() %></a>
-													<div class="pl-0 my-2"><%=replies2.get(i).getR_contents() %></div>
+											<div class="col-md-12 d-flex justify-content-start ml-1 mt-1 mr-0 row">
+												<a href="../view/channel/newchannel.jsp" class="col-md-1 px-0"><img src="<%=c_img %>" class="col-md-12 p-0"  style="width: 40px; height: 40px; border-radius: 50%;"></a>
+												<div class="col-md-9 pl-2 mr-0">
+													<a  href="../view/channel/newchannel.jsp"><%=temp.getC_name() %></a>
+													<div class="pl-0 my-2"><%=temp.getR_contents() %></div>
 												</div>
+												<% //if (loginid != null && loginid.equals(temp.getC_name())){%>
+												<div class="col-md-2 mt-3 d-flex justify-content-between px-1 row" style="color: #656461; cursor: pointer;">
+													<a onclick="replydelete(<%=temp.getR_no()%>);">삭제</a>
+													<a onclick="replyupdate(<%=temp.getR_no()%>);">수정</a>
+												</div>
+												<div class="col-md-12 ml-4 row" id="updatereply" style="display: none;">
+													
+												</div>
+												<%//} %>
 											</div>
-											</section>
-										<%	} %>
+										<%	
+											}
+										} 
+										%>
 									</div>
-								</div>
 								<!-- 댓글 쓰기 -->
 								<div class="mt-2">
 									<div class="col-md-5 d-flex flex-direction:row">
-										<div style="font-size: 1.2rem;">댓글 <span>538</span>개 </div>
+										<div style="font-size: 1.2rem;">댓글 <span></span><%=r_count%>개 </div>
 									</div>
 									<div class="col-md-12 d-flex justify-content:end py-2">
 										<a  href="#"><img src="../img/woman.jpg" width="40" height="40" style="border-radius: 50%;"></a>
-										<textarea name="replytext" placeholder="공개 댓글 추가" class=" form-control ml-3"></textarea>
+										<textarea id="replytext" placeholder="공개 댓글 추가" class=" form-control ml-3" onchange="replywrite(<%=v_no%>);"></textarea>
 									</div>
 									<div class="col-md-12 d-flex justify-content-end py-2">
+									<!-- 로그인이 되어있을 때 -->
+									<% //if (loginid != null) {%>
 										<div class="row">
-											<button class="btn btn-dark mr-3" onclick="replyreg();">등록</button>
+											<button id ="btnreplywrite" class="btn btn-dark mr-3">등록</button>
 											<button class="btn btn-light" id="replycancel">취소</button>
 										</div>
+										<%//} %>
 									</div>
 								</div>
 							</div>
 						</div>
-						
-
 					<!-- 추천비디오 라인 -->
 					<div>
-
 						<!-- 추천 영상 목록 -->
 						<div class="col-md-12   pr-2 pd-2 pl-0 mt-3">
 							<div class="row col-md-12 m-0 ">
 								<%
 								
-						        for (int i = 0; i < 107; i++) {
+						        for (Video temp : videos) {
 						    	 %>
 								<div class="col-md-2 pl-0 mb-4" style="border-radius: 15px;">
 									<div>
@@ -138,19 +156,18 @@
 										</a>
 									</div>
 									<div class="col-md-12 mt-2 pl-0 pr-0">
-									    <h5><%//v_name %>영상 제목</h5>
+									    <h5><%=temp.getV_name() %></h5>
 									    <a  href="#">
 											<img src="../img/woman.jpg" width="20" height="20" style="border-radius: 50%;">
 										</a>
 										<a  href="#">
-											<span>채널명<%//c_name %></span>
+											<span>채널명</span>
 										</a>
 									</div>
 								</div>
 								<%}%>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
