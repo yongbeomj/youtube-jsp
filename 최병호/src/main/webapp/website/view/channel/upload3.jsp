@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- fsdfds -->
+	<!-- 정보 수정 및 업로드 -->
 	
 	<div class = "col-md-2">
 		<%@include file="../sidebar.jsp"%>

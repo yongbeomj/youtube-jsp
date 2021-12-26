@@ -44,7 +44,6 @@
 							</div>
 						</div>
 						<div class="col" style="width: 1000px; height: 180px;">
-
 							<img src="../../upload/<%=channel.getC_image()%>" alt="" width="100%" height="100%"
 								style="border-radius: 15px;" />
 						</div>

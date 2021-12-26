@@ -16,7 +16,7 @@
 <body>
 <%
 // String folderpath2 = request.getSession().getServletContext().getRealPath("");  // 서버 경로 설정 
-String folderpath = "C:/Users/119vk/git/youtube-jsp/Youtube/src/main/webapp/website/upload";
+String folderpath = "C:/Users/119vk/git/youtube-jsp/최병호/src/main/webapp/website/upload";
 MultipartRequest multi = new MultipartRequest(request, folderpath, 1024 * 1024 * 10, "UTF-8",
 		new DefaultFileRenamePolicy());
 
@@ -27,6 +27,7 @@ String c_info = multi.getParameter("c_info");
 String image = multi.getFilesystemName("c_image");
 
 c_presentation = c_presentation.replaceAll("<","&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>");
+c_info = c_info.replaceAll("<","&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>");
 c_info = c_info.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\S)*(/)?","");
 
 // 첨부파일이 없을경우 이전에 존재했던 파일을 전달

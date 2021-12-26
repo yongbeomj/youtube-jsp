@@ -124,6 +124,26 @@ public class ChannelDAO extends DB {
 		
 	}
 	
+	//  본인 채널 번호 가져오기( 회원 번호의 고유채널번호 )
+		public int getChannelNo(int m_no) {
+			String sql = "select c_no from channel where m_no=?";
+			
+			try {
+				preparedStatement =  connection.prepareStatement(sql);
+				preparedStatement.setInt(1, m_no);
+				resultSet = preparedStatement.executeQuery();
+				
+				if(resultSet.next()) {
+					
+					return resultSet.getInt(1);
+				}
+				
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}return 0;
+			
+		}
+	
 	
 	
 	

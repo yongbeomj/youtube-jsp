@@ -9,8 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
+<!-- 채널 커뮤니티 -->
 	<div class="col-md-2">
 		<%@include file="../sidebar.jsp"%>
 
@@ -68,7 +67,7 @@
 						<div class="offset-6"></div>
 						<div class="mx-4"></div>
 						<div class="mx-5">
-							<a href="../channel/upload3.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
+							<a href="../channel/upload2.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
 						</div>
 					</div>
 					

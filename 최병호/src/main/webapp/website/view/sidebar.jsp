@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	
 	<!-- 본인 css 호출 -->
-	<link rel="stylesheet" href="/Youtube/website/css/main.css">
+	<link rel="stylesheet" href="/최병호/website/css/main.css">
 </head>
 <body>
 	
@@ -30,7 +30,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 	<!-- 본인 js 호출 -->
-	<script src="/Youtube/website/js/main.js"></script>
+	<script src="/최병호/website/js/main.js"></script>
 	
 	<%
 		Login login = (Login)session.getAttribute("login");
@@ -76,12 +76,12 @@
 	        	<input type = "text" placeholder="Search" style="margin-left: 20px; margin-bottom: 5px; width: 11rem;" class = "form-control">
 	        </li>
 	        <li>
-	            <a href="/Youtube/website/view/main.jsp">
+	            <a href="/최병호/website/view/main.jsp">
 	               <h4>홈</h4>
 	            </a>
 	        </li>
 	        <li class = "my-2">
-	            <a href="/Youtube/website/view/channel/newchannel.jsp">
+	            <a href="/최병호/website/view/channel/newchannel.jsp">
 	                <h4>내 채널</h4>
 	            </a>
 	        </li>
