@@ -18,7 +18,7 @@ public class MemberDao extends DB {
 
 	// 회원가입
 	public boolean imgsignup(Member member) {
-		
+
 		String sql = "insert into member(m_id , m_pw , m_name , m_birth , m_phone, m_image) value (?,?,?,?,?,?)";
 
 		try {
@@ -36,7 +36,7 @@ public class MemberDao extends DB {
 		}
 		return false;
 	}
-	
+
 	// 채널 추가
 	public boolean channelregister(int m_no) {
 		String sql = "insert into channel(c_name) value (?)";
@@ -50,6 +50,7 @@ public class MemberDao extends DB {
 		}
 		return false;
 	}
+
 	// 로그인
 	public boolean login(String id, String pw) {
 		String sql = "select * from member where m_id = ? and m_pw = ?";
@@ -177,4 +178,18 @@ public class MemberDao extends DB {
 		return false;
 	}
 
-} 
+	// 회원수정
+	public boolean update(String type, String newdata, String id) {
+		String sql = "update member set " + type + " = ? where m_id = ?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, newdata);
+			preparedStatement.setString(2, id);
+			preparedStatement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+		}
+		return false;
+	}
+
+}

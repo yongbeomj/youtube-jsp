@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<input type="hidden" id="findid">
 	<%
 	request.setCharacterEncoding("UTF-8");
 	String name = request.getParameter("name");
@@ -17,11 +16,10 @@
 	String result = MemberDao.getMemberDao().findid(name, phone);
 	System.out.println("result : " + result);
 	if (result != null) {
-		out.print("1");
-		System.out.println("성공");
+		out.print("<script>alert('아이디 : "+result+"');</script>");
+		out.println("<script>location.href='../../view/member/login.jsp';</script>");
 	} else {
-		out.print("0");
-		System.out.println("실패");
+		response.sendRedirect("../../view/member/findid.jsp");
 	}
 	%>
 
