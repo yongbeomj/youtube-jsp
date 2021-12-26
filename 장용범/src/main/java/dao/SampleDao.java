@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.ArrayList;
+
 import dto.Member;
 import dto.Sample;
 
@@ -15,7 +17,8 @@ public class SampleDao extends DB {
 		return sampleDao;
 	}
 	
-	public Sample getvideo() {
+	public ArrayList<Sample> getvideo() {
+		ArrayList<Sample> video = new ArrayList<>();
 		String sql = "select * from sample";
 		
 		try {
@@ -28,8 +31,9 @@ public class SampleDao extends DB {
 						resultSet.getString(3),
 						resultSet.getString(4),
 						resultSet.getString(5));
-				return sample;
+				video.add(sample);
 			}
+			return video;
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
