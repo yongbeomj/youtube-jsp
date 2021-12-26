@@ -2,14 +2,12 @@ package dao;
 
 import java.util.ArrayList;
 
-import javax.imageio.event.IIOReadProgressListener;
 
 import dto.Reply;
 
 public class ReplyDao extends DB{
 	
 	public ReplyDao() {
-		super();
 	}
 	public static ReplyDao replyDao = new ReplyDao();
 	
@@ -19,13 +17,14 @@ public class ReplyDao extends DB{
 	
 	//리플 쓰기
 	public boolean replywrite(Reply reply) {
-		String sql = "INSERT INTO reply (m_no, v_no, r_contents) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO reply (m_no, v_no, r_contents) VALUES (?, ?, ?);";
 		
 		try {
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, reply.getM_no());
 			preparedStatement.setInt(2, reply.getV_no());
 			preparedStatement.setString(3, reply.getR_contents());
+			//preparedStatement.setString(4, reply.getC_name());
 			preparedStatement.executeUpdate();
 			return true;
 		} catch (Exception e) {
@@ -38,7 +37,7 @@ public class ReplyDao extends DB{
 	public ArrayList<Reply> replies (int v_no){
 		ArrayList<Reply> replies = new ArrayList<Reply>();
 		try {
-			String sql = "select * from reply where v_no= ? order by r_no asc"; //오름차순
+			String sql = "select * from reply where v_no= ? order by r_date asc"; //오름차순
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, v_no);
 			resultSet = preparedStatement.executeQuery();
@@ -50,7 +49,7 @@ public class ReplyDao extends DB{
 						resultSet.getString(4),
 						resultSet.getString(5)
 						);
-				System.out.println("reply : " + reply.getR_no() + ", " + reply.getM_no() + ", " + reply.getV_no() + ", " + reply.getC_name());
+				//System.out.println("reply : " + reply.getR_no() + ", " + reply.getM_no() + ", " + reply.getV_no() + ", " + reply.getC_name());
 				replies.add(reply);
 				//System.out.println("replies : " + replies.size());
 			}
@@ -64,7 +63,7 @@ public class ReplyDao extends DB{
 	
 	//채널(멤버) 이름 가져오기(댓글)
 	public String getchannelname(int m_no) {
-		String sql = "select c_name from member where m_no=?";
+		String sql = "select c_name from channel where m_no=?";
 		try {
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, m_no);
@@ -113,6 +112,36 @@ public class ReplyDao extends DB{
 			 return true;
 		 }catch (Exception e) {
 			 System.out.println("replydelete method(): " + e.getMessage());
+		}
+		return false;
+	 }
+	 
+	 //리플 총 개수 세기
+	 public int replycount() {
+		 String sql = "SELECT count(*) FROM reply";
+		 try {
+			 preparedStatement = connection.prepareStatement(sql);
+			 resultSet= preparedStatement.executeQuery();
+			 if(resultSet.next()) {
+				 return resultSet.getInt(1);
+			 }
+		 }catch (Exception e) {
+			 System.out.println("replycount method(): " + e.getMessage());
+		}
+		return 0;
+	 }
+	 
+	 //댓글 수정
+	 public boolean replyupdate(String r_contents, int r_no) {
+		 String sql ="update reply set r_contents=? where r_no=?";
+		 try {
+			 preparedStatement = connection.prepareStatement(sql);
+			 preparedStatement.setString(1, r_contents);
+			 preparedStatement.setInt(2, r_no);
+			 preparedStatement.executeUpdate();
+			 return true;
+		 }catch (Exception e) {
+			 System.out.println("replyupdate method(): " + e.getMessage());
 		}
 		return false;
 	 }
