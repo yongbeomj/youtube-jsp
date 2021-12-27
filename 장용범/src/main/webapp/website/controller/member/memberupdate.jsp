@@ -14,7 +14,12 @@
 	String newname = request.getParameter("newname");
 	String newbirth = request.getParameter("newbirth");
 	String newphone = request.getParameter("newphone");
-
+	String pw = request.getParameter("password");
+	String pwj = MemberDao.getMemberDao().getmember(id).getM_pw();
+	String newpw = request.getParameter("inputpw");
+	System.out.println("newpw : " +newpw);
+	String newpwconfirm = request.getParameter("inputpwconfirm");
+	System.out.println("newpwconfirm : " + newpwconfirm);
 	// name db처리
 	if( newname != null  ){
 		if(MemberDao.getMemberDao().update( "m_name" ,  newname, id) ){
@@ -40,6 +45,14 @@
 		}
 	}
 	
+	if( newpw != null && newpw.equals(newpwconfirm) ){
+		if(MemberDao.getMemberDao().update("m_pw", newpw, id)) {
+			out.print("1");
+		} else {
+			out.print("0");
+		}
+	}
 
 
 %>
+

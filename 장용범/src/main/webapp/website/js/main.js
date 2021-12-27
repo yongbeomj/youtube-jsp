@@ -116,71 +116,123 @@ function signupcheck() {
 
 function namechange(){ 
 		
-	document.getElementById("tdname").innerHTML = "<input type='text' id='name' class='form-control'>";
-	document.getElementById("btnname").innerHTML = "<button id='namechangebtn' class='form-control'>확인</button>";
-
+	document.getElementById("inputname").style = "display:block";
+	document.getElementById("btnname").style = "display:none";
+	document.getElementById("namechangebtn").style = "display:block";
+	
 	$( function(){
 		$("#namechangebtn").click( function() { 
 			$.ajax({ 
 				url : "../../controller/member/memberupdate.jsp" ,	
-				data :{ newname:document.getElementById("name").value} , 	
+				data :{ newname:document.getElementById("inputname").value} , 	
 				success : function( result ){ 
 					if( result == 1 ){
-						document.getElementById("tdname").innerHTML =  document.getElementById("name").value;
+						document.getElementById("tdname").innerHTML =  document.getElementById("inputname").value;
 					}else{
 						alert("수정 오류 [관리자에게 문의 바랍니다]");
 					}
+					document.getElementById("inputname").style = "display:none";
+					document.getElementById("btnname").style = "display:block";
+					document.getElementById("namechangebtn").style = "display:none";
+					location.reload();
 				}
 			});
 		});
 	});
 }
-
 function bitrhchange(){ 
 		
-	document.getElementById("tdbirth").innerHTML = "<input type='text' id='birth' class='form-control'>";
-	document.getElementById("btnbirth").innerHTML = "<button id='bitrhchangebtn' class='form-control'>확인</button>";
-
+	document.getElementById("inputbirth").style = "display:block";
+	document.getElementById("btnbirth").style = "display:none";
+	document.getElementById("birthchangebtn").style = "display:block";
+	
 	$( function(){
 		$("#birthchangebtn").click( function() { 
 			$.ajax({ 
 				url : "../../controller/member/memberupdate.jsp" ,	
-				data :{ newbirth:document.getElementById("birth").value} , 	
+				data :{ newbirth:document.getElementById("inputbirth").value} , 	
 				success : function( result ){ 
 					if( result == 1 ){
-						document.getElementById("tdbirth").innerHTML =  document.getElementById("birth").value;
+						document.getElementById("tdbirth").innerHTML =  document.getElementById("inputbirth").value;
 					}else{
 						alert("수정 오류 [관리자에게 문의 바랍니다]");
 					}
+					document.getElementById("inputbirth").style = "display:none";
+					document.getElementById("btnbirth").style = "display:block";
+					document.getElementById("birthchangebtn").style = "display:none";
+					location.reload();
 				}
 			});
 		});
 	});
 }
-
 function phonechange(){ 
 		
-	document.getElementById("tdphone").innerHTML = "<input type='text' id='phone' class='form-control'>";
-	document.getElementById("btnphone").innerHTML = "<button id='phonechangebtn' class='form-control'>확인</button>";
-
+	document.getElementById("inputphone").style = "display:block";
+	document.getElementById("btnphone").style = "display:none";
+	document.getElementById("phonechangebtn").style = "display:block";
+	
 	$( function(){
 		$("#phonechangebtn").click( function() { 
 			$.ajax({ 
 				url : "../../controller/member/memberupdate.jsp" ,	
-				data :{ newphone:document.getElementById("phone").value} , 	
+				data :{ newphone:document.getElementById("inputphone").value} , 	
 				success : function( result ){ 
-					if( result == 1 ){ 	// js 변수는 자료형 없다
-						document.getElementById("tdphone").innerHTML =  document.getElementById("phone").value;
+					if( result == 1 ){
+						document.getElementById("tdphone").innerHTML =  document.getElementById("inputphone").value;
 					}else{
 						alert("수정 오류 [관리자에게 문의 바랍니다]");
 					}
+					document.getElementById("inputphone").style = "display:none";
+					document.getElementById("btnphone").style = "display:block";
+					document.getElementById("phonechangebtn").style = "display:none";
+					location.reload();
 				}
 			});
 		});
 	});
 }
 
+
 /* 회원정보 수정 end */
+
+/* 비밀번호 변경 */
+
+
+$("#pills-password a").click(function(e) {
+e.preventDefault();
+$(this).tab("show");
+});
+
+function pwchange(){
+	document.getElementById("btnpw").style = "display:none";
+	document.getElementById("pwchangebtn").style = "display:block";
+	document.getElementById("inputpw").style = "display:block";
+	document.getElementById("inputpwconfirm").style = "display:block";
+	$(function(){
+	
+		$("#btnpw").click(function(){
+			$.ajax({
+				url : "../../controller/member/memberupdate.jsp" ,
+				data : {
+					newpw : document.getElementById("inputpw").value,
+					newpwconfirm : document.getElementById("inputpwconfirm").value},
+				success : function(result){
+					if(result == 1){
+						alert('비밀번호가 변경되었습니다');
+					} else {
+						document.getElementById("updatepwresult").innerHTML = "비밀번호가 일치하지 않습니다";
+					}
+					document.getElementById("btnpw").style = "display:block";
+					document.getElementById("pwchangebtn").style = "display:none";
+					document.getElementById("inputpw").style = "display:none";
+	document.getElementById("inputpwconfirm").style = "display:none";
+				}
+			});
+		});
+	});
+}
+/* 비밀번호 변경 end*/
 
 
 /* 회원탈퇴 [ ajax : jquery  ] */ 

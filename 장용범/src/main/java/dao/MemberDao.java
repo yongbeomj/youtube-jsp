@@ -176,8 +176,24 @@ public class MemberDao extends DB {
 		}
 		return false;
 	}
-
-	// 회원수정
+	
+	// 아이디, 패스워드 일치여부 확인
+	public boolean checkidpw(String id, String password) {
+		String sql1 = "select * from member where m_id =? and m_pw=?"; // 회원검사
+		try {
+			preparedStatement = connection.prepareStatement(sql1);
+			preparedStatement.setString(1, id);
+			preparedStatement.setString(2, password);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+	
 	public boolean update(String type, String newdata, String id) {
 		String sql = "update member set " + type + " = ? where m_id = ?";
 		try {
@@ -190,5 +206,7 @@ public class MemberDao extends DB {
 		}
 		return false;
 	}
+	
+	// 비밀번호 수정
 
 }
