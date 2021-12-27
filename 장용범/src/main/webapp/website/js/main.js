@@ -207,13 +207,22 @@ function phonechange(){
 /* 회원탈퇴 end */
 
 function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      document.getElementById('preview').src = e.target.result;
-    };
-    reader.readAsDataURL(input.files[0]);
+	
+  if (input.files && input.files[0]) { // 현재 태그에 파일이 있을경우 
+    var reader = new FileReader();  // 이미지 경로 가져오는 객체 
+    reader.onload = function(e) {	// 가져왔을때 이벤트 실행 [인수->파일경로 ]   
+		document.getElementById('preview').src = e.target.result; // 가져온 이미지경로를 이미지 속성에 추가 	    
+	};
+    reader.readAsDataURL(input.files[0]);	// 객체에 태그 추가 
   } else {
-    document.getElementById('preview').src = "";
+    document.getElementById('preview').src = ""; // 없을경우 
   }
 }
+
+
+
+
+
+
+
+
