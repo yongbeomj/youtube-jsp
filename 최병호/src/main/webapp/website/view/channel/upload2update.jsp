@@ -21,21 +21,20 @@
 
 	</div>
 	<%	
-		// request를 통해 channelboard에서 누른 cb_no값을 찾아야됨  
+		// newchannel3에서 받은 request를 통해 channelboard에서 누른 cb_no값을 찾아야됨  
 		//int cb_no = request.getParameter("cb_no");
 		// cb_no를 가지고와서 해당 cb_no의 게시물을 업데이트 시킬거임 (즉 이건 수정이다 이 말씀이지)
+		int cb_no = Integer.parseInt(request.getParameter("cb_no")); 
 		int m_no = MemberDao.getMemberDao().getmemberno(loginid);
 		System.out.println(m_no);
 		int c_no = ChannelDAO.getChannelDAO().getChannelNo(m_no);
+		Channel channel = ChannelDAO.getChannelDAO().getChannelinfo(m_no);
+		System.out.println(channel.getC_name());
+		ChannelBoard channelBoard = ChannelBoardDao.getChannelBoardDao().channelBoardSelect(c_no, cb_no);
 		
-		// 단순히 게시물을 등록하기 위해서는 c_no를 우선적으로 알아야하고 그다음으로 c_no를 통해 cb_no를 계속 늘려야 게시물 증가임 
-		ArrayList<ChannelBoard> channelboards = ChannelBoardDao.getChannelBoardDao().channelBoardList(c_no);
-		System.out.println(c_no);
-		
-	
 	%>
 	<div class = "container" style ="margin-top: 100px;  ">
-		<form action="../../controller/channel/channelboardwritecontroller.jsp" method ="post" enctype = "multipart/form-data">
+		<form action="../../controller/channel/channelboardwriteupdatecontroller.jsp" method ="post" enctype = "multipart/form-data">
 			<div class = "card col" >
 				<div class = "card-body" >
 					
@@ -45,6 +44,7 @@
 					<div class ="row">
 						<div class ="col-sm2 offset-xs-2" style ="width : 256px; height: 454px; border-radius: 5%; border: dotted 2px;">
 						<br><br><br>
+								
 								<div class="d-flex justify-content-center">
 									<img src="../../img/land3.png" alt="" style = "width : 30px; height: 30px;" >
 								</div>
@@ -62,20 +62,21 @@
 									<span style ="font-size: 3px;">720x1280 해상도 이상</span>
 								</div>
 								<br>
+								<!-- 이전 이미지 파일 받는 태그 -->
+								<input type = "hidden" name="oldfile" value = "<%=channelBoard.getCb_image() %>" >
 								
 								<!-- 게시물 이미지 파일 첨부 -->
-								<input id="cb_image" name="cb_image" class ="form-control" type = "file" style ="" > 
+								<input id="cb_image" name="cb_image" class ="form-control" type = "file" style ="" > *<%=channelBoard.getCb_image() %>
 						</div>
 						<div class ="offset-md-2 col-md-7">
 							
-							
 							<label >제목</label> 
-							<input id = "cb_title" name="cb_title" type="text" class="form-control" placeholder = "채널 이름" > 
+							<input id = "cb_title" name="cb_title" type="text" class="form-control" placeholder = "채널 이름" value ="<%=channelBoard.getCb_title()%>" > 
 							<br>
 							<label >내용</label> 
-							<textarea id = "cb_contents" name="cb_contents" class="form-control" >  </textarea>
+							<textarea id = "cb_contents" name="cb_contents" class="form-control" ><%=channelBoard.getCb_contents() %>  </textarea>
 							<br><br><br><br><br><br><br>
-							
+							<input type = "hidden" id = "cb_no" name="cb_no" class="form-control" value = "<%=cb_no%>" >
 							<button type ="submit" class ="btn btn-danger">게시</button>
 							<a href = "../../view/channel/newchannel3.jsp"> <button type ="button" class ="btn btn-danger">취소</button></a>
 						</div>

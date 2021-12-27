@@ -32,6 +32,22 @@ public class ChannelBoard {
 		this.cb_contents = cb_contents;
 		this.cb_image = cb_image;
 	}
+	
+	
+
+	public ChannelBoard(String cb_title, String cb_contents, String cb_image,int cb_no) {
+		this.cb_no = cb_no;
+		this.cb_title = cb_title;
+		this.cb_contents = cb_contents;
+		this.cb_image = cb_image;
+	}
+
+	public ChannelBoard(String cb_title, String cb_contents, String cb_image) {
+		
+		this.cb_title = cb_title;
+		this.cb_contents = cb_contents;
+		this.cb_image = cb_image;
+	}
 
 	public int getCb_no() {
 		return cb_no;

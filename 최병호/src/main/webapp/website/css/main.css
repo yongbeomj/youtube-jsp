@@ -4,6 +4,8 @@
 
 *{
 	font-family: 'Noto Sans KR', sans-serif;
+	
+ 	/*border : solid 1px black;*/
 }
 
 li { list-style:none; }
