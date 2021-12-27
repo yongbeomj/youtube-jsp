@@ -236,54 +236,67 @@ function replydelete(r_no){
 /* 댓글 수정 start */
 function replyupdate(r_no){
 	alert("업데이트");
-	ii = 0;
-	document.getElementById("updatereply"+r_no).style.display="";
-	document.getElementById("updatereply"+r_no).innerHTML="<textarea class='col-md-9' id='replytext2' placeholder='수정할 댓글 입력하기' class=' form-control ml-3'></textarea>"+
-										"<button class='col-md-2 p-1 ml-4 btn btn-outline-danger' id='r_contentschangebtn'>확인</button>";
-										
 	
-	document.getElementById("replyupdatebtn"+r_no).style.display = "none";
-	document.getElementById("replycancelbtn"+r_no).style.display = "";
-	//수정 버튼 눌렀을 때
-	$(function(){
-		$("#replycancelbtn"+r_no).click(function(){
-			ii=1;
-			document.getElementById("replycancelbtn"+r_no).style.display="none";
-			document.getElementById("replyupdatebtn"+r_no).style.display= "inline";
-			document.getElementById("updatereply"+r_no).style.display="none";
-			alert("취소버튼 누름");
-			ii=0;
-		});	
-	});
+	if(document.getElementById("ii").value == "0" ){ 
+		document.getElementById("updatereply"+r_no).style.display="";
+		document.getElementById("updatereply"+r_no).innerHTML="<textarea class='col-md-9' id='replytext2' placeholder='수정할 댓글 입력하기' class=' form-control ml-3'></textarea>"+
+											"<button class='col-md-2 p-1 ml-4 btn btn-outline-danger' id='r_contentschangebtn'>확인</button>";
+		
+		document.getElementById("ii").value = "1";
+		
+		document.getElementById("replycancelbtn"+r_no).style.display = "";
+		document.getElementById("replyupdatebtn"+r_no).style.display = "none";
 	
-							
-	alert(r_no);
-	if(ii=0){									
+		//수정 글자 눌렀을 때
 		$(function(){
-			alert(r_no);
-			$("#r_contentschangebtn").click(function(){	
-				//alert("버튼 클릭");			
-				//alert(r_no);
-				//alert(document.getElementById("replytext2").value);					
-				$.ajax({ //페이지 전환이 없음 [ 해당 페이지와 통신 ]
-					url : "../controller/clipviewreplyupdatecontroller.jsp",
-					data : {r_no:r_no, replytext2:document.getElementById("replytext2").value},
-					success : function(result){
-						alert(result);
-						if(result){
-							alert("댓글이 수정되었습니다.");
-							document.getElementById("updatereply"+r_no).style.display="none";
-							$( "#replybox" ).load(window.location.href + " #replybox" );
-							$( "#replydiv" ).load(window.location.href + " #replydiv" );
-						}else{
-							alert("오류발생. 관리자에게 문의");
-						}
-					}
-				});
-			});
+			$("#replycancelbtn"+r_no).click(function(){
+				
+				document.getElementById("replycancelbtn"+r_no).style.display="none";
+				document.getElementById("replyupdatebtn"+r_no).style.display= "inline";
+				document.getElementById("updatereply"+r_no).style.display="none";
+				alert("취소버튼 누름");
+				
+				document.getElementById("ii").value = "0";
+			});	
 		});
+		
 	}
-}
+				
+	alert(r_no);
+	
+	//수정버튼 눌렀을 때
+		$(function(){
+			if( document.getElementById("ii").value == "1" ){
+					
+				alert(r_no);
+				$("#r_contentschangebtn").click(function(){	
+					
+					//alert("버튼 클릭");			
+					//alert(r_no);
+					//alert(document.getElementById("replytext2").value);					
+					$.ajax({ //페이지 전환이 없음 [ 해당 페이지와 통신 ]
+						url : "../controller/clipviewreplyupdatecontroller.jsp",
+						data : {r_no:r_no, replytext2:document.getElementById("replytext2").value},
+						success : function(result){
+							alert(result);
+							if(result){
+								alert("댓글이 수정되었습니다.");
+								document.getElementById("updatereply"+r_no).style.display="none";
+								$( "#replybox" ).load(window.location.href + " #replybox" );
+								$( "#replydiv" ).load(window.location.href + " #replydiv" );
+								document.getElementById("ii").value = "0";
+								
+							}else{
+								alert("오류발생. 관리자에게 문의");
+							}
+						}
+					});
+				});
+				
+			}
+		});
+	}//if end
+
 /* 댓글 수정 end */
 
 

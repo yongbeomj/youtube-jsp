@@ -29,11 +29,14 @@
 	%>
 	
 	<div style="background-color: white;">
+	
 		<div class="row m-0">
 			<div class = "col-md-1 fixed">
 				<%@ include file = "sidebar.jsp" %> 
 			</div>
 			<div class="col-md-10 p-0" style="overflow-y: auto; margin: 0 auto;">
+			
+		<input type="hidden" id="ii" value="0">
 				<div class="row m-0">
 					<!-- 메인-->
 
