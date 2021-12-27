@@ -198,9 +198,9 @@ function replywrite(v_no){
 				},
 			success : function(result){
 				if (result == 1){
-					//document.getElementById("replybox").onload;
+					 $("#replybox").load(window.location.href + "#replybox");
 				} else {
-					//alert("non");
+					alert("오류발생. 관리자에게 문의");
 				}
 			}
 		});
@@ -217,9 +217,9 @@ function replydelete(r_no){
 		url : "../controller/clipviewreplydeletecontroller.jsp",
 		data : {r_no:r_no},
 		success : function(result){
-			if(result){
+			if(result ==1){
 				alert("댓글이 삭제되었습니다.");
-				//location.reload(); //현재 페이지 새로고침
+				 $("#replybox").load(window.location.href + "#replybox");
 			}else{
 				alert("오류발생. 관리자에게 문의");
 			}

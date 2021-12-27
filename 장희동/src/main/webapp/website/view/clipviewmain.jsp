@@ -19,7 +19,7 @@
 		//Login login = (Login)session.getAttribute("login");
 		//System.out.print("login : "+login);
 		int v_no = Integer.parseInt(request.getParameter("v_no"));
-		System.out.println("clipviewmain v_no : " + v_no);
+		//System.out.println("clipviewmain v_no : " + v_no);
 		ArrayList <Reply> replies2 = ReplyDao.getReplyDao().replies(1);
 		ArrayList<Video> videos = VideoDao.getVideoDAO().getAllVideo();
 		// System.out.println(thumb);
@@ -120,7 +120,7 @@
 										%>
 									</div>
 								<!-- 댓글 쓰기 -->
-								<div class="mt-2">
+								<div id="replydiv" class="mt-2">
 									<div class="col-md-5 d-flex flex-direction:row">
 										<div style="font-size: 1.2rem;">댓글 <span></span><%=r_count%>개 </div>
 									</div>

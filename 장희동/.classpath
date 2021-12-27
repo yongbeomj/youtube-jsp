@@ -13,7 +13,7 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/JHD/Desktop/homework/json_lib/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JHD/Desktop/homework/mysql-connector-java-8.0.27/mysql-connector-java-8.0.27/mysql-connector-java-8.0.27.jar"/>
+	<classpathentry kind="lib" path="C:/Users/504/git/yososu/yososuproject/src/main/webapp/WEB-INF/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/504/Desktop/library/mysql-connector-java-8.0.27/mysql-connector-java-8.0.27.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
