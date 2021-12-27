@@ -70,13 +70,14 @@ public class  ChannelBoardDao extends DB  {
 	// 게시물 업로드 등록 게시판 c_no 는 채널 넘버를 가지고 온후에 삽입 하도록 한다. // 본인채널에 insert  
 	public boolean channelBoardWrite(int c_no , ChannelBoard channelboard) {
 		
-		String sql  = "insert into channelboard(c_no, cb_title, cb_contents) values(?,?,?)";
+		String sql  = "insert into channelboard(c_no, cb_title, cb_contents,cb_image) values(?,?,?,?)";
 		
 		try {
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, c_no);
 			preparedStatement.setString(2, channelboard.getCb_title());
 			preparedStatement.setString(3, channelboard.getCb_contents());
+			preparedStatement.setString(4, channelboard.getCb_image());
 			
 			preparedStatement.executeUpdate();
 			
@@ -93,13 +94,14 @@ public class  ChannelBoardDao extends DB  {
 	// 채널 게시물 수정하기 // 수정할 게시물의 번호를 넘겨받은 이후(where문 적용) 해당 번호의 게시물 업데이트 하기
 	public boolean channelBoardUpdate(ChannelBoard channelBoard, int cb_no) {
 		
-		String sql = "update channelboard set cb_title =?, cb_contents=? where cb_no=? ";
+		String sql = "update channelboard set cb_title =?, cb_contents=?, cb_image=? where cb_no=? ";
 		
 		try {
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, channelBoard.getCb_title());
 			preparedStatement.setString(2, channelBoard.getCb_contents());
-			preparedStatement.setInt(3, cb_no);
+			preparedStatement.setString(3, channelBoard.getCb_image());
+			preparedStatement.setInt(4, cb_no);
 			
 			preparedStatement.executeUpdate();
 			
@@ -108,6 +110,19 @@ public class  ChannelBoardDao extends DB  {
 			
 		}return false;
 		
+	}
+	
+	// 채널 게시물 삭제하기 
+	public boolean channelBoardDelete(int cb_no) {
+		String sql = "delete from channelboard where cb_no=?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, cb_no);
+			preparedStatement.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}return false;
 	}
 	
 	

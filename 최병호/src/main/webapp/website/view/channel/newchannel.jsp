@@ -10,7 +10,6 @@
 </head>
 <body>
 
-
 	<div class="col-md-2">
 		<%@include file="../sidebar.jsp"%>
 
@@ -21,6 +20,7 @@
 		Channel channel = ChannelDAO.getChannelDAO().getChannelinfo(m_no);
 		System.out.println(channel.getC_name());
 	%>
+	
 	<div class="container">
 
 		<div class="col">
