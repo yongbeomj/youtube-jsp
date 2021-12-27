@@ -14,7 +14,6 @@ public class Reply {
 	//빈 생성자
 	public Reply() {}
 
-	
 	//풀 생성자
 	public Reply(int r_no, int m_no, int v_no, String r_contents, String r_date) {
 		super();
