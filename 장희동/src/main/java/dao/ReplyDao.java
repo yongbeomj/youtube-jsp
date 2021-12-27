@@ -37,7 +37,7 @@ public class ReplyDao extends DB{
 	public ArrayList<Reply> replies (int v_no){
 		ArrayList<Reply> replies = new ArrayList<Reply>();
 		try {
-			String sql = "select * from reply where v_no= ? order by r_date asc"; //오름차순
+			String sql = "select * from reply where v_no= ? order by r_date desc"; //오름차순
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, v_no);
 			resultSet = preparedStatement.executeQuery();

@@ -87,9 +87,9 @@
 						</div>
 
 						<!-- 댓글 -->
-						<div id="replybox" class="col-md-4" style="margin-top: 50px;">
+						<div   class="col-md-4" style="margin-top: 50px;">
 							<div style=" margin: 0 auto; height: 1000px;" >
-									<div class="mr=0" id=replylist style="overflow-y: auto; height:700px;" >
+									<div  id="replybox"  class="mr=0" id=replylist style="overflow-y: auto; height:700px;" >
 										<%
 											for (Reply temp : replies2) {
 												//System.out.print(replies2.size());
@@ -107,9 +107,10 @@
 												<% //if (loginid != null && loginid.equals(temp.getC_name())){%>
 												<div class="col-md-2 mt-3 d-flex justify-content-between px-1 row" style="color: #656461; cursor: pointer;">
 													<a onclick="replydelete(<%=temp.getR_no()%>);">삭제</a>
-													<a onclick="replyupdate(<%=temp.getR_no()%>);">수정</a>
+													<a id="replyupdatebtn<%=temp.getR_no()%>" onclick="replyupdate(<%=temp.getR_no()%>);" >수정</a>
+													<a id="replycancelbtn<%=temp.getR_no()%>" style="display: none;">취소</a>
 												</div>
-												<div class="col-md-12 ml-4 row" id="updatereply" style="display: none;">
+												<div class="col-md-12 ml-4 row" id="updatereply<%=temp.getR_no()%>" style="display: none;">
 													
 												</div>
 												<%//} %>
