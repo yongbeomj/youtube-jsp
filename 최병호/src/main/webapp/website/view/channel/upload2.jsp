@@ -15,7 +15,7 @@
 	<!-- 게시물 업로드 화면 -->
 	
 	<!-- 아 -->
-	<div class = "col-md-2">
+	<div  class = "col-md-2">
 		
 		<%@include file="../sidebar.jsp"%>
 
