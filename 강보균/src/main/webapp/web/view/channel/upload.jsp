@@ -60,12 +60,12 @@
 							<div class = "row mt-2">
 								<label class = "col-md-2 text-center mt-1">썸네일</label>
 								<div class = "col-md-10">
-									<input type = "file" class = "form-control" name = "thumbnail" id = "imgInput">
+									<input type = "file" class = "form-control" name = "thumbnail" id = "file" onchange = "readURL(this);">
 								</div>
 							</div>
 							<div class = "row">
-								<div class = "col-md-8 offset-md-2 mt-1" id = "preview">
-									<img id="image_section" src="#"/>
+								<div class = "col-md-8 offset-md-2 mt-1">
+									<img id="preview" src="#" style="width: 100%;"/>
 								</div>
 							</div>
 							<br><br><br><br><br><br><br>

@@ -11,7 +11,7 @@ public class VideoDAO extends DB{
 		return videoDAO;
 	}
 	
-	// db에 비디오 넣는 메소드
+	// db�뿉 鍮꾨뵒�삤 �꽔�뒗 硫붿냼�뱶
 	public boolean insertVideo(Video video) {
 		try {
 			
@@ -35,7 +35,7 @@ public class VideoDAO extends DB{
 		}
 	}
 	
-	// 모든 영상 가져오는 메소드
+	// 紐⑤뱺 �쁺�긽 媛��졇�삤�뒗 硫붿냼�뱶
 	public ArrayList<Video> getAllVideo() {
 		try {
 			
@@ -56,7 +56,7 @@ public class VideoDAO extends DB{
 		return null;
 	}
 	
-	// 채널 이미지를 가져오는 메소드
+	// 梨꾨꼸 �씠誘몄�瑜� 媛��졇�삤�뒗 硫붿냼�뱶
 	public String getImg(int m_no) {
 		try {
 			
@@ -76,5 +76,25 @@ public class VideoDAO extends DB{
 			System.out.println(e.getMessage());
 			return null;
 		}
+	}
+	
+	// 
+	public int getM_no(int v_no) {
+		try {
+			
+			String sql = "select m_no from video where v_no = ?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, v_no);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return 0;
 	}
 }

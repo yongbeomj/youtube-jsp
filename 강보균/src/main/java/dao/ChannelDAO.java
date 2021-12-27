@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import dto.Channel;
 
@@ -11,7 +12,7 @@ public class ChannelDAO extends DB {
 		return channelDAO;
 	}
 	
-	// 회원가입과 동시에 채널생성하는 메소드
+	// �쉶�썝媛��엯怨� �룞�떆�뿉 梨꾨꼸�깮�꽦�븯�뒗 硫붿냼�뱶
 	public boolean createChannel(Channel channel) {
 		try {
 			
@@ -34,7 +35,7 @@ public class ChannelDAO extends DB {
 		}
 	}
 	
-	// 멤버 번호를 반환하는 메소드
+	// 硫ㅻ쾭 踰덊샇瑜� 諛섑솚�븯�뒗 硫붿냼�뱶
 	public int getMemberNo(String m_id) {
 		try {
 			
@@ -55,7 +56,7 @@ public class ChannelDAO extends DB {
 		} 
 	}
 	
-	// 기본 채널 명
+	// 湲곕낯 梨꾨꼸 紐�
 	public String getDefaultChannelName(int m_no) {
 		try {
 			String sql;
@@ -77,7 +78,7 @@ public class ChannelDAO extends DB {
 		}
 	}
 	
-	// 채널명 가져오기
+	// 梨꾨꼸紐� 媛��졇�삤湲�
 	public String getChannelName(int m_no) {
 		try {
 			
@@ -97,5 +98,48 @@ public class ChannelDAO extends DB {
 			System.out.println(e.getMessage());
 			return null;
 		}
+	}
+	
+	public ArrayList<Channel> getChannel(int m_no) {
+		try {
+			
+			ArrayList<Channel> channels = new ArrayList<>();
+			String sql = "select * from channel where m_no = ?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, m_no);
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Channel channel = new Channel(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+				channels.add(channel);
+			}
+			
+			return channels;
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+	}
+	
+	public Channel getSoloChannel(int c_no) {
+		try {
+			
+			String sql = "select * from channel where c_no = ?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, c_no);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				Channel channel = new Channel(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+				return channel; 
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
 	}
 }

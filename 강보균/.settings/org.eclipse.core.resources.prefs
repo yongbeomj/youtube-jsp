@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/main/java/dao/ChannelDAO.java=UTF-8
 encoding//src/main/java/dao/DB.java=UTF-8
 encoding//src/main/java/dao/MemberDao.java=UTF-8
+encoding//src/main/java/dao/VideoDAO.java=UTF-8
