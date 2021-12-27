@@ -17,10 +17,9 @@ public class MemberDao extends DB {
 	}
 
 	// 회원가입
-	public boolean imgsignup(Member member) {
+	public boolean signup(Member member) {
 
 		String sql = "insert into member(m_id , m_pw , m_name , m_birth , m_phone, m_image) value (?,?,?,?,?,?)";
-
 		try {
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, member.getM_id());

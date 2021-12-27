@@ -26,9 +26,16 @@ String name = multi.getParameter("name");
 String birth = multi.getParameter("birth");
 String phone = multi.getParameter("phone");
 String image = multi.getFilesystemName("file");
+
+Member member = null;
+if (image != null) {
+	member = new Member(id, pw, name, birth, phone, image);	
+} else {
+	member = new Member(id, pw, name, birth, phone, "profile.jpg");
+}
 // 프로필사진 선택
-Member member = new Member(id, pw, name, birth, phone, image);
-boolean result = MemberDao.getMemberDao().imgsignup(member);
+
+boolean result = MemberDao.getMemberDao().signup(member);
 
 if (result) {
 	System.out.println("회원가입 성공");
