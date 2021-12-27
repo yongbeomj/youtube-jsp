@@ -38,7 +38,7 @@
 								<br>
 								<div class="d-flex justify-content-center">
 									
-									<span>업로드 할 채널 배경 이미지 선택</span>
+									<span> 업로드 할 채널 배경 이미지 선택</span>
 								</div>
 								
 								<br>
