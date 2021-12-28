@@ -91,3 +91,28 @@ function signupcheck() {
         $(".has-sidebar").toggleClass("toggled");
     });
 }(jQuery);
+
+
+var item = 2; // 게시물 갯수가 3개 이상이면 무한 스크롤 
+	// $(window) : 현재 창 
+	$(window).scroll(function() {
+		
+		if( $(window).scrollTop() == $(document).height() -$(window).height() ){
+			alert("ㅎㅇ2");
+			$.ajax({
+				url : "../../controller/channel/newchannelboard3controller.jsp",
+				data : {item : item},
+				success : function(result){
+					alert(result);
+					//alert(result);
+					$('section').append(result);
+				}
+			});
+			item++; // 스크롤 이벤트가 실행될때마다 게시물 1씩 증가 
+		}
+	});
+	
+	
+
+
+

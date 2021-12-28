@@ -30,6 +30,7 @@
 		ArrayList<ChannelBoard> channelboards = ChannelBoardDao.getChannelBoardDao().channelBoardList(c_no);
 		System.out.println(c_no);
 	%>
+	
 	<div class="container">
 
 		<div class="col">
@@ -145,7 +146,8 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="col-md-12  pr-2 pd-2 pl-0 mt-3">
-								<div class="">
+							<section>
+								
 									<%
 									for(ChannelBoard channelBoard : channelboards){
 									%>
@@ -190,9 +192,9 @@
 									%>
 									<!-- 커뮤니티 채널명 및 내용 작성 end -->
 									
+									</section>
 									
-									
-								</div>
+								
 								
 							</div>
 						</div>

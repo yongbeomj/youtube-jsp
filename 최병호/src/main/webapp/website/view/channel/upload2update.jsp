@@ -26,12 +26,10 @@
 		// cb_no를 가지고와서 해당 cb_no의 게시물을 업데이트 시킬거임 (즉 이건 수정이다 이 말씀이지)
 		int cb_no = Integer.parseInt(request.getParameter("cb_no")); 
 		int m_no = MemberDao.getMemberDao().getmemberno(loginid);
-		System.out.println(m_no);
 		int c_no = ChannelDAO.getChannelDAO().getChannelNo(m_no);
-		Channel channel = ChannelDAO.getChannelDAO().getChannelinfo(m_no);
-		System.out.println(channel.getC_name());
 		ChannelBoard channelBoard = ChannelBoardDao.getChannelBoardDao().channelBoardSelect(c_no, cb_no);
-		
+		System.out.println("c_no : "+c_no +"cb_no : " + cb_no + "m_no : " + m_no);
+		System.out.println(channelBoard.getCb_image() +"왜 안될까요ㅇㅇㅇㅇ");
 	%>
 	<div class = "container" style ="margin-top: 100px;  ">
 		<form action="../../controller/channel/channelboardwriteupdatecontroller.jsp" method ="post" enctype = "multipart/form-data">
@@ -66,7 +64,7 @@
 								<input type = "hidden" name="oldfile" value = "<%=channelBoard.getCb_image() %>" >
 								
 								<!-- 게시물 이미지 파일 첨부 -->
-								<input id="cb_image" name="cb_image" class ="form-control" type = "file" style ="" > *<%=channelBoard.getCb_image() %>
+								<input id="cb_image" name="cb_image" class ="form-control" type = "file" style ="" ><%=channelBoard.getCb_image() %>
 						</div>
 						<div class ="offset-md-2 col-md-7">
 							

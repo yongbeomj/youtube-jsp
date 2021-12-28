@@ -46,8 +46,9 @@ public class  ChannelBoardDao extends DB  {
 		
 		try {
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, c_no);
-			preparedStatement.setInt(2, cb_no);
+			preparedStatement.setInt(1, cb_no);
+			preparedStatement.setInt(2, c_no);
+			
 			resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
@@ -62,8 +63,8 @@ public class  ChannelBoardDao extends DB  {
 					);
 				return channelboard;
 			}
-		} catch (Exception e) {
-			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
 		}return null;
 	}
 	
