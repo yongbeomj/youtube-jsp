@@ -17,13 +17,14 @@ public class ReplyDao extends DB{
 	
 	//리플 쓰기
 	public boolean replywrite(Reply reply) {
-		String sql = "INSERT INTO reply (m_no, v_no, r_contents) VALUES (?, ?, ?);";
+		String sql = "INSERT INTO reply ( m_no, v_no, c_no, r_contents) VALUES (?,?,?,?);";
 		
 		try {
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, reply.getM_no());
 			preparedStatement.setInt(2, reply.getV_no());
-			preparedStatement.setString(3, reply.getR_contents());
+			preparedStatement.setInt(3, reply.getC_no());
+			preparedStatement.setString(4, reply.getR_contents());
 			//preparedStatement.setString(4, reply.getC_name());
 			preparedStatement.executeUpdate();
 			return true;
@@ -46,8 +47,9 @@ public class ReplyDao extends DB{
 						resultSet.getInt(1), 
 						resultSet.getInt(2), 
 						resultSet.getInt(3),
-						resultSet.getString(4),
-						resultSet.getString(5)
+						resultSet.getInt(4),
+						resultSet.getString(5),
+						resultSet.getString(6)
 						);
 				//System.out.println("reply : " + reply.getR_no() + ", " + reply.getM_no() + ", " + reply.getV_no() + ", " + reply.getC_name());
 				replies.add(reply);
@@ -90,7 +92,8 @@ public class ReplyDao extends DB{
 						resultSet.getInt(1), 
 						resultSet.getInt(2), 
 						resultSet.getInt(3), 
-						resultSet.getString(4),
+						resultSet.getInt(4), 
+						resultSet.getString(5),
 						null
 						);
 						
@@ -144,5 +147,19 @@ public class ReplyDao extends DB{
 			 System.out.println("replyupdate method(): " + e.getMessage());
 		}
 		return false;
+	 }
+	 
+	 public int findc_no (int m_no) {
+		 String sql = "select c_no from channel where m_no";
+		 try {
+			 preparedStatement = connection.prepareStatement(sql);
+			 resultSet= preparedStatement.executeQuery();
+			 if(resultSet.next()) {
+				 return resultSet.getInt(1);
+			 }
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return 0;
 	 }
 }

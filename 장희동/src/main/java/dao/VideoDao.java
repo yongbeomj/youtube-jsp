@@ -77,7 +77,7 @@ public class VideoDao extends DB{
 			return null;
 		}
 	}
-	
+	//회원 넘버로 비디오 넘버 가져오기
 	public int getv_no(int v_no) {
 		try {
 		String sql = "select v_no from video where m_no = ?";
@@ -92,4 +92,50 @@ public class VideoDao extends DB{
 		}
 		return 0;
 	}
+	
+	/////////////////////////////////////////////////////////////////////
+	//동영상 좋아요
+	public int videolikeupdate(int v_no, int m_no) {
+		 //1) 좋아요 버튼 -> 좋아요 [영상번호, 회원번호]
+		 //2) 영상번호와 회원번호가 일치한 좋아요가 없으면 좋아요 생성 //3) 있으면 좋아요 삭제
+		 String sql = null;
+		 sql = "select * from videolike where v_no="+v_no+" and m_no="+m_no;
+		 try {
+			 preparedStatement = connection.prepareStatement(sql);
+			 resultSet = preparedStatement.executeQuery();
+			 if(resultSet.next()) { //좋아요 기존에 존재하면 (검색이 되었다면)
+				 sql = "delete from videolike where v_no="+v_no+" and m_no="+m_no;
+				 preparedStatement = connection.prepareStatement(sql);
+				 preparedStatement.executeUpdate();
+				 return 1; // 좋아요 제거
+			 }else { //좋아요 기존에 존재하지 않으면 (검색이 안되면)
+				 sql = "insert into videolike(v_no, m_no) values("+v_no+","+m_no+")";
+				 preparedStatement = connection.prepareStatement(sql);
+				 preparedStatement.executeUpdate();
+				 return 2; // 좋아요 추가
+			 }
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return 0; //DB오류
+	 }
+	
+	
+	//영상 좋아요 확인 체크하기
+	 public boolean videolikecheck(int v_no, int m_no) {
+		 String sql = null;
+		 sql = "select * from videolike where v_no="+v_no+" and m_no="+m_no;
+		 try {
+			 preparedStatement = connection.prepareStatement(sql);
+			 resultSet = preparedStatement.executeQuery();
+			 if(resultSet.next()) { //좋아요 기존에 존재하면(검색이 되었다면)
+				 return true;
+			 }
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return false; //DB오류
+	 }
+		 
 }

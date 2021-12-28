@@ -16,11 +16,15 @@
 	
 
 	<%
+		//로그인 연결시	
 		//Login login = (Login)session.getAttribute("login");
+		//int m_no = login.getM_no();
+		
+		int m_no = 1;
 		//System.out.print("login : "+login);
 		int v_no = Integer.parseInt(request.getParameter("v_no"));
 		//System.out.println("clipviewmain v_no : " + v_no);
-		ArrayList <Reply> replies2 = ReplyDao.getReplyDao().replies(1);
+		ArrayList <Reply> replies2 = ReplyDao.getReplyDao().replies(v_no);
 		ArrayList<Video> videos = VideoDao.getVideoDAO().getAllVideo();
 		// System.out.println(thumb);
 		int r_count = ReplyDao.getReplyDao().replycount();
@@ -64,12 +68,26 @@
 										<div>
 											<a  href="#"><img src="../img/woman.jpg" width="48px" height="48px" style="border-radius: 50%;"></a>
 										</div>
-										<div class="col-md-5 pr-1">
+										<div class="col-md-9 pr-1 mr-3">
 											<a href="#">aaa</a><br>
 											<span>구독자 : 1202만명</span>
 										</div>	
-										<div class="col-md-2 pl-0 pr-0">
-											<a href="#" class="pt-1"><button class="btn btn-outline-dark">팔로우</button></a>
+										<div class="col-md-2 pl-4 pr-0">
+										<%//if(login != null){ //로그인 아이디가 존재하면
+											
+											//영상 좋아요 체크 메소드 !!로그인 아이디 연결해야됨
+											if(VideoDao.getVideoDAO().videolikecheck(v_no, m_no)){
+										%>
+											<button class="btn btn-outline-dark pt-1">팔로우</button>
+											<img id="videolike" class="ml-3"  src="../img/heartfill.png" onclick="v_like(<%=v_no %>,<%=m_no %>);" style="height: 30px; width: 30px; cursor: pointer;">
+										<%	
+											}else{ //좋아요가 존재하지 않으면
+										%>
+											<img id="videolike" class="ml-3"  src="../img/heart.png" onclick="v_like(<%=v_no %>,<%=m_no %>);" style="height: 30px; width: 30px; cursor: pointer;">
+										<%		
+											}
+										//}
+										%>
 										</div>
 										<!-- 기능 추가할 곳 좋아요나, 공유나, 보관함등 -->
 									</div>
@@ -95,7 +113,7 @@
 									<div  id="replybox"  class="mr=0" id=replylist style="overflow-y: auto; height:700px;" >
 										<%
 											for (Reply temp : replies2) {
-												//System.out.print(replies2.size());
+												System.out.print(replies2.size());
 												for(int i = 0; i < videos.size(); i++){
 													String thumb = videos.get(i).getV_thumbnail().split("_")[0];
 													//System.out.println(videos.get(i).getV_path() + "/" + thumb);

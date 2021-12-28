@@ -299,4 +299,35 @@ function replyupdate(r_no){
 
 /* 댓글 수정 end */
 
+/* 좋아요 시작 */
+function v_like(v_no, m_no){
+	alert("버튼눌림")
+	
+	if(m_no==0){
+		alert("로그인 후 찜하기를 할 수 있습니다.");
+		return;
+	}
+	
+	//비동기식 통신용
+	$(function(){
+		alert(v_no);
+		alert(m_no);
+		$.ajax({
+			url : "../controller/likecontroller.jsp",
+			data:{v_no : v_no, m_no : m_no }, //인수 담아서 넘기기
+			
+			//p_likecontroller.jsp 에서 out.print로 넘어온 값 result에 저장
+			success:function(result){ //좋아요 빼기
+				if(result == 1){
+					//alert(result);
+					document.getElementById("videolike").src = "../img/heart.png";
+				}else if(result==2){ //좋아요 추가하기
+					//alert(result);
+					document.getElementById("videolike").src = "../img/heartfill.png";
+				}
+			}
+		})
+	});
+}
 
+/*찜하기 끝*/

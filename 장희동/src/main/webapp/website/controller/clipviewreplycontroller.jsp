@@ -9,12 +9,14 @@ String r_contents = request.getParameter("r_contents");
 Login login = (Login)session.getAttribute("login");
 //System.out.println(login);
 //int m_no = login.getM_no();
+
 int m_no = 1;
 //System.out.println(m_no);
+int c_no = ReplyDao.getReplyDao().findc_no(m_no);
 int v_no = Integer.parseInt(request.getParameter("v_no"));
 //System.out.println(v_no);
 
-Reply reply = new Reply(m_no, v_no, r_contents);
+Reply reply = new Reply(c_no, m_no, v_no, r_contents);
 boolean rs = ReplyDao.getReplyDao().replywrite(reply);
 
 if(rs){
