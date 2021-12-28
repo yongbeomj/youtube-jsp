@@ -77,7 +77,7 @@ function signupcheck() {
 		document.getElementById("phoneresult").innerHTML = "사용가능한 전화번호형식입니다";
 		document.getElementById("phoneresult").style.color = "green";
 	}
- } 
+} 
 
 /* 회원가입 유효성검사 end */
 
