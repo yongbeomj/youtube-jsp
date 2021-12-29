@@ -16,7 +16,7 @@
 
 <%
 
-String folderpath = "C:/Users/ez201209/git/youtube-jsp/Youtube/src/main/webapp/website/upload";
+String folderpath = "C:/Users/504/git/youtube-jsp/Youtube/src/main/webapp/website/upload";
 MultipartRequest multi = new MultipartRequest(request, folderpath, 1024 * 1024 * 10, "UTF-8",
 		new DefaultFileRenamePolicy());
 

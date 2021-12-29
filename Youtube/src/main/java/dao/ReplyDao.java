@@ -180,4 +180,21 @@ public class ReplyDao extends DB{
 			} 
 			return 0;
 		}
+		
+		//댓글의 m_no로 멤버이미지 찾기
+		public int findm_image(int m_no) {
+			String sql = "select m_image from member where m_no = ?";
+			
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				preparedStatement.setInt(1, m_no);
+				resultSet = preparedStatement.executeQuery();
+				
+				if(resultSet.next()) {
+					return resultSet.getInt(1);
+				}
+			} catch (Exception e) {
+				
+			}return 0;
+		}
 }
