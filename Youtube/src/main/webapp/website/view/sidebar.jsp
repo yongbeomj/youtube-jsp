@@ -30,7 +30,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 	<!-- 본인 js 호출 -->
-	<script src="/Youtube/website/js/main.js"></script>
+	<script type = "text/javascript" src="/Youtube/website/js/main.js"></script>
 	
 	<%
 		Login login = (Login)session.getAttribute("login");
@@ -57,8 +57,8 @@
 	        	<a href="member/memberinfo.jsp">
 	               <span><%=loginid %>님</span>
 	            </a>
-	            <a href="../controller/member/logoutcontroller.jsp">
-	               <span>로그아웃</span>
+	            <a href="../controller/member/logoutcontroller.jsp"><span>로그아웃</span></a>
+	               
 	        </li>
 	    	<%		
 	    		} else {
@@ -76,17 +76,26 @@
 	        	<input type = "text" placeholder="Search" style="margin-left: 20px; margin-bottom: 5px; width: 11rem;" class = "form-control">
 	        </li>
 	        <li>
-	            <a href="main.jsp">
+	            <a href="/Youtube/website/view/main.jsp">
 	               <h4>홈</h4>
 	            </a>
 	        </li>
 	        <li class = "my-2">
+	            <a href="../controller/channel/mychannelcontroller.jsp?id=<%= loginid %>">
+	                <h4>내 채널</h4>
+	            </a>
+	        </li>
+	        <li class = "my-2">
 	            <a href="#" data-toggle="collapse" data-target="#menu-collapse-1">
+	            </a>
+	            <a href = "#">
 	                <h4>구독</h4>
 	            </a>
 	        </li>
 	        <li class = "my-2">
 	            <a href="#" data-toggle="collapse" data-target="#menu-collapse-2">
+	            </a>
+	            <a href = "#">
 	                <h4>보관함</h4>
 	            </a>
 	            <ul id="menu-collapse-2" class="collapse"> <!-- class="collapse in" : 콜랩스가 펼쳐진 상태 -->
@@ -116,9 +125,10 @@
 	                   	<%
 	                   		for(int i = 0; i < 13; i++){
 	                   	%>
-			                    <a href="#" data-toggle="collapse" data-target="#menu-collapse-4">
-			                    	<img alt="" src="">&emsp;image<span>&emsp;채널명</span><br>
-			                    </a>
+		                    	<a href = "#">
+			                    	<img alt="" src="">&emsp;image
+			                    	<span>&emsp;채널명</span><br>
+		                    	</a>
 	                   	<%	
 	                   		}
 	                   	%>
