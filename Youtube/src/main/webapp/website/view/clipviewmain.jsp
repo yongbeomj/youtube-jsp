@@ -124,6 +124,7 @@
 									System.out.print("replies2.size() : " + replies2.size());
 									for (Reply temp : replies2) {
 								%>
+								<!-- 본인 댓글창 -->
 								<div class="col-md-12 d-flex justify-content-start ml-1 mt-1 mr-0 row">
 									<a href="channel/newchannel.jsp" class="col-md-1 px-0"> <img src="../upload/<%=ReplyDao.getReplyDao().findm_image(temp.getM_no())%>" class="col-md-12 p-0"
 										style="width: 40px; height: 40px; border-radius: 50%;">
