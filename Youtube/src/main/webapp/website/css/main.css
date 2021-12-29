@@ -226,3 +226,16 @@ body {
 	transform:translate(0,-5px);
   	transition: all 0.7s ease;
 }
+
+#deleteresult{
+	font-size : 1.0rem;
+	color : red;
+}
+
+/* #profile{
+	padding : 6px 25px;
+	background-color : red;
+	border-radius : 4px;
+	color : white;
+	cursor : pointer;
+} */
