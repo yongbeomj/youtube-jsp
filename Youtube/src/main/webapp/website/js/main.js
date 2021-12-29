@@ -425,7 +425,6 @@ var item = 2; // 게시물 갯수가 3개 이상이면 무한 스크롤
 	$(window).scroll(function() {
 		
 		if( $(window).scrollTop() == $(document).height() -$(window).height() ){
-			alert("ㅎㅇ2");
 			$.ajax({
 				url : "../../controller/channel/newchannelboard3controller.jsp",
 				data : {item : item},

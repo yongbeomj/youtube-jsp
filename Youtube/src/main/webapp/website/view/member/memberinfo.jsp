@@ -35,8 +35,8 @@
 							<div class="border rounded">
 								<div class="row p-4">
 									<div class="col-md-3 justify-content-center align-self-center">
-										<img src="../../img/profile.jpg" class="rounded-circle"
-											width="75px">
+										<img src="../../img/<%=member.getM_image() %>" class="rounded-circle"
+											style="width:75px; height:75px">
 									</div>
 									<div class="col-md-9 justify-content-center align-self-center">
 										<p style="font-size: 20px;"><%=member.getM_id()%></p>
@@ -161,7 +161,7 @@
 								<h5 class="text-center">회원 탈퇴 하시겠습니까?</h5>
 								<div class="col-md-6 offset-3 text-center">
 									<form id="deleteform">
-										<br> <input type="password" name="password"
+										<br> <input type="password" id="password" name="password"
 											class="form-control p-2" placeholder="패스워드"> <br>
 										<div>
 											<span id="deleteresult"></span>
