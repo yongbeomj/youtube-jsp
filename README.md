@@ -69,7 +69,7 @@
 ### 6.3. Font : 노토 산스 
 - 눈누 CDN([링크](https://noonnu.cc/font_page/34))
 
-## 7. Controller 구조도
+## 7. Controller 구조도 (폴더 구조)
 <details>
 <summary>여기를 눌러주세요</summary>
 <div markdown="1">       
@@ -80,7 +80,7 @@
 </details>
 
 ## 8. Database 구조도
-- Table : Total 5EA
+- Table : Total 7EA
 <details>
 <summary>여기를 눌러주세요</summary>
 <div markdown="1">       
