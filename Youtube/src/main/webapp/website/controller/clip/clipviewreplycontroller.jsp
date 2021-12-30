@@ -27,7 +27,7 @@ System.out.println("c_no1 : " + c_no);
 
 
 
-Reply reply = new Reply(m_nofr, v_no, c_no, r_contents);
+Reply reply = new Reply(m_no, v_no, c_no, r_contents);
 boolean rs = ReplyDao.getReplyDao().replywrite(reply);
 System.out.println("rs" + rs);
 if(rs){

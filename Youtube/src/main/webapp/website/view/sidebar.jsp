@@ -48,7 +48,7 @@
 	       	</a>
 	       	<br>
 	    </span>
-	        <a href = "main.jsp" style="margin-left: 20px;"><img alt="" src="/Youtube/website/img/메인로고.png"></a>
+	        <a href = "/Youtube/website/view/main.jsp" style="margin-left: 20px;"><img alt="" src="/Youtube/website/img/로고.png"></a>
 	    <ul class="sidebar-nav my-3">
 	    	<%
 	    		if (loginid != null){
@@ -64,7 +64,7 @@
 	    		} else {
 	    	%>		
 	    	<li class = "d-flex justify-content-end" style="font-size: 13px;">
-	            <a href="member/login.jsp">
+	            <a href="/Youtube/website/view/member/login.jsp">
 	               <span>로그인</span>
 	            </a>
 	        </li>	

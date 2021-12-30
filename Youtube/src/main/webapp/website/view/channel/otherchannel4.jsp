@@ -1,3 +1,6 @@
+<%@page import="dao.FollowDao"%>
+<%@page import="dao.ChannelDao"%>
+<%@page import="dto.Channel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,12 +10,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
+	<%
+		int c_no = Integer.parseInt(request.getParameter("c_no"));
+		Channel channel = ChannelDao.getChannelDAO().getSoloChannel(c_no);
+	%>
 	<div class="col-md-2">
 		<%@include file="../sidebar.jsp"%>
-
 	</div>
+	<%
+		Member member2 = MemberDao.getMemberDao().getmember(loginid);
+		int m_no = MemberDao.getMemberDao().getmemberno(loginid);
+		boolean f_check = FollowDao.getFollowDao().followcheck(c_no, m_no);
+		int cm_no = ChannelDao.getChannelDAO().getm_No(c_no);
+		Member member3 = MemberDao.getMemberDao().mnoselect(cm_no);
+		member3 = MemberDao.getMemberDao().mnoselect(m_no);
+		int f_checkcount = FollowDao.getFollowDao().followerCount(c_no);
+		int f_checkcount2 = FollowDao.getFollowDao().followingCount(m_no);
+	%>
 	<div class="container">
 
 		<div class="col">
@@ -25,19 +39,33 @@
 								height="116px" style="border-radius: 50%;"></a>
 						</div>
 						<div class="col-md-2">
-							<h3>채널 이름</h3>
-							<span>계정이름</span>
+							<h3><%= channel.getC_name() %></h3>
+							<%
+								if(channel.getC_no() != MemberDao.getMemberDao().getmemberno(loginid)){
+							%>
+									<span></span> <!-- 계정명이 뭐지; -->
+							<%	
+								} else {
+							%>
+									<span><%= member2.getM_name() %></span> <!-- 계정명이 뭐지; -->
+							<%
+								}
+							%>
 							<div class="md-2 pt-2">
-								<a href="#" class="md-4"><button type="button"
-										class="btn btn-danger btn-block">
+								<%if(f_check  == true){%>
+								<a href="#" id ="follow" class="md-4" onclick="c_follow(<%=c_no%>,<%=m_no%>);">
+									<button type="button" class="btn btn-danger btn-block">
+										<span>팔로우 중</span>
+									</button>
+								</a>
+								<%} else{%>
+								<a href="#" id ="follow" class="md-4" onclick="c_follow(<%=c_no%>,<%=m_no%>);">
+									<button type="button" class="btn btn-danger btn-block">
 										<span>팔로우</span>
-									</button></a>
+									</button>
+								</a>
+								<%} %>
 							</div>
-						</div>
-						<div class="col" style="width: 1000px; height: 180px;">
-
-							<img src="../../img/land.jpg" alt="" width="100%" height="100%"
-								style="border-radius: 15px;" />
 						</div>
 					</div>
 				</div>
@@ -48,19 +76,30 @@
 				<div class="card-body">
 					<div class="row py-1">
 						<div class="pr-2 pl-2">
-							<span style="font-weight: bold">26</span> 팔로잉
+							<!-- 내가 팔로잉 한 채널 찾기 -->
+							<span style="font-weight: bold"><%=f_checkcount2%></span> 팔로잉
 						</div>
 						<div class="pr-2">
-							<span style="font-weight: bold">642.4k</span> 팔로워
+							<span style="font-weight: bold"><%=f_checkcount%></span> 팔로워
 						</div>
 						<div class="">
 							<span style="font-weight: bold">7M</span> 좋아요
 						</div>
 						<div class="offset-6"></div>
 						<div class="mx-4"></div>
-						<div class="mx-5">
-							<a href="../channel/upload3.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
-						</div>
+						<%
+							if(channel.getC_no() != MemberDao.getMemberDao().getmemberno(loginid)){
+						%>
+								<div></div>
+						<%	
+							} else {
+						%>
+								<div class="mx-5">
+									<a href="../channel/upload.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
+								</div>
+						<%
+							}
+						%>
 					</div>
 					<div style="font-weight: bold">아직 자기소개가 없습니다.</div>
 				</div>
@@ -71,49 +110,35 @@
 				<div class="card-body">
 					<form class ="form-control" style = "border : none;" >
 						<div class="row py-2 justify-content-center">
-								
-								<div class="card col-md-2 mx-3">
-								
-									<button type = "submit" formaction="newchannel.jsp" class="btn"
-										style="background-color: white; border: white;">
-										<span style="font-weight: bold">HOME</span>
-										<hr style = "border: solid 1px;">
-									</button>
-									
-								</div>
-								
 							<div class="card col-md-2 mx-3">
-								<button type = "submit" formaction="newchannel2.jsp" class="btn"
+								<input type = "hidden" value = "<%= c_no %>" name = "c_no">
+								<button type = "submit" formaction="otherchannel.jsp" class="btn"
+									style="background-color: white; border: white;">
+									<span style="font-weight: bold">HOME</span>
+									<hr style = "border: solid 1px;">
+								</button>
+							</div>
+							<div class="card col-md-2 mx-3">
+								<button type = "submit" formaction="otherchannel2.jsp"" class="btn"
 									style="background-color: white; border: white;">
 									<span style="font-weight: bold">LIKE VIDEO</span>
 									<hr style = "border: solid 1px;">
 								</button>
 							</div>
-	
 							<div class="card col-md-2 mx-3">
-								<button type = "submit" formaction="newchannel3.jsp" class="btn"
+								<button type = "submit" formaction="otherchannel3.jsp"" class="btn"
 									style="background-color: white; border: white;">
 									<span style="font-weight: bold">COMMUNITY</span>
 									<hr style = "border: solid 1px;">
 								</button>
 							</div>
-	
 							<div class="card col-md-2 mx-3">
-								<button type = "submit" formaction="newchannel4.jsp" class="btn"
+								<button type = "submit" formaction="otherchannel4.jsp"" class="btn"
 									style="background-color: white; border: white;">
 									<span style="font-weight: bold">INFORMATION</span>
 									<hr style = "border: solid 1px;">
 								</button>
-							</div>
-							
-							<!-- 
-							<a href="clipviewmain.jsp"> <img src="../../img/land.jpg"
-												class="recommendclips"
-												style="border-radius: 15px; width: 100%;">
-											</a>
-							
-							
-							 -->
+							</div>	
 						</div>
 					</form>	
 					<div class="card">
@@ -145,8 +170,10 @@
 								
 									<div>통계</div>
 									<hr>
-									<div>가입일: <span>2016.04.25</span></div>
+									<!-- 채널 가입일 날짜만 나오도록 조정 해야됨-->
+									<div>가입일: <span><%=member3.getM_date()%></span></div>
 									<hr>
+									<!-- 팔로잉 팔로우 이후 동영상 조회수 갱신시 총 조회수를 갱신해서 넣을 예정  -->
 									<div>조회수: <span>5,000,000</span>회</div>
 								
 								</div>

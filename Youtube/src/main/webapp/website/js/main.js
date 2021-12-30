@@ -266,7 +266,6 @@ function memberinfophone() {
 
 /* 비밀번호 변경 */
 
-
 	$(function(){
 		$("#pwchangebtn").click(function(){
 			//alert('통신확인');
@@ -315,46 +314,46 @@ function memberinfophone() {
 	
 /* 회원탈퇴 end */
 
+/* 이미지 미리보기 */
 function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      document.getElementById('preview').src = e.target.result;
-    };
-    reader.readAsDataURL(input.files[0]);
+	
+  if (input.files && input.files[0]) { // 현재 태그에 파일이 있을경우 
+    var reader = new FileReader();  // 이미지 경로 가져오는 객체 
+    reader.onload = function(e) {	// 가져왔을때 이벤트 실행 [인수->파일경로 ]   
+		document.getElementById('preview').src = e.target.result; // 가져온 이미지경로를 이미지 속성에 추가 	    
+	};
+    reader.readAsDataURL(input.files[0]);	// 객체에 태그 추가 
   } else {
-    document.getElementById('preview').src = "";
+    document.getElementById('preview').src = ""; // 없을경우 
   }
 }
-
+/* 이미지 미리보기 end */
 
 /* 댓글 등록 start */
 function replywrite(v_no){ 
-	//alert("시작");
-	
 	var r_contents = document.getElementById("replytext").value;
-	$("#btnreplywrite").click( function(){ 
-		alert(r_contents);
-		
-		$.ajax({
-			url : "../controller/clip/clipviewreplycontroller.jsp" ,
-			data : {
-				v_no : v_no,
-				r_contents : r_contents
-				},
-			success : function(result){
-				if (result == 1){
-					$( "#replybox" ).load(window.location.href + " #replybox" );
-					$( "#replydiv" ).load(window.location.href + " #replydiv" );
-					document.getElementById("replytext").innerHTML="";
-				
-				} else {
-					alert("오류발생. 관리자에게 문의");
+		$("#btnreplywrite").click( function(){ 
+			alert("시작");
+			alert(r_contents);
+			$.ajax({
+				url : "../controller/clip/clipviewreplycontroller.jsp" ,
+				data : {
+					v_no : v_no,
+					r_contents : r_contents
+					},
+				success : function(result){
+					if (result == 1){
+						$( "#replybox" ).load(window.location.href + " #replybox" );
+						$( "#replydiv" ).load(window.location.href + " #replydiv" );
+						document.getElementById("replytext").value="";
+					} else {
+						alert("오류발생. 관리자에게 문의");
+					}
 				}
-			}
-		});
+			});
+		//}
 	});
-}	
+}		
 /* 댓글 등록 end */
 
 /* 댓글 삭제 start */
@@ -475,13 +474,15 @@ function v_like(v_no, m_no){
 	});
 }
 
-/*찜하기 끝*/
+/*좋아요 끝*/
 
+/*무한 스크롤 */
 var item = 2; // 게시물 갯수가 3개 이상이면 무한 스크롤 
 	// $(window) : 현재 창 
 	$(window).scroll(function() {
 		
 		if( $(window).scrollTop() == $(document).height() -$(window).height() ){
+			alert("ㅎㅇ2");
 			$.ajax({
 				url : "../../controller/channel/newchannelboard3controller.jsp",
 				data : {item : item},
@@ -494,4 +495,31 @@ var item = 2; // 게시물 갯수가 3개 이상이면 무한 스크롤
 			item++; // 스크롤 이벤트가 실행될때마다 게시물 1씩 증가 
 		}
 	});
-	
+/*무한 스크롤 끝 */
+
+/*팔로우 시작 */
+function c_follow(c_no, m_no){
+	if(m_no==0){
+		alert("로그인 후 팔로우를 할 수 있습니다.");
+		return;
+	}
+	//비동기식 통신용
+	$(function(){
+		$.ajax({
+			url : "../../controller/follow/followupdatecontroller.jsp",
+			data:{c_no : c_no, m_no : m_no }, //인수 담아서 넘기기
+			//follodwupdatecontroller.jsp 에서 out.print로 넘어온 값 result에 저장
+			success:function(result){ //좋아요 빼기
+			//alert(result);
+				if(result == 1){
+					//alert(result);
+					document.getElementById("follow").innerHTML = "<button type='button' class='btn btn-danger btn-block'><span>팔로우</span> </button>";
+				}else if(result==2){ //좋아요 추가하기
+					//alert(result);
+					document.getElementById("follow").innerHTML = "<button type='button' class='btn btn-danger btn-block'><span>팔로우 중</span> </button>";
+				}
+			}
+		})
+	});
+}
+/*팔로우 끝 */

@@ -1,3 +1,6 @@
+<%@page import="dao.VideoDao"%>
+<%@page import="dto.Video"%>
+<%@page import="dao.FollowDao"%>
 <%@page import="dao.ChannelDao"%>
 <%@page import="dto.Channel"%>
 <%@page import="java.util.ArrayList"%>
@@ -13,13 +16,21 @@
 	<%
 		int c_no = Integer.parseInt(request.getParameter("c_no"));
 		Channel channel = ChannelDao.getChannelDAO().getSoloChannel(c_no);
-		
 	%>
 	<div class="col-md-2">
 		<%@include file="../sidebar.jsp"%>
 	</div>
 	<%
+		if(c_no == ChannelDao.getChannelDAO().getChannelNo(MemberDao.getMemberDao().getmemberno(loginid))){
+			response.sendRedirect("newchannel.jsp");
+		}
 		Member member2 = MemberDao.getMemberDao().getmember(loginid);
+		int m_no = MemberDao.getMemberDao().getmemberno(loginid);
+		boolean f_check = FollowDao.getFollowDao().followcheck(c_no, m_no);
+		
+		int f_checkcount = FollowDao.getFollowDao().followerCount(c_no);
+		int f_checkcount2 = FollowDao.getFollowDao().followingCount(m_no);
+		ArrayList<Video> videos = VideoDao.getVideoDAO().getmyVideo(m_no);
 	%>
 	<div class="container">
 		<div class="col">
@@ -44,12 +55,21 @@
 							<%
 								}
 							%>
+							
 							<div class="md-2 pt-2">
-								<a href="#" class="md-4">
+								<%if(f_check  == true){%>
+								<a href="#" id ="follow" class="md-4" onclick="c_follow(<%=c_no%>,<%=m_no%>);">
+									<button type="button" class="btn btn-danger btn-block">
+										<span>팔로우 중</span>
+									</button>
+								</a>
+								<%} else{%>
+								<a href="#" id ="follow" class="md-4" onclick="c_follow(<%=c_no%>,<%=m_no%>);">
 									<button type="button" class="btn btn-danger btn-block">
 										<span>팔로우</span>
 									</button>
 								</a>
+								<%} %>
 							</div>
 						</div>
 						<div class="col" style="width: 1000px; height: 180px;">
@@ -65,10 +85,11 @@
 				<div class="card-body">
 					<div class="row py-1">
 						<div class="pr-2 pl-2">
-							<span style="font-weight: bold">26</span> 팔로잉
+							<!-- 내가 팔로잉 한 채널 찾기 -->
+							<span style="font-weight: bold"><%=f_checkcount2%></span> 팔로잉
 						</div>
 						<div class="pr-2">
-							<span style="font-weight: bold">642.4k</span> 팔로워
+							<span style="font-weight: bold"><%=f_checkcount%></span> 팔로워
 						</div>
 						<div class="">
 							<span style="font-weight: bold">7M</span> 좋아요
@@ -99,53 +120,46 @@
 					<form class ="form-control" style = "border : none;" >
 						<div class="row py-2 justify-content-center">
 							<div class="card col-md-2 mx-3">
-								<button type = "submit" formaction="newchannel.jsp" class="btn"
+								<input type = "hidden" value = "<%= c_no %>" name = "c_no">
+								<button type = "submit" formaction="otherchannel.jsp" class="btn"
 									style="background-color: white; border: white;">
 									<span style="font-weight: bold">HOME</span>
 									<hr style = "border: solid 1px;">
 								</button>
 							</div>
 							<div class="card col-md-2 mx-3">
-								<button type = "submit" formaction="newchannel2.jsp" class="btn"
+								<button type = "submit" formaction="otherchannel2.jsp"" class="btn"
 									style="background-color: white; border: white;">
 									<span style="font-weight: bold">LIKE VIDEO</span>
 									<hr style = "border: solid 1px;">
 								</button>
 							</div>
 							<div class="card col-md-2 mx-3">
-								<button type = "submit" formaction="newchannel3.jsp" class="btn"
+								<button type = "submit" formaction="otherchannel3.jsp"" class="btn"
 									style="background-color: white; border: white;">
 									<span style="font-weight: bold">COMMUNITY</span>
 									<hr style = "border: solid 1px;">
 								</button>
 							</div>
 							<div class="card col-md-2 mx-3">
-								<button type = "submit" formaction="newchannel4.jsp" class="btn"
+								<button type = "submit" formaction="otherchannel4.jsp"" class="btn"
 									style="background-color: white; border: white;">
 									<span style="font-weight: bold">INFORMATION</span>
 									<hr style = "border: solid 1px;">
 								</button>
 							</div>
-							<!-- 
-							<a href="clipviewmain.jsp"> <img src="../../img/land.jpg"
-												class="recommendclips"
-												style="border-radius: 15px; width: 100%;">
-											</a>
 							
-							
-							 -->
 						</div>
-					</form>	
+					</form>
 					<div class="card">
 						<div class="card-body">
 							<div class="col-md-12   pr-2 pd-2 pl-0 mt-3">
 								<div class="row col-md-12 m-0 ">
-									<%
-									for (int i = 0; i < 5; i++) {
-									%>
+									<% for (Video temp : videos) {%>
 									<div class="col-md-3 mb-4" style="border-radius: 15px;">
 										<div>
-											<a href="clipviewmain.jsp"> <img src="../../img/land.jpg"
+											<a href="../clipviewmain.jsp"> <img
+												src="../../img/<%=temp.getV_thumbnail().split("_")[0] %>"
 												class="recommendclips"
 												style="border-radius: 15px; width: 100%;">
 											</a>
