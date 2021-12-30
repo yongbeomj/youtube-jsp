@@ -86,8 +86,8 @@
 <summary>여기를 눌러주세요</summary>
 <div markdown="1">       
 
-![erd](https://user-images.githubusercontent.com/87436495/147400243-5e37a79a-6fce-496e-9c27-b8431f88ad29.png)
-
+![db](https://user-images.githubusercontent.com/87436495/147739941-8aee185e-e66f-4c2a-8ae3-46a34d5929e9.png)
+  
 </div>
 </details>
 
