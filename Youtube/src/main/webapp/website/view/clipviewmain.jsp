@@ -1,3 +1,4 @@
+<%@page import="dao.FollowDao"%>
 <%@page import="dao.ChannelDao"%>
 <%@page import="java.util.Collections"%>
 <%@page import="dao.VideoDao"%>
@@ -25,7 +26,7 @@
 			<%
 			//로그인 연결시	
 			//Login login = (Login)session.getAttribute("login");
-			//int m_no = member.getM_no();
+			
 			//System.out.println("m_no11 : "+m_no);
 			ArrayList<Reply> replies2;
 			int v_no = Integer.parseInt(request.getParameter("v_no"));
@@ -45,10 +46,11 @@
 			// System.out.println(thumb);
 			
 			
-			//String path = request.getSession().getServletContext().getRealPath("website/upload");
+			String path = request.getSession().getServletContext().getRealPath("website/upload");
 			//System.out.print("path : "+path);
 
 			ArrayList<Video> videolist = VideoDao.getVideoDAO().getAllVideo();
+			Collections.shuffle(videolist);
 			
 			%>
 
@@ -90,20 +92,35 @@
 									</div>
 									<!------------------- 팔로우 시작 --------------------------->
 									<div class="col-md-2 pl-4 pr-0">
+								
+										
 										<%
 										if(loginid != null){ //로그인 아이디가 존재하면
-
-										//영상 좋아요 체크 메소드 !!로그인 아이디 연결해야됨
-										int m_no = MemberDao.getMemberDao().getmemberno(loginid);
-										if (VideoDao.getVideoDAO().videolikecheck(v_no, m_no)) {
+											int m_no = MemberDao.getMemberDao().getmemberno(loginid);
+											int c_no = ChannelDao.getChannelDAO().getChannelNo(m_no);
+											boolean f_check = FollowDao.getFollowDao().followcheck(c_no, m_no);
+											
+											int f_checkcount = FollowDao.getFollowDao().followerCount(c_no);
+											int f_checkcount2 = FollowDao.getFollowDao().followingCount(m_no);
+											if(f_check  == true){%>
+															
+											<button id="followbtn" class="btn btn-outline-danger pt-1" style="display: none;" onclick="c_follow2(<%=c_no%>,<%=m_no%>);" >팔로우</button>
+											<%}else{%>
+											<button id="followbtn" class="btn btn-outline-danger pt-1" style="display: none;" onclick="c_follow2(<%=c_no%>,<%=m_no%>);" >팔로우</button>
+											
+											<%
+											}
+											%>
+										<%
+											//영상 좋아요 체크 메소드
+											if (VideoDao.getVideoDAO().videolikecheck(v_no, m_no)) {
 										%>
-										<button class="btn btn-outline-dark pt-1">팔로우</button>
+										
 										<img id="videolike" class="ml-3" src="../img/heartfill.png" onclick="v_like(<%=v_no%>,<%=m_no%>);"
 											style="height: 30px; width: 30px; cursor: pointer;">
-										<%
+											<%
 											} else { //좋아요가 존재하지 않으면
 											%>
-											<button class="btn btn-outline-dark pt-1">팔로우</button>
 											<img id="videolike" class="ml-3" src="../img/heart.png" onclick="v_like(<%=v_no%>,<%=m_no%>);"
 												style="height: 30px; width: 30px; cursor: pointer;">
 											<%
@@ -235,7 +252,7 @@
 						<div id="recommend" class="col-md-12 pr-2 pd-2 pl-0 mt-3">
 							<div class="row col-md-12 m-0 ">
 								<%
-								Collections.shuffle(videolist);
+								
 								for (int i =0; i<videolist.size(); i++) {
 								%>
 								<div class="col-md-2 pl-0 mb-4" style="border-radius: 15px;">
