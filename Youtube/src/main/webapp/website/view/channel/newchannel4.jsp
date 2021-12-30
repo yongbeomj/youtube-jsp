@@ -1,3 +1,7 @@
+<%@page import="dto.Video"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="dao.VideoDao"%>
+<%@page import="dao.FollowDao"%>
 <%@page import="dao.ChannelDao"%>
 <%@page import="dto.Channel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -21,6 +25,12 @@
 		Channel channel = ChannelDao.getChannelDAO().getChannelinfo(m_no);
 		System.out.println(channel.getC_name());
 	%>
+	<%	
+		int c_no = ChannelDao.getChannelDAO().getChannelNo(m_no);
+		int f_checkcount = FollowDao.getFollowDao().followerCount(c_no);
+		int f_checkcount2 = FollowDao.getFollowDao().followingCount(m_no);
+		ArrayList<Video> videos = VideoDao.getVideoDAO().getmyVideo(m_no);
+	%>
 	<div class="container">
 
 		<div class="col">
@@ -36,12 +46,7 @@
 						<div class="col-md-2">
 							<h3><%=channel.getC_name() %></h3>
 							<span><%=member.getM_id() %></span>
-							<div class="md-2 pt-2">
-								<a href="#" class="md-4"><button type="button"
-										class="btn btn-danger btn-block">
-										<span>팔로우</span>
-									</button></a>
-							</div>
+							
 						</div>
 						<div class="col" style="width: 1000px; height: 180px;">
 
@@ -57,21 +62,31 @@
 				<div class="card-body">
 					<div class="row py-1">
 						<div class="pr-2 pl-2">
-							<span style="font-weight: bold">26</span> 팔로잉
+							<!-- 내가 팔로잉 한 채널 찾기 -->
+							<span style="font-weight: bold"><%=f_checkcount2%></span> 팔로잉
 						</div>
 						<div class="pr-2">
-							<span style="font-weight: bold">642.4k</span> 팔로워
+							<span style="font-weight: bold"><%=f_checkcount%></span> 팔로워
 						</div>
 						<div class="">
 							<span style="font-weight: bold">7M</span> 좋아요
 						</div>
 						<div class="offset-6"></div>
 						<div class="mx-4"></div>
-						<div class="mx-5">
-							<a href="../channel/upload3.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
-						</div>
+						<%
+							if(channel.getC_no() != MemberDao.getMemberDao().getmemberno(loginid)){
+						%>
+								<div></div>
+						<%	
+							} else {
+						%>
+								<div class="mx-5">
+									<a href="../channel/upload.jsp"> <button type="button" class="btn btn-danger">정보수정</button> </a>
+								</div>
+						<%
+							}
+						%>
 					</div>
-					
 					<%if(channel.getC_present() == null){ %>
 						<div style="font-weight: bold">아직 자기소개가 없습니다.</div>
 					<%}else{%>

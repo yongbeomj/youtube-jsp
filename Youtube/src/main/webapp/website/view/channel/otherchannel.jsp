@@ -20,16 +20,17 @@
 	<div class="col-md-2">
 		<%@include file="../sidebar.jsp"%>
 	</div>
-	<%
-		if(c_no == ChannelDao.getChannelDAO().getChannelNo(MemberDao.getMemberDao().getmemberno(loginid))){
-			response.sendRedirect("newchannel.jsp");
-		}
-		Member member2 = MemberDao.getMemberDao().getmember(loginid);
-		int m_no = MemberDao.getMemberDao().getmemberno(loginid);
+	<%	
+		int m_no = ChannelDao.getChannelDAO().getm_No(c_no);
+		Member member2 = MemberDao.getMemberDao().mnoselect(m_no);
 		boolean f_check = FollowDao.getFollowDao().followcheck(c_no, m_no);
-		
 		int f_checkcount = FollowDao.getFollowDao().followerCount(c_no);
 		int f_checkcount2 = FollowDao.getFollowDao().followingCount(m_no);
+		if (login.getM_id().equals(member2.getM_id()) ) { // 세션 있을경우 (로그인)
+			response.sendRedirect("../../view/channel/newchannel.jsp");
+		}
+	%>
+	<%
 		ArrayList<Video> videos = VideoDao.getVideoDAO().getmyVideo(m_no);
 	%>
 	<div class="container">
@@ -39,7 +40,8 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="pl-2">
-							<a href="#"><img src="../../img/woman.jpg" width="116px"
+							<!-- 21.12.25 임시적으로 이미지 채널 배경이미지로 했음 추후에 member에서 이미지 가져오기 -->
+							<a href="#"><img src="../../upload/<%=member2.getM_image()%>" width="116px"
 								height="116px" style="border-radius: 50%;"></a>
 						</div>
 						<div class="col-md-2">
@@ -55,7 +57,6 @@
 							<%
 								}
 							%>
-							
 							<div class="md-2 pt-2">
 								<%if(f_check  == true){%>
 								<a href="#" id ="follow" class="md-4" onclick="c_follow(<%=c_no%>,<%=m_no%>);">
@@ -73,7 +74,7 @@
 							</div>
 						</div>
 						<div class="col" style="width: 1000px; height: 180px;">
-							<img src="../../img/land.jpg" alt="" width="100%" height="100%"
+							<img src="../../upload/<%=channel.getC_image()%>" alt="" width="100%" height="100%"
 								style="border-radius: 15px;" />
 						</div>
 					</div>
@@ -96,21 +97,13 @@
 						</div>
 						<div class="offset-6"></div>
 						<div class="mx-4"></div>
-						<%
-							if(channel.getC_no() != MemberDao.getMemberDao().getmemberno(loginid)){
-						%>
-								<div></div>
-						<%	
-							} else {
-						%>
-								<div class="mx-5">
-									<a href="../channel/upload.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
-								</div>
-						<%
-							}
-						%>
+						
 					</div>
-					<div style="font-weight: bold">아직 자기소개가 없습니다.</div>
+					<%if(channel.getC_present() == null){ %>
+						<div style="font-weight: bold">아직 자기소개가 없습니다.</div>
+					<%}else{%>
+						<div style="font-weight: bold"><%=channel.getC_present() %></div>
+					<%}%>
 				</div>
 			</div>
 			<!-- 팔로잉 팔로워 좋아요 end -->
@@ -149,17 +142,20 @@
 								</button>
 							</div>
 							
+							
+							
 						</div>
-					</form>
+					</form>	
 					<div class="card">
 						<div class="card-body">
 							<div class="col-md-12   pr-2 pd-2 pl-0 mt-3">
 								<div class="row col-md-12 m-0 ">
-									<% for (Video temp : videos) {%>
+									<%
+									for (Video temp : videos) {
+									%>
 									<div class="col-md-3 mb-4" style="border-radius: 15px;">
 										<div>
-											<a href="../clipviewmain.jsp"> <img
-												src="../../img/<%=temp.getV_thumbnail().split("_")[0] %>"
+											<a href="../clipviewmain.jsp"> <img src="../../img/<%=temp.getV_thumbnail().split("_")[0] %>"
 												class="recommendclips"
 												style="border-radius: 15px; width: 100%;">
 											</a>

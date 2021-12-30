@@ -7,7 +7,9 @@
 </head>
 <body>
 
-	<%@include file="../sidebar.jsp"%>
+	<div class = "col-md-2 fixed">
+		<%@ include file = "../sidebar.jsp" %> 
+	</div>
 
 	<br>
 	<br>
