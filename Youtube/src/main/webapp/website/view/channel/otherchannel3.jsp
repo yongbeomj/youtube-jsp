@@ -1,3 +1,6 @@
+<%@page import="dto.ChannelBoard"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="dao.ChannelBoardDao"%>
 <%@page import="dao.FollowDao"%>
 <%@page import="dao.ChannelDao"%>
 <%@page import="dto.Channel"%>
@@ -17,13 +20,16 @@
 	<div class="col-md-2">
 		<%@include file="../sidebar.jsp"%>
 	</div>
-	<%
-		Member member2 = MemberDao.getMemberDao().getmember(loginid);
-		int m_no = MemberDao.getMemberDao().getmemberno(loginid);
+	<%	
+		int m_no = ChannelDao.getChannelDAO().getm_No(c_no);
+		Member member2 = MemberDao.getMemberDao().mnoselect(m_no);
 		boolean f_check = FollowDao.getFollowDao().followcheck(c_no, m_no);
-		
 		int f_checkcount = FollowDao.getFollowDao().followerCount(c_no);
 		int f_checkcount2 = FollowDao.getFollowDao().followingCount(m_no);
+		ArrayList<ChannelBoard> channelboards = ChannelBoardDao.getChannelBoardDao().channelBoardList(c_no);
+		if (login.getM_id().equals(member2.getM_id()) ) { // 세션 있을경우 (로그인)
+			response.sendRedirect("../../view/channel/newchannel.jsp");
+		}
 	%>
 	<div class="container">
 
@@ -33,7 +39,8 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="pl-2">
-							<a href="#"><img src="../../img/woman.jpg" width="116px"
+							<!-- 21.12.25 임시적으로 이미지 채널 배경이미지로 했음 추후에 member에서 이미지 가져오기 -->
+							<a href="#"><img src="../../upload/<%=member2.getM_image()%>" width="116px"
 								height="116px" style="border-radius: 50%;"></a>
 						</div>
 						<div class="col-md-2">
@@ -67,8 +74,7 @@
 						</div>
 					
 						<div class="col" style="width: 1000px; height: 180px;">
-
-							<img src="../../img/land.jpg" alt="" width="100%" height="100%"
+							<img src="../../upload/<%=channel.getC_image()%>" alt="" width="100%" height="100%"
 								style="border-radius: 15px;" />
 						</div>
 					</div>
@@ -91,21 +97,13 @@
 						</div>
 						<div class="offset-6"></div>
 						<div class="mx-4"></div>
-						<%
-							if(channel.getC_no() != MemberDao.getMemberDao().getmemberno(loginid)){
-						%>
-								<div></div>
-						<%	
-							} else {
-						%>
-								<div class="mx-5">
-									<a href="../channel/upload.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
-								</div>
-						<%
-							}
-						%>
+						
 					</div>
-					<div style="font-weight: bold">아직 자기소개가 없습니다.</div>
+					<%if(channel.getC_present() == null){ %>
+						<div style="font-weight: bold">아직 자기소개가 없습니다.</div>
+					<%}else{%>
+						<div style="font-weight: bold"><%=channel.getC_present() %></div>
+					<%}%>
 				</div>
 			</div>
 			<!-- 팔로잉 팔로워 좋아요 end -->
@@ -154,48 +152,50 @@
 					</form>	
 					<div class="card">
 						<div class="card-body">
-							<div class="col-md-12  pr-2 pd-2 pl-0 mt-3">
-								<div class="">
-									<!-- 커뮤니티 사진 게시 -->
-										<div class = "">
-											<a href="clipviewmain.jsp"> <img src="../../img/land.jpg"
-												class="recommendclips"
-												style="border-radius: 15px; width: 100%;">
-											</a>
-										</div>
-									<!-- 커뮤니티 사진 게시 end -->
+							<div class="col-md-12  pr-2 pd-2 pl-0 mt-3" onscroll = "c_no2(<%=c_no%>)" >
+								
+								<section>
+								
+									<%
+									for(int i = 0; i<1; i++){
+									%>
 									
-									<!-- 커뮤니티 채널명 및 내용 작성 -->
+									<!--  커뮤니티 채널명 및 내용 작성 -->
 									<div class = "row">
-										<div class="mt-2 ml-3 pr-0 d-flex justify-content-center" style = "border:  ; border-radius : 5px;">
+										<div class = "col-md-10">
+											<div class="mt-2 ml-3 pr-0 d-flex justify-content-start" style = "border:  ; border-radius : 5px;">
+												
+												<a href="#"> <img src="../../upload/<%=channel.getC_image()%>" width="20"
+													height="20" style="border-radius: 50%;">
+												</a> <a href="#"> <span> <%=channel.getC_name() %></span>
+												</a>
+											</div>
 											
-											<a href="#"> <img src="../../img/woman.jpg" width="20"
-												height="20" style="border-radius: 50%;">
-											</a> <a href="#"> <span> 채널명</span>
-											</a>
+											<div class =" mt-2 ml-4 " style = "border: solid 1px ; border-radius : 5px;">
+												<p class ="form-control py-5" style ="background: white" >
+													<%=channelboards.get(i).getCb_contents()%>
+												</p>
+											</div>
 										</div>
 										
-										<div class ="col-md-10 mt-2 ml-4" style = "border: solid 1px ; border-radius : 5px;">
-											<span>
-												내용입니다. 안녕하세요 최병호 입니다. <br>
-												반갑습니다. 안녕하세요 최병호 입니다. <br>
-											</span>
-											<span>
-												내용입니다. 안녕하세요 최병호 입니다. <br>
-												반갑습니다. 안녕하세요 최병호 입니다. <br>
-											</span>
-											<span>
-												내용입니다. 안녕하세요 최병호 입니다. <br>
-												반갑습니다. 안녕하세요 최병호 입니다. <br>
-											</span>
-										</div>
+											
+										
 									</div>
-									
+									<!-- 커뮤니티 채널명 및 내용 작성 end -->
+									<!-- 커뮤니티 사진 게시 -->
+										<div class = "d-flex pl-4 pr-2">
+											<a href="clipviewmain.jsp"> <img src="../../upload/<%=channelboards.get(i).getCb_image()%>"
+												class="recommendclips"
+												style="border-radius: 15px; width: 800px; height : 400px;"  />
+											</a>
+										</div><br>
+									<!-- 커뮤니티 사진 게시 end -->
+									<%
+									}
+									%>
 									<!-- 커뮤니티 채널명 및 내용 작성 end -->
 									
-									
-									
-								</div>
+									</section>
 								
 							</div>
 						</div>

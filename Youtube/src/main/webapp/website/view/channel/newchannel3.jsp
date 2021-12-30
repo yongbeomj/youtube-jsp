@@ -1,3 +1,6 @@
+<%@page import="dao.VideoDao"%>
+<%@page import="dto.Video"%>
+<%@page import="dao.FollowDao"%>
 <%@page import="dao.ChannelDao"%>
 <%@page import="dao.ChannelBoardDao"%>
 <%@page import="dto.ChannelBoard"%>
@@ -30,9 +33,14 @@
 		ArrayList<ChannelBoard> channelboards = ChannelBoardDao.getChannelBoardDao().channelBoardList(c_no);
 		System.out.println(c_no);
 	%>
+	<%	
+		int f_checkcount = FollowDao.getFollowDao().followerCount(c_no);
+		int f_checkcount2 = FollowDao.getFollowDao().followingCount(m_no);
+		ArrayList<Video> videos = VideoDao.getVideoDAO().getmyVideo(m_no);
+	%>
 	
 	<div class="container">
-
+		
 		<div class="col">
 			<!-- 프로필 사진 및 팔로우 버튼  -->
 			<div class="card " style="border-radius: 15px;">
@@ -46,12 +54,7 @@
 						<div class="col-md-2">
 							<h3><%=channel.getC_name() %></h3>
 							<span><%=member.getM_id() %></span>
-							<div class="md-2 pt-2">
-								<a href="#" class="md-4"><button type="button"
-										class="btn btn-danger btn-block">
-										<span>팔로우</span>
-									</button></a>
-							</div>
+							
 						</div>
 						<div class="col" style="width: 1000px; height: 180px;">
 
@@ -67,21 +70,31 @@
 				<div class="card-body">
 					<div class="row py-1">
 						<div class="pr-2 pl-2">
-							<span style="font-weight: bold">26</span> 팔로잉
+							<!-- 내가 팔로잉 한 채널 찾기 -->
+							<span style="font-weight: bold"><%=f_checkcount2%></span> 팔로잉
 						</div>
 						<div class="pr-2">
-							<span style="font-weight: bold">642.4k</span> 팔로워
+							<span style="font-weight: bold"><%=f_checkcount%></span> 팔로워
 						</div>
 						<div class="">
 							<span style="font-weight: bold">7M</span> 좋아요
 						</div>
 						<div class="offset-6"></div>
 						<div class="mx-4"></div>
-						<div class="mx-5">
-							<a href="../channel/upload2.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
-						</div>
+						<%
+							if(channel.getC_no() != MemberDao.getMemberDao().getmemberno(loginid)){
+						%>
+								<div></div>
+						<%	
+							} else {
+						%>
+								<div class="mx-5">
+									<a href="../channel/upload.jsp"> <button type="button" class="btn btn-danger">글쓰기</button> </a>
+								</div>
+						<%
+							}
+						%>
 					</div>
-					
 					<%if(channel.getC_present() == null){ %>
 						<div style="font-weight: bold">아직 자기소개가 없습니다.</div>
 					<%}else{%>
@@ -145,11 +158,12 @@
 					</form>	
 					<div class="card">
 						<div class="card-body">
-							<div class="col-md-12  pr-2 pd-2 pl-0 mt-3">
+							<div class="col-md-12  pr-2 pd-2 pl-0 mt-3" onscroll="c_no2(<%=c_no%>)">
+							
 							<section>
 								
 									<%
-									for(ChannelBoard channelBoard : channelboards){
+									for(int i = 0; i<1; i++){
 									%>
 									
 									<!--  커뮤니티 채널명 및 내용 작성 -->
@@ -165,23 +179,23 @@
 											
 											<div class =" mt-2 ml-4 " style = "border: solid 1px ; border-radius : 5px;">
 												<p class ="form-control py-5" style ="background: white" >
-													<%=channelBoard.getCb_contents() %>
+													<%=channelboards.get(i).getCb_contents()%>
 												</p>
 											</div>
 										</div>
 										
 											<div class ="pr-2 float-right" style = "">
-											<a href="../channel/upload2update.jsp?cb_no=<%=channelBoard.getCb_no()%>"> <button type="button" class="btn btn-danger">수정</button> </a>
+											<a href="../channel/upload2update.jsp?cb_no=<%=channelboards.get(i).getCb_no()%>"> <button type="button" class="btn btn-danger">수정</button> </a>
 											</div>
 											<div class ="">
-											<a href="../../controller/channel/channelboarddeletecontroller.jsp?cb_no=<%=channelBoard.getCb_no()%>"> <button type="button" class="btn btn-danger">삭제</button> </a>
+											<a href="../../controller/channel/channelboarddeletecontroller.jsp?cb_no=<%=channelboards.get(i).getCb_no()%>"> <button type="button" class="btn btn-danger">삭제</button> </a>
 											</div>
 										
 									</div>
 									<!-- 커뮤니티 채널명 및 내용 작성 end -->
 									<!-- 커뮤니티 사진 게시 -->
 										<div class = "d-flex pl-4 pr-2">
-											<a href="clipviewmain.jsp"> <img src="../../upload/<%=channelBoard.getCb_image()%>"
+											<a href="clipviewmain.jsp"> <img src="../../upload/<%=channelboards.get(i).getCb_image()%>"
 												class="recommendclips"
 												style="border-radius: 15px; width: 800px; height : 400px;"  />
 											</a>

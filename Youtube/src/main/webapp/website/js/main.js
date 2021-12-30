@@ -477,25 +477,55 @@ function v_like(v_no, m_no){
 /*좋아요 끝*/
 
 /*무한 스크롤 */
-var item = 2; // 게시물 갯수가 3개 이상이면 무한 스크롤 
+var item = 1; // 게시물 갯수가 3개 이상이면 무한 스크롤 
 	// $(window) : 현재 창 
 	$(window).scroll(function() {
 		
 		if( $(window).scrollTop() == $(document).height() -$(window).height() ){
-			alert("ㅎㅇ2");
 			$.ajax({
 				url : "../../controller/channel/newchannelboard3controller.jsp",
 				data : {item : item},
 				success : function(result){
-					alert(result);
 					//alert(result);
 					$('section').append(result);
 				}
+				
 			});
+			
 			item++; // 스크롤 이벤트가 실행될때마다 게시물 1씩 증가 
 		}
 	});
 /*무한 스크롤 끝 */
+
+/*무한 스크롤 c_no2 버전*/
+/*$('#c_no2').scroll(function(c_no2){
+	var item = 1; // 게시물 갯수가 3개 이상이면 무한 스크롤 
+		// $(window) : 현재 창 
+		var c_no2 = c_no2;
+		$(window).scroll(function c_no2(c_no2) {
+			alert(c_no2)
+			if( $(window).scrollTop() == $(document).height() -$(window).height() ){
+				$.ajax({
+					url : "../../controller/channel/newchannelboard3controller.jsp",
+					data : {item : item ,c_no2 : c_no2},
+					success : function(result){
+						//alert(result);
+						$('section').append(result);
+					}
+					
+				});
+				
+				item++; // 스크롤 이벤트가 실행될때마다 게시물 1씩 증가 
+			}
+		});
+});
+/*무한 스크롤 끝 */
+/*
+	$('#target').scroll(function() { $('#log').append('<div>Handler for .scroll() called.</div>'); });
+
+
+
+ */
 
 /*팔로우 시작 */
 function c_follow(c_no, m_no){

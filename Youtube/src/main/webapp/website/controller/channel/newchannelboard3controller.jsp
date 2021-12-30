@@ -28,7 +28,7 @@
 <%-- <%
 for(ChannelBoard channelBoard : channelboards){
 %> --%>
-<%for(int j =0; j<channelboards.size(); j++  ) {%>
+
 <!--  커뮤니티 채널명 및 내용 작성 -->
 <div class = "row">
 	<div class = "col-md-10">
@@ -42,23 +42,23 @@ for(ChannelBoard channelBoard : channelboards){
 		
 		<div class =" mt-2 ml-4 " style = "border: solid 1px ; border-radius : 5px;">
 			<p class ="form-control py-5" style ="background: white" >
-				<%=channelboards.get(j).getCb_contents() %>
+				<%=channelboards.get(i).getCb_contents() %>
 			</p>
 		</div>
 	</div>
 	
 		<div class ="pr-2 float-right" style = "">
-		<a href="../channel/upload2update.jsp?cb_no=<%=channelboards.get(j).getCb_no()%>"> <button type="button" class="btn btn-danger">수정</button> </a>
+		<a href="../channel/upload2update.jsp?cb_no=<%=channelboards.get(i).getCb_no()%>"> <button type="button" class="btn btn-danger">수정</button> </a>
 		</div>
 		<div class ="">
-		<a href="../../controller/channel/channelboarddeletecontroller.jsp?cb_no=<%=channelboards.get(j).getCb_no()%>"> <button type="button" class="btn btn-danger">삭제</button> </a>
+		<a href="../../controller/channel/channelboarddeletecontroller.jsp?cb_no=<%=channelboards.get(i).getCb_no()%>"> <button type="button" class="btn btn-danger">삭제</button> </a>
 		</div>
 	
 </div>
 <!-- 커뮤니티 채널명 및 내용 작성 end -->
 <!-- 커뮤니티 사진 게시 -->
 	<div class = "d-flex pl-4 pr-2">
-		<a href="clipviewmain.jsp"> <img src="../../upload/<%=channelboards.get(j).getCb_image()%>"
+		<a href="clipviewmain.jsp"> <img src="../../upload/<%=channelboards.get(i).getCb_image()%>"
 			class="recommendclips"
 			style="border-radius: 15px; width: 800px; height : 400px;"  />
 		</a>
@@ -67,5 +67,5 @@ for(ChannelBoard channelBoard : channelboards){
 <%
 }
 %>
-<% } %>
+
 								

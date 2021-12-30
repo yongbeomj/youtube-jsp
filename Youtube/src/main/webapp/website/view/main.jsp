@@ -44,7 +44,7 @@
 							<div class = "card-body row" style="height: 6rem;">
 								<div class = "col-md-2 pt-2 col-xs-2 col-sm-2" style=" padding-left: 0; margin-left: 0">
 									<a href = "channel/otherchannel.jsp?c_no=<%= channel.getC_no() %>">
-										<img alt="" src="<%= channel.getC_image() %>" style="width: 2.5rem; height: 2.5rem; border-radius: 70%;">
+										<img alt="" src="../upload/<%= channel.getC_image() %>" style="width: 2.5rem; height: 2.5rem; border-radius: 70%;">
 									</a>
 								</div>
 								<div class = "col-md-10 col-xs-10 col-sm-10">

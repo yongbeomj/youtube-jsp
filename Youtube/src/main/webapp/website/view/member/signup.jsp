@@ -6,7 +6,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file="../sidebar.jsp"%>
+	<div class="col-md-2 fixed">
+		<%@ include file="../sidebar.jsp"%>
+	</div>
 	<br>
 	<br>
 	<br>
@@ -31,12 +33,12 @@
 
 						<hr>
 						<div class="text-center">
-							<img id="preview" name="preview" src="../../img/profile.jpg" class="rounded-circle" style="width:130px; height:130px;">
+							<img id="preview" name="preview" src="../../img/profile.jpg" class="rounded-circle" style="width: 130px; height: 130px;">
 						</div>
 						<br>
 						<div>
 							<div class="row justify-content-center align-items-center">
-								<input id="file" name="file" class="my-1 text-center" type="file" style="display: block; width : 35%;" onchange="readURL(this);">
+								<input id="file" name="file" class="my-1 text-center" type="file" style="display: block; width: 35%;" onchange="readURL(this);">
 							</div>
 						</div>
 
