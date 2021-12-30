@@ -45,7 +45,7 @@
 			// System.out.println(thumb);
 			
 			
-			String path = request.getSession().getServletContext().getRealPath("website/upload");
+			//String path = request.getSession().getServletContext().getRealPath("website/upload");
 			//System.out.print("path : "+path);
 
 			ArrayList<Video> videolist = VideoDao.getVideoDAO().getAllVideo();
