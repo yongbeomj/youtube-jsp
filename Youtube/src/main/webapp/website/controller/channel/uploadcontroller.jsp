@@ -16,6 +16,7 @@
 	<%
 		//String path = "C:/Users/강보균/git/youtube-jsp/강보균/src/main/webapp/web/upload";
 		String path = request.getSession().getServletContext().getRealPath("website/upload");
+		System.out.println(path);
 		MultipartRequest mr = new MultipartRequest(request, path, 1024*1024*1024, "UTF-8", new DefaultFileRenamePolicy());	
 		
 		String title = mr.getParameter("title");

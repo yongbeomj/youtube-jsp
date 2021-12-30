@@ -12,7 +12,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 	<style type="text/css">
-		#recommend{border: 1px solid green;}
 	</style>
 </head>
 <body>
@@ -134,7 +133,7 @@
 					<div class="col-md-4" style="margin-top: 50px;">
 						<!-- <input class="form-control"> -->
 						<div style="margin: 0 auto; height: 1000px;">
-							<div id="replybox" class="mr=0" id=replylist style="overflow-y: auto; height: 700px;">
+							<div id="replybox" class="mr-0" id=replylist style="overflow-y: auto; height: 700px;">
 								<%
 									
 									replies2 = ReplyDao.getReplyDao().replies(v_no);
