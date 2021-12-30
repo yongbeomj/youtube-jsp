@@ -11,7 +11,6 @@ public class MemberDao extends DB {
 	}
 
 	public static MemberDao memberDao = new MemberDao();
-
 	public static MemberDao getMemberDao() {
 		return memberDao;
 	}
@@ -19,27 +18,7 @@ public class MemberDao extends DB {
 	// 회원가입
 	public boolean signup(Member member) {
 
-		String sql = "insert into member(m_id , m_pw , m_name , m_birth , m_phone) value (?,?,?,?,?)";
-
-		try {
-			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, member.getM_id());
-			preparedStatement.setString(2, member.getM_pw());
-			preparedStatement.setString(3, member.getM_name());
-			preparedStatement.setString(4, member.getM_birth());
-			preparedStatement.setString(5, member.getM_phone());
-			preparedStatement.executeUpdate();
-			return true;
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		return false;
-	}
-	// 회원가입
-	public boolean imgsignup(Member member) {
-		
 		String sql = "insert into member(m_id , m_pw , m_name , m_birth , m_phone, m_image) value (?,?,?,?,?,?)";
-		
 		try {
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, member.getM_id());
@@ -49,6 +28,20 @@ public class MemberDao extends DB {
 			preparedStatement.setString(5, member.getM_phone());
 			preparedStatement.setString(6, member.getM_image());
 			preparedStatement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+
+	// 채널 추가
+	public boolean channelregister(int m_no) {
+		String sql = "insert into channel(c_name) value (?)";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, m_no);
+			preparedStatement.executeQuery();
 			return true;
 		} catch (Exception e) {
 			System.out.println(e);
@@ -181,6 +174,60 @@ public class MemberDao extends DB {
 			System.out.println(e);
 		}
 		return false;
+	}
+	
+	// 아이디, 패스워드 일치여부 확인
+	public boolean checkidpw(String id, String password) {
+		String sql1 = "select * from member where m_id =? and m_pw=?"; // 회원검사
+		try {
+			preparedStatement = connection.prepareStatement(sql1);
+			preparedStatement.setString(1, id);
+			preparedStatement.setString(2, password);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				Member member = new Member(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3),
+						resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7),
+						resultSet.getString(8));
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+	
+	public boolean update(String type, String newdata, String id) {
+		String sql = "update member set " + type + " = ? where m_id = ?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, newdata);
+			preparedStatement.setString(2, id);
+			preparedStatement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+		}
+		return false;
+	}
+	
+	// 비밀번호 수정
+	
+	
+	// 본인 no로 member의 모든 정보를 가지고와야됨 
+	public Member mnoselect(int m_no) {
+		String sql = "select * from member where m_no=?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1 ,m_no);
+			resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Member member = new Member(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3),
+						resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7),
+						resultSet.getString(8));
+				return member;
+			}
+		} catch (Exception e) {
+			
+		}return null;
 	}
 
 }

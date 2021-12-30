@@ -1,3 +1,8 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="dao.VideoDao"%>
+<%@page import="dto.Video"%>
+<%@page import="dao.ChannelDao"%>
+<%@page import="dto.Channel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,11 +13,21 @@
 </head>
 <body>
 
-
 	<div class="col-md-2">
 		<%@include file="../sidebar.jsp"%>
 
 	</div>
+	<%	
+		int m_no = MemberDao.getMemberDao().getmemberno(loginid);
+		System.out.println(m_no);
+		Channel channel = ChannelDao.getChannelDAO().getChannelinfo(m_no);
+		//System.out.println(channel.getC_name());
+		//int v_no = VideoDao.getVideoDAO().findv_no(m_no);
+		//System.out.println(m_no);
+		
+		ArrayList<Video> videos = VideoDao.getVideoDAO().getmyVideo(m_no);
+	%>
+	
 	<div class="container">
 
 		<div class="col">
@@ -21,12 +36,13 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="pl-2">
-							<a href="#"><img src="../../img/woman.jpg" width="116px"
+							<!-- 21.12.25 임시적으로 이미지 채널 배경이미지로 했음 추후에 member에서 이미지 가져오기 -->
+							<a href="#"><img src="../../upload/<%=channel.getC_image()%>" width="116px"
 								height="116px" style="border-radius: 50%;"></a>
 						</div>
 						<div class="col-md-2">
-							<h3>채널 이름</h3>
-							<span>계정이름</span>
+							<h3><%=channel.getC_name() %></h3>
+							<span><%=member.getM_id() %></span>
 							<div class="md-2 pt-2">
 								<a href="#" class="md-4"><button type="button"
 										class="btn btn-danger btn-block">
@@ -35,8 +51,7 @@
 							</div>
 						</div>
 						<div class="col" style="width: 1000px; height: 180px;">
-
-							<img src="../../img/land.jpg" alt="" width="100%" height="100%"
+							<img src="../../upload/<%=channel.getC_image()%>" alt="" width="100%" height="100%"
 								style="border-radius: 15px;" />
 						</div>
 					</div>
@@ -62,7 +77,12 @@
 							<a href="../channel/upload.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
 						</div>
 					</div>
-					<div style="font-weight: bold">아직 자기소개가 없습니다.</div>
+					
+					<%if(channel.getC_present() == null){ %>
+						<div style="font-weight: bold">아직 자기소개가 없습니다.</div>
+					<%}else{%>
+						<div style="font-weight: bold"><%=channel.getC_present() %></div>
+					<%}%>
 				</div>
 			</div>
 			<!-- 팔로잉 팔로워 좋아요 end -->
@@ -121,11 +141,11 @@
 							<div class="col-md-12   pr-2 pd-2 pl-0 mt-3">
 								<div class="row col-md-12 m-0 ">
 									<%
-									for (int i = 0; i < 5; i++) {
+									for (Video temp : videos) {
 									%>
 									<div class="col-md-3 mb-4" style="border-radius: 15px;">
 										<div>
-											<a href="clipviewmain.jsp"> <img src="../../img/land.jpg"
+											<a href="../clipviewmain.jsp"> <img src="../../img/<%=temp.getV_thumbnail().split("_")[0] %>"
 												class="recommendclips"
 												style="border-radius: 15px; width: 100%;">
 											</a>

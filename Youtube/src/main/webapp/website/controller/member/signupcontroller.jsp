@@ -1,3 +1,5 @@
+<%@page import="dto.Channel"%>
+<%@page import="dao.ChannelDao"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="dao.MemberDao"%>
@@ -14,7 +16,7 @@
 
 <%
 
-String folderpath = "C:/Users/ez201206/git/youtube-jsp/강보균/src/main/webapp/web/upload";
+String folderpath = "C:/Users/ez201207/git/youtube-jsp/Youtube/src/main/webapp/website/upload";
 MultipartRequest multi = new MultipartRequest(request, folderpath, 1024 * 1024 * 10, "UTF-8",
 		new DefaultFileRenamePolicy());
 
@@ -26,12 +28,27 @@ String name = multi.getParameter("name");
 String birth = multi.getParameter("birth");
 String phone = multi.getParameter("phone");
 String image = multi.getFilesystemName("file");
+
+Member member = null;
+if (image != null) {
+	member = new Member(id, pw, name, birth, phone, image);	
+} else {
+	member = new Member(id, pw, name, birth, phone, "profile.jpg");
+}
 // 프로필사진 선택
-Member member = new Member(id, pw, name, birth, phone, image);
-boolean result = MemberDao.getMemberDao().imgsignup(member);
+
+boolean result = MemberDao.getMemberDao().signup(member);
 
 if (result) {
 	System.out.println("회원가입 성공");
+	int m_no = ChannelDao.getChannelDAO().getMemberNo(id);
+	Channel channel = new Channel(m_no, member.getM_name(), member.getM_image(), null, null);
+	boolean result2 = ChannelDao.getChannelDAO().createChannel(channel);
+	if(result2) {
+		System.out.println("채널생성성공");
+	} else {
+		System.out.println("채널생성실패");
+	}
 	response.sendRedirect("../../view/member/login.jsp");
 } else {
 	System.out.println("회원가입 실패");
