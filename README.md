@@ -1,4 +1,6 @@
-# DUBU (Youtube 벤치마킹)
+![메인로고](https://user-images.githubusercontent.com/87436495/147758630-a265766c-2505-4cee-ba96-4ec481a5dbdf.png)
+
+# 동영상 공유 플랫폼(Youtube)
 ## contentes
 [1. 개요](https://github.com/yongbeomj/youtube-jsp#1-%EA%B0%9C%EC%9A%94)  
 [2. 개발 환경](https://github.com/yongbeomj/youtube-jsp#2-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD)  
@@ -11,7 +13,7 @@
 
 ## 1. 개요
 ### 1.1. 선정이유 :
-- Youtube와 같은 영상 공유 서비스는 많은 사람들이 쉽게 접할 수 있고 실제로 많이 사용중인 서비스이기 때문
+- 많은 사람들이 쉽게 접할 수 있고 실제로 많이 사용중인 서비스를 기준으로 선정
 - JSP 수업 내용 개념 재확립
 ### 1.2. 주 타겟 고객 : 전 연령층 고객
   
@@ -49,7 +51,7 @@
 |4|기타 (대댓글 등)|
  
 ## 5. 역할 분담
-- 장용범(조장) : 회원 페이지, 스케쥴 관리 및 Github readme 정리, 조원 서포트
+- 장용범(조장) : 회원 페이지, 조원 서포트, 스케쥴 관리 및 Github readme 정리
 - 강보균 : Home, 채널 페이지
 - 최병호 : 채널 페이지
 - 장희동 : 영상 세부 페이지
