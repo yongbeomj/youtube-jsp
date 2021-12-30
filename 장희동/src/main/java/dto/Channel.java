@@ -79,6 +79,14 @@ public class Channel {
 		this.c_presentation = c_present;
 	}
 	
+	public Channel(String c_name, String c_image, String c_info, String c_presentation) { 
+		this.c_name = c_name;
+		this.c_image = c_image;
+		this.c_info = c_info;
+		this.c_presentation = c_presentation;
+	}
+	
+	
 	public Channel() {
 		// TODO Auto-generated constructor stub
 	}

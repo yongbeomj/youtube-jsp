@@ -23,18 +23,17 @@
 			<div class="row">
 				<div class="col-md-3">
 					<div class="nav flex-column nav-pills">
-						<a class="nav-link" data-toggle="pill" href="#pills-memberupdate"> 회원정보수정 </a>
-						<a class="nav-link" data-toggle="pill" href="#pills-password"> 회원탈퇴 </a>
-						<a class="nav-link" data-toggle="pill" href="#pills-channel"> 채널등록 </a>
+						<a class="nav-link" data-toggle="pill" href="#pills-memberupdate"> 회원정보수정 </a> <a class="nav-link" data-toggle="pill" href="#pills-password">
+							비밀번호변경 </a> <a class="nav-link" data-toggle="pill" href="#pills-delete"> 회원탈퇴 </a>
 					</div>
 				</div>
-				<div class="col-md-9">
+				<div id="memberinfo" class="col-md-9">
 					<div class="tab-content" id="pills-tabcontent">
 						<div class="tab-pane fade show active" id="pills-memberupdate">
 							<div class="border rounded">
 								<div class="row p-4">
 									<div class="col-md-3 justify-content-center align-self-center">
-										<img src="../../img/profile.jpg" class="rounded-circle" width="75px">
+										<img id="preview" name="preview" src="../../upload/<%=member.getM_image()%>" class="rounded-circle" style="width: 75px; height: 75px">
 									</div>
 									<div class="col-md-9 justify-content-center align-self-center">
 										<p style="font-size: 20px;"><%=member.getM_id()%></p>
@@ -44,51 +43,104 @@
 							<br> <br>
 
 							<div class="border rounded">
-								<div class="row p-4">
-									<div class="col-md-3 justify-content-center align-self-center">
-										<p>비밀번호</p>
+								<form id="profileform" action="../../controller/member/profilecontroller.jsp" method="post" enctype="multipart/form-data">
+									<div class="row p-4">
+										<div class="col-md-3 justify-content-center align-self-center">
+											<p>프로필 변경</p>
+										</div>
+										<div class="col-md-7 justify-content-center align-self-center">
+											<input id="file" name="file" class="form-control" type="file" onchange="readURL(this);">
+										</div>
+										<div class="col-md-2 justify-content-center align-self-center">
+											<button id="btnimg" type="submit" class="form-control">수정</button>
+										</div>
 									</div>
-									<div class="col-md-9 justify-content-center align-self-center">
-										<p>
-											<a href="#">비밀번호 변경</a>
-										</p>
+								</form>
+								<!-- <form id="memberinfoform" action="../../controller/member/memberupdate.jsp" method="post"> -->
+									<div class="row p-4">
+										<div class="col-md-3 justify-content-center align-self-center">
+											<p>이름</p>
+										</div>
+										<div class="col-md-7 justify-content-center align-self-center">
+											<p id="tdname"><%=member.getM_name()%></p>
+											<input type="text" id="inputname" class="form-control my-3" onchange="memberinfoname()" style="display: none;">
+										</div>
+										<div class="col-md-2 justify-content-center align-self-center">
+											<button id="btnname" onclick="namechange();" class="form-control">수정</button>
+											<button id="namechangebtn" class="form-control" style="display: none">확인</button>
+										</div>
+										<div class="offset-3">
+											<span id="tdnameresult" class="ml-3" style="display:none"></span>
+										</div>
 									</div>
-									
-								</div>
-								<div class="row p-4">
-									<div class="col-md-3 justify-content-center align-self-center">
-										<p>이름</p>
+									<div class="row p-4">
+										<div class="col-md-3 justify-content-center align-self-center">
+											<p>생년월일</p>
+										</div>
+										<div class="col-md-7 justify-content-center align-self-center">
+											<p id="tdbirth"><%=member.getM_birth()%></p>
+											<input type="text" id="inputbirth" class='form-control my-3' onchange="memberinfobirth()" style="display: none;">
+										</div>
+										<div class="col-md-2 justify-content-center align-self-center">
+											<button id="btnbirth" onclick="bitrhchange();" class="form-control">수정</button>
+											<button id="birthchangebtn" class="form-control" style="display: none">확인</button>
+										</div>
+										<div class="offset-3">
+											<span id="tdbirthresult" class="ml-3" style="display:none"></span>
+										</div>
 									</div>
-									<div class="col-md-7 justify-content-center align-self-center">
-										<p><%=member.getM_name()%></p>
+									<div class="row p-4">
+										<div class="col-md-3 justify-content-center align-self-center">
+											<p>연락처</p>
+										</div>
+										<div class="col-md-7 justify-content-center align-self-center">
+											<p id="tdphone"><%=member.getM_phone()%></p>
+											<input type="text" id="inputphone" class='form-control my-3' onchange="memberinfophone()" style="display: none;">
+										</div>
+										<div class="col-md-2 justify-content-center align-self-center">
+											<button id="btnphone" onclick="phonechange();" class="form-control">수정</button>
+											<button id="phonechangebtn" class="form-control" style="display: none">확인</button>
+										</div>
+										<div class="offset-3">
+											<span id="tdphoneresult" class="ml-3" style="display:none"></span>
+										</div>
 									</div>
-								</div>
-								<div class="row p-4">
-									<div class="col-md-3 justify-content-center align-self-center">
-										<p>생년월일</p>
-									</div>
-									<div class="col-md-9 justify-content-center align-self-center">
-										<p><%=member.getM_birth()%></p>
-									</div>
-								</div>
-								<div class="row p-4">
-									<div class="col-md-3 justify-content-center align-self-center">
-										<p>연락처</p>
-									</div>
-									<div class="col-md-9 justify-content-center align-self-center">
-										<p><%=member.getM_phone()%></p>
-									</div>
-								</div>
-							</div>
-							<br> <br>
-							<div class="col-md-4 offset-4">
-								<input type="button" id="update" value="수정" class="form-control p-3 bg-danger text-white">
+								<!-- </form> -->
 							</div>
 
+							<br> <br>
 
 						</div>
 
 						<div class="tab-pane fade" id="pills-password">
+
+							<div class="border rounded">
+								<div class="row p-4">
+									<div class="col justify-content-center align-self-center">
+										<h4>비밀번호 변경</h4>
+									</div>
+								</div>
+							</div>
+							<div id="pwupdate" class="border rounded">
+								<br> <br>
+								<h5 class="text-center">새 비밀번호</h5>
+								<div class="col-md-6 offset-3 text-center">
+									<form id="updatepwform" action="../../controller/member/memberupdate.jsp" method="post">
+										<br> <input type="password" id="inputpw" name="inputpw" class="form-control p-2" placeholder="비밀번호"> <br> <input
+											type="password" id="inputpwconfirm" name="inputpwconfirm" class="form-control p-2" placeholder="비밀번호확인"> <br>
+										<div>
+											<span id="updatepwresult"></span>
+										</div>
+										<button id="pwchangebtn" class="form-control p-2 bg-danger text-white" onclick="pwchange();">확인</button>
+										<br>
+									</form>
+									<br> <br> <br> <br>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="tab-pane fade" id="pills-delete">
 
 							<div class="border rounded">
 								<div class="row p-4">
@@ -102,7 +154,7 @@
 								<h5 class="text-center">회원 탈퇴 하시겠습니까?</h5>
 								<div class="col-md-6 offset-3 text-center">
 									<form id="deleteform">
-										<br> <input type="password" name="password" class="form-control p-2" placeholder="패스워드"> <br>
+										<br> <input type="password" id="password" name="password" class="form-control p-2" placeholder="패스워드"> <br>
 										<div>
 											<span id="deleteresult"></span>
 										</div>
@@ -110,44 +162,6 @@
 									</form>
 									<br> <br> <br> <br>
 								</div>
-							</div>
-						</div>
-
-						<div class="tab-pane fade" id="pills-channel">
-
-							<div class="border rounded">
-								<div class="row p-4">
-									<div class="col justify-content-center align-self-center">
-										<h4>채널 등록</h4>
-									</div>
-								</div>
-							</div>
-							<div class="border rounded">
-								<br> <br>
-								<div class="row">
-									<div class="col-md-3 d-flex justify-content-end align-self-center">
-										<img id="preview" src="../../img/profile.jpg" class="rounded-circle" width="130px">
-									</div>
-									<div class="col-md-8">
-										<div class="p-4 justify-content-start align-self-center">
-											<h5>새 채널 페이지명</h5>
-											<input type="text" name="channelpage" class="form-control p-2 my-1" placeholder="새 채널 페이지명">
-										</div>
-
-										<div class="p-4 justify-content-start align-self-center">
-
-											<h5>채널 프로필 사진</h5>
-											<input class="my-1" type="file" onchange="readURL(this);">
-										</div>
-									</div>
-								</div>
-
-								<br> <br>
-								<div class="col-md-6 offset-3 text-center">
-									<a href=""> <input type="button" id="channelregister" value="확인" class="form-control p-2 bg-danger text-white">
-									</a>
-								</div>
-								<br> <br> <br> <br>
 							</div>
 						</div>
 					</div>

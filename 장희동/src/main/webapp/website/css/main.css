@@ -4,14 +4,12 @@
 
 *{
 	font-family: 'Noto Sans KR', sans-serif;
-	 /*border: 1px solid green;*/ 
 }
 
 li { list-style:none; }
 
 body {
    /* background-color: #f2f7fb */
-   
 }
 
 .carousel-item img {
@@ -223,12 +221,21 @@ body {
   background: black;
 }
 
-/*추천영상*/
 .recommendclips:hover{
 	box-shadow: 1px 1px 20px #808080;
 	transform:translate(0,-5px);
   	transition: all 0.7s ease;
 }
 
+#deleteresult{
+	font-size : 1.0rem;
+	color : red;
+}
 
-
+/* #profile{
+	padding : 6px 25px;
+	background-color : red;
+	border-radius : 4px;
+	color : white;
+	cursor : pointer;
+} */

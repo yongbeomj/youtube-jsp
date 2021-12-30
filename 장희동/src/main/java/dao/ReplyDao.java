@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -17,7 +18,7 @@ public class ReplyDao extends DB{
 	
 	//리플 쓰기
 	public boolean replywrite(Reply reply) {
-		String sql = "INSERT INTO reply ( m_no, v_no, c_no, r_contents) VALUES (?,?,?,?);";
+		String sql = "INSERT INTO reply ( m_no, v_no, c_no, r_contents) VALUES (?,?,?,?)";
 		
 		try {
 			preparedStatement = connection.prepareStatement(sql);
@@ -120,10 +121,11 @@ public class ReplyDao extends DB{
 	 }
 	 
 	 //리플 총 개수 세기
-	 public int replycount() {
-		 String sql = "SELECT count(*) FROM reply";
+	 public int replycount(int v_no) {
+		 String sql = "SELECT count(*) FROM reply where v_no=?";
 		 try {
 			 preparedStatement = connection.prepareStatement(sql);
+			 preparedStatement.setInt(1, v_no);
 			 resultSet= preparedStatement.executeQuery();
 			 if(resultSet.next()) {
 				 return resultSet.getInt(1);
@@ -150,9 +152,10 @@ public class ReplyDao extends DB{
 	 }
 	 
 	 public int findc_no (int m_no) {
-		 String sql = "select c_no from channel where m_no";
+		 String sql = "select c_no from channel where m_no=?";
 		 try {
 			 preparedStatement = connection.prepareStatement(sql);
+			 preparedStatement.setInt(1, m_no);
 			 resultSet= preparedStatement.executeQuery();
 			 if(resultSet.next()) {
 				 return resultSet.getInt(1);
@@ -162,4 +165,54 @@ public class ReplyDao extends DB{
 		}
 		return 0;
 	 }
+	 
+	// 멤버 번호를 반환하는 메소드
+		public int findm_no(int v_no) {
+			try {
+				String sql = "select m_no from video where v_no = ?";
+				preparedStatement = connection.prepareStatement(sql);
+				preparedStatement.setInt(1, v_no);
+				resultSet = preparedStatement.executeQuery();
+				if(resultSet.next()) {
+					return resultSet.getInt(1);
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			} 
+			return 0;
+		}
+		
+		//댓글의 m_no로 멤버이미지 찾기
+		public String findm_image(int m_no) {
+			String sql = "select m_image from member where m_no = ?";
+			
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				preparedStatement.setInt(1, m_no);
+				resultSet = preparedStatement.executeQuery();
+				
+				if(resultSet.next()) {
+					return resultSet.getString(1);
+				}
+			} catch (Exception e) {
+				
+			}return null;
+		}
+		
+		//추천영상 목록에 v_no로 멤버이미지 찾기
+		public String findm_image2(int m_no) {
+			String sql = "select m_image from member where v_no = ?";
+			
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				preparedStatement.setInt(1, m_no);
+				resultSet = preparedStatement.executeQuery();
+				
+				while(resultSet.next()) {
+					return resultSet.getString(1);
+				}
+			} catch (Exception e) {
+				
+			}return null;
+		}
 }

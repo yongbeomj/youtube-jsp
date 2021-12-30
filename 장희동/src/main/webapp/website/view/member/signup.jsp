@@ -31,11 +31,10 @@
 
 						<hr>
 						<div class="text-center">
-							<img id="preview" name="preview" src="../../img/profile.jpg" class="rounded-circle" width="130px">
+							<img id="preview" name="preview" src="../../img/profile.jpg" class="rounded-circle" style="width:130px; height:130px;">
 						</div>
 						<br>
 						<div>
-							<label class="col-md-4 offset-4 form-control" for="file">프로필 선택</label>
 							<div class="row justify-content-center align-items-center">
 								<input id="file" name="file" class="my-1 text-center" type="file" style="display: block; width : 35%;" onchange="readURL(this);">
 							</div>
