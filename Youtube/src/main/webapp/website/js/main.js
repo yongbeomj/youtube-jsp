@@ -119,6 +119,7 @@ function namechange(){
 	document.getElementById("inputname").style = "display:block";
 	document.getElementById("btnname").style = "display:none";
 	document.getElementById("namechangebtn").style = "display:block";
+	document.getElementById("tdnameresult").style = "display:block";
 	
 	$( function(){
 		$("#namechangebtn").click( function() { 
@@ -134,6 +135,7 @@ function namechange(){
 					document.getElementById("inputname").style = "display:none";
 					document.getElementById("btnname").style = "display:block";
 					document.getElementById("namechangebtn").style = "display:none";
+					document.getElementById("tdnameresult").style = "display:none";
 					location.reload();
 				}
 			});
@@ -145,6 +147,7 @@ function bitrhchange(){
 	document.getElementById("inputbirth").style = "display:block";
 	document.getElementById("btnbirth").style = "display:none";
 	document.getElementById("birthchangebtn").style = "display:block";
+	document.getElementById("tdbirthresult").style = "display:block";
 	
 	$( function(){
 		$("#birthchangebtn").click( function() { 
@@ -160,6 +163,7 @@ function bitrhchange(){
 					document.getElementById("inputbirth").style = "display:none";
 					document.getElementById("btnbirth").style = "display:block";
 					document.getElementById("birthchangebtn").style = "display:none";
+					document.getElementById("tdbirthresult").style = "display:none";
 					location.reload();
 				}
 			});
@@ -171,6 +175,7 @@ function phonechange(){
 	document.getElementById("inputphone").style = "display:block";
 	document.getElementById("btnphone").style = "display:none";
 	document.getElementById("phonechangebtn").style = "display:block";
+	document.getElementById("tdphoneresult").style = "display:block";
 	
 	$( function(){
 		$("#phonechangebtn").click( function() { 
@@ -186,52 +191,104 @@ function phonechange(){
 					document.getElementById("inputphone").style = "display:none";
 					document.getElementById("btnphone").style = "display:block";
 					document.getElementById("phonechangebtn").style = "display:none";
+					document.getElementById("tdphoneresult").style = "display:none";
 					location.reload();
 				}
 			});
 		});
 	});
 }
-
-
 /* 회원정보 수정 end */
+
+
+/* 회원정보 수정 유효성검사 */
+
+function memberinfoname() {
+	
+	// 회원가입 input값 호출 및 변수에 대입 
+	var name = document.getElementById("inputname").value;
+	// 텍스트 패턴 검사
+	var namej = /^[A-Za-z0-9가-힣]{1,15}$/; // 이름 : 1글자 이상
+	
+	// 유효성검사 문구
+	
+	// 이름
+	if (!namej.test(name)) {
+		document.getElementById("tdnameresult").innerHTML = "이름을 입력해주시기 바랍니다";
+		document.getElementById("tdnameresult").style.color = "red";
+		return false;
+	} else {
+		document.getElementById("tdnameresult").innerHTML = "사용가능한 이름입니다";
+		document.getElementById("tdnameresult").style.color = "green";
+	}
+} 
+
+function memberinfobirth() {
+	
+	// 회원가입 input값 호출 및 변수에 대입 
+	var birth = document.getElementById("inputbirth").value;
+	
+	// 생년월일
+	if( birth == "" ){
+		document.getElementById("tdbirthresult").innerHTML= "생년월일을 입력해주시기 바랍니다";
+		document.getElementById("tdbirthresult").style.color = "red";
+		return false;
+	}else{
+		document.getElementById("tdbirthresult").innerHTML="사용가능한 생년월일입니다";
+		document.getElementById("tdbirthresult").style.color = "green";
+	}
+} 
+function memberinfophone() {
+	
+	// 회원가입 input값 호출 및 변수에 대입 
+	var phone = document.getElementById("inputphone").value;
+	
+	// 텍스트 패턴 검사
+	var phonej = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/; // 연락처 : 000-0000-0000
+	
+	// 유효성검사 문구
+	
+	// 연락처
+	if (!phonej.test(phone)) {
+		document.getElementById("tdphoneresult").innerHTML = "01012345678 형식으로 입력해주시기 바랍니다";
+		document.getElementById("tdphoneresult").style.color = "red";
+		return false;
+	} else {
+		document.getElementById("tdphoneresult").innerHTML = "사용가능한 전화번호형식입니다";
+		document.getElementById("tdphoneresult").style.color = "green";
+	}
+} 
+
+/* 회원정보 수정 유효성검사 end*/
+
+
+
 
 /* 비밀번호 변경 */
 
 
-$("#pills-password a").click(function(e) {
-e.preventDefault();
-$(this).tab("show");
-});
-
-function pwchange(){
-	document.getElementById("btnpw").style = "display:none";
-	document.getElementById("pwchangebtn").style = "display:block";
-	document.getElementById("inputpw").style = "display:block";
-	document.getElementById("inputpwconfirm").style = "display:block";
 	$(function(){
-	
-		$("#btnpw").click(function(){
+		$("#pwchangebtn").click(function(){
+			//alert('통신확인');
 			$.ajax({
 				url : "../../controller/member/memberupdate.jsp" ,
 				data : {
-					newpw : document.getElementById("inputpw").value,
+					newpw :document.getElementById("inputpw").value ,
 					newpwconfirm : document.getElementById("inputpwconfirm").value},
-				success : function(result){
+					success : function(result){
 					if(result == 1){
-						alert('비밀번호가 변경되었습니다');
+						alert("비밀번호가 변경되었습니다");
+						location.href='../../view/member/memberinfo.jsp';
 					} else {
+						alert("비밀번호가 일치하지 않습니다");
+						location.href='../../view/member/memberinfo.jsp';
 						document.getElementById("updatepwresult").innerHTML = "비밀번호가 일치하지 않습니다";
 					}
-					document.getElementById("btnpw").style = "display:block";
-					document.getElementById("pwchangebtn").style = "display:none";
-					document.getElementById("inputpw").style = "display:none";
-	document.getElementById("inputpwconfirm").style = "display:none";
+					location.reload();
 				}
 			});
 		});
 	});
-}
 /* 비밀번호 변경 end*/
 
 
