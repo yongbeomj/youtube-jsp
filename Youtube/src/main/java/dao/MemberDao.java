@@ -11,6 +11,7 @@ public class MemberDao extends DB {
 	}
 
 	public static MemberDao memberDao = new MemberDao();
+
 	public static MemberDao getMemberDao() {
 		return memberDao;
 	}
@@ -175,7 +176,7 @@ public class MemberDao extends DB {
 		}
 		return false;
 	}
-	
+
 	// 아이디, 패스워드 일치여부 확인
 	public boolean checkidpw(String id, String password) {
 		String sql1 = "select * from member where m_id =? and m_pw=?"; // 회원검사
@@ -192,7 +193,7 @@ public class MemberDao extends DB {
 		}
 		return false;
 	}
-	
+
 	public boolean update(String type, String newdata, String id) {
 		String sql = "update member set " + type + " = ? where m_id = ?";
 		try {
@@ -205,7 +206,24 @@ public class MemberDao extends DB {
 		}
 		return false;
 	}
-	
-	// 비밀번호 수정
+
+	// 본인 no로 member의 모든 정보를 가지고와야됨
+	public Member mnoselect(int m_no) {
+		String sql = "select * from member where m_no=?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, m_no);
+			resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Member member = new Member(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3),
+						resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7),
+						resultSet.getString(8));
+				return member;
+			}
+		} catch (Exception e) {
+
+		}
+		return null;
+	}
 
 }

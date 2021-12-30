@@ -34,7 +34,7 @@
 						int m_no = VideoDao.getVideoDAO().getM_no(v_no);
 						int channelno = ChannelDao.getChannelDAO().getChannelNo(m_no);
 						Channel channel = ChannelDao.getChannelDAO().getSoloChannel(channelno);
-						System.out.println(channel.getC_no());
+						System.out.println(videos.get(i).getV_thumbnail().split("_")[0]);
 				%>
 						<div class = "card col-xs-8 offset-xs-2 m-2" style="width: 16rem;">
 							<a href = "clipviewmain.jsp?v_no=<%=v_no%>">
@@ -52,11 +52,11 @@
 										if(videos.get(i).getV_title().split(".mp4")[0].length() > 16) {
 											String videoTitle = videos.get(i).getV_title().split(".mp4")[0].substring(0,16) + "...";
 									%>
-											<h5 class = "card-title" style="font-size: 16px;"><%= videoTitle %></h5>
+											<h5 class = "card-title" style="font-size: 16px;"><a href="clipviewmain.jsp?v_no=<%=v_no%>" style="text-decoration: none;"><%= videoTitle %></a></h5>
 									<%
 										} else {
 									%>
-											<h5 class = "card-title" style="font-size: 16px;"><%= videos.get(i).getV_title().split(".mp4")[0] %></h5>
+											<h5 class = "card-title" style="font-size: 16px;"><a href="clipviewmain.jsp?v_no=<%=v_no%>" style="text-decoration: none; color: black;"><%= videos.get(i).getV_title().split(".mp4")[0] %></a></h5>
 									<%
 										}
 									%>

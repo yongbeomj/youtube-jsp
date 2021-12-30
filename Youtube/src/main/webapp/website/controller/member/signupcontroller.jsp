@@ -49,7 +49,8 @@ if (result) {
 	} else {
 		System.out.println("채널생성실패");
 	}
-	response.sendRedirect("../../view/member/login.jsp");
+	out.print("<script>alert('회원가입이 성공하였습니다');</script>");
+	out.println("<script>location.href='../../view/member/login.jsp';</script>");
 } else {
 	System.out.println("회원가입 실패");
 	response.sendRedirect("../../view/member/signup.jsp");
