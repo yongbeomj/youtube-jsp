@@ -1,4 +1,4 @@
-# Youtube
+# DUBU (Youtube 벤치마킹)
 ## contentes
 [1. 개요](https://github.com/yongbeomj/youtube-jsp#1-%EA%B0%9C%EC%9A%94)  
 [2. 개발 환경](https://github.com/yongbeomj/youtube-jsp#2-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD)  
@@ -11,10 +11,9 @@
 
 ## 1. 개요
 ### 1.1. 선정이유 :
-- 많은 사람들이 쉽게 접할 수 있고 다양한 기능 이용 가능
-- 수업 내용 개념 재확립
-### 1.2. 목적 : 
-### 1.3. 주 타겟 고객 : 전 연령층 고객
+- Youtube와 같은 영상 공유 서비스는 많은 사람들이 쉽게 접할 수 있고 실제로 많이 사용중인 서비스이기 때문
+- JSP 수업 내용 개념 재확립
+### 1.2. 주 타겟 고객 : 전 연령층 고객
   
 ## 2. 개발 환경
 - 운영체제 : Windows10
@@ -44,14 +43,14 @@
 
 |우선순위|개발기능|
 |:----:|----|
-|1|Home, 회원가입, 로그인, ID찾기, PW찾기, 영상 세부페이지|
-|2|검색, 댓글, 좋아요|
-|3|채널페이지, 구독페이지|
+|1|Home, 회원가입, 로그인, ID찾기, PW찾기, 영상 세부페이지, 채널페이지|
+|2|검색, 댓글, 좋아요, 팔로우|
+|3|구독페이지|
 |4|기타 (대댓글 등)|
  
 ## 5. 역할 분담
-- 장용범(조장) : 회원 페이지(회원가입, 로그인, ID찾기, PW찾기, 회원정보), 스케쥴 관리 및 Github readme 정리, 조원 서포트
-- 강보균 : Home  
+- 장용범(조장) : 회원 페이지, 스케쥴 관리 및 Github readme 정리, 조원 서포트
+- 강보균 : Home, 채널 페이지
 - 최병호 : 채널 페이지
 - 장희동 : 영상 세부 페이지
 
@@ -75,7 +74,7 @@
 <summary>여기를 눌러주세요</summary>
 <div markdown="1">       
 
-![ascii-tree-generator com_ (2)](https://user-images.githubusercontent.com/88884623/145959511-a8e69aa6-44ea-4667-8beb-e6c5de2f5c04.png)
+![캡처](https://user-images.githubusercontent.com/87436495/147758348-2fb56bd3-1afc-4726-a95a-b0a00194239f.PNG)
 
 </div>
 </details>
