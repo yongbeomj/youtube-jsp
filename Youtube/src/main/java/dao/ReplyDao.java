@@ -18,7 +18,7 @@ public class ReplyDao extends DB{
 	
 	//리플 쓰기
 	public boolean replywrite(Reply reply) {
-		String sql = "INSERT INTO reply ( m_no, v_no, c_no, r_contents) VALUES (?,?,?,?);";
+		String sql = "INSERT INTO reply ( m_no, v_no, c_no, r_contents) VALUES (?,?,?,?)";
 		
 		try {
 			preparedStatement = connection.prepareStatement(sql);
@@ -121,10 +121,11 @@ public class ReplyDao extends DB{
 	 }
 	 
 	 //리플 총 개수 세기
-	 public int replycount() {
-		 String sql = "SELECT count(*) FROM reply";
+	 public int replycount(int v_no) {
+		 String sql = "SELECT count(*) FROM reply where v_no=?";
 		 try {
 			 preparedStatement = connection.prepareStatement(sql);
+			 preparedStatement.setInt(1, v_no);
 			 resultSet= preparedStatement.executeQuery();
 			 if(resultSet.next()) {
 				 return resultSet.getInt(1);
@@ -182,7 +183,7 @@ public class ReplyDao extends DB{
 		}
 		
 		//댓글의 m_no로 멤버이미지 찾기
-		public int findm_image(int m_no) {
+		public String findm_image(int m_no) {
 			String sql = "select m_image from member where m_no = ?";
 			
 			try {
@@ -191,10 +192,27 @@ public class ReplyDao extends DB{
 				resultSet = preparedStatement.executeQuery();
 				
 				if(resultSet.next()) {
-					return resultSet.getInt(1);
+					return resultSet.getString(1);
 				}
 			} catch (Exception e) {
 				
-			}return 0;
+			}return null;
+		}
+		
+		//추천영상 목록에 v_no로 멤버이미지 찾기
+		public String findm_image2(int m_no) {
+			String sql = "select m_image from member where v_no = ?";
+			
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				preparedStatement.setInt(1, m_no);
+				resultSet = preparedStatement.executeQuery();
+				
+				while(resultSet.next()) {
+					return resultSet.getString(1);
+				}
+			} catch (Exception e) {
+				
+			}return null;
 		}
 }

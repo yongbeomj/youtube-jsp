@@ -273,30 +273,35 @@ function readURL(input) {
 
 /* 댓글 등록 start */
 function replywrite(v_no){ 
-	//alert("시작");
-	
 	var r_contents = document.getElementById("replytext").value;
-	$("#btnreplywrite").click( function(){ 
-		alert(r_contents);
-		
-		$.ajax({
-			url : "../controller/clip/clipviewreplycontroller.jsp" ,
-			data : {
-				v_no : v_no,
-				r_contents : r_contents
-				},
-			success : function(result){
-				if (result == 1){
-					$( "#replybox" ).load(window.location.href + " #replybox" );
-					$( "#replydiv" ).load(window.location.href + " #replydiv" );
-					document.getElementById("replytext").innerHTML="";
-				
-				} else {
-					alert("오류발생. 관리자에게 문의");
+		$("#btnreplywrite").click( function(){ 
+			alert("시작");
+			//if(r_contents == null){
+				//alert("댓글 내용을 입력해 주세요");
+			
+			//}
+			//else{
+			alert(r_contents);
+			
+			$.ajax({
+				url : "../controller/clip/clipviewreplycontroller.jsp" ,
+				data : {
+					v_no : v_no,
+					r_contents : r_contents
+					},
+				success : function(result){
+					if (result == 1){
+						$( "#replybox" ).load(window.location.href + " #replybox" );
+						$( "#replydiv" ).load(window.location.href + " #replydiv" );
+						document.getElementById("replytext").value="";
+					} else {
+						alert("오류발생. 관리자에게 문의");
+					}
 				}
-			}
-		});
+			});
+		//}
 	});
+	
 }	
 /* 댓글 등록 end */
 
@@ -425,7 +430,7 @@ var item = 2; // 게시물 갯수가 3개 이상이면 무한 스크롤
 	$(window).scroll(function() {
 		
 		if( $(window).scrollTop() == $(document).height() -$(window).height() ){
-			alert("ㅎㅇ2");
+			//alert("ㅎㅇ2");
 			$.ajax({
 				url : "../../controller/channel/newchannelboard3controller.jsp",
 				data : {item : item},
