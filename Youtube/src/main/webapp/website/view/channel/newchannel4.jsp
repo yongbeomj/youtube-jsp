@@ -31,6 +31,7 @@
 		int f_checkcount2 = FollowDao.getFollowDao().followingCount(m_no);
 		ArrayList<Video> videos = VideoDao.getVideoDAO().getmyVideo(m_no);
 	%>
+	<%! int vl_totalcheck = 0; %>
 	<div class="container">
 
 		<div class="col">
@@ -40,7 +41,7 @@
 					<div class="row">
 						<div class="pl-2">
 							<!-- 21.12.25 임시적으로 이미지 채널 배경이미지로 했음 추후에 member에서 이미지 가져오기 -->
-							<a href="#"><img src="../../upload/<%=channel.getC_image()%>" width="116px"
+							<a href="#"><img src="../../upload/<%=member.getM_image()%>" width="116px"
 								height="116px" style="border-radius: 50%;"></a>
 						</div>
 						<div class="col-md-2">
@@ -69,23 +70,15 @@
 							<span style="font-weight: bold"><%=f_checkcount%></span> 팔로워
 						</div>
 						<div class="">
-							<span style="font-weight: bold">7M</span> 좋아요
+							<span style="font-weight: bold"><%=vl_totalcheck%></span> 좋아요
 						</div>
 						<div class="offset-6"></div>
 						<div class="mx-4"></div>
-						<%
-							if(channel.getC_no() != MemberDao.getMemberDao().getmemberno(loginid)){
-						%>
-								<div></div>
-						<%	
-							} else {
-						%>
+						
 								<div class="mx-5">
-									<a href="../channel/upload.jsp"> <button type="button" class="btn btn-danger">정보수정</button> </a>
+									<a href="../channel/upload3.jsp"> <button type="button" class="btn btn-danger">정보수정</button> </a>
 								</div>
-						<%
-							}
-						%>
+						
 					</div>
 					<%if(channel.getC_present() == null){ %>
 						<div style="font-weight: bold">아직 자기소개가 없습니다.</div>

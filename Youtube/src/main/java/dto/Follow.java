@@ -23,6 +23,11 @@ public class Follow {
 		this.c_no = c_no;
 	}
 
+	public Follow(int m_no) {
+		
+		this.m_no = m_no;
+	}
+
 	public int getF_no() {
 		return f_no;
 	}

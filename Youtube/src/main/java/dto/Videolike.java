@@ -9,9 +9,11 @@ public class Videolike {
 	public Videolike() {}
 
 	public Videolike(int vl_no, int v_no, int m_no) {
-		super();
 		this.vl_no = vl_no;
 		this.v_no = v_no;
+		this.m_no = m_no;
+	}
+	public Videolike(int m_no) {
 		this.m_no = m_no;
 	}
 

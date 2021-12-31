@@ -18,6 +18,7 @@
 <%	
 	int m_no = MemberDao.getMemberDao().getmemberno(loginid);
 	Channel channel = ChannelDao.getChannelDAO().getChannelinfo(m_no);
+	Member member = MemberDao.getMemberDao().mnoselect(m_no);
 	int c_no = ChannelDao.getChannelDAO().getChannelNo(m_no);
 	ArrayList<ChannelBoard> channelboards = ChannelBoardDao.getChannelBoardDao().channelBoardList(c_no);
 %>
@@ -34,7 +35,7 @@ for(ChannelBoard channelBoard : channelboards){
 	<div class = "col-md-10">
 		<div class="mt-2 ml-3 pr-0 d-flex justify-content-start" style = "border:  ; border-radius : 5px;">
 			
-			<a href="#"> <img src="../../upload/<%=channel.getC_image()%>" width="20"
+			<a href="#"> <img src="../../upload/<%=member.getM_image()%>" width="20"
 				height="20" style="border-radius: 50%;">
 			</a> <a href="#"> <span> <%=channel.getC_name() %></span>
 			</a>

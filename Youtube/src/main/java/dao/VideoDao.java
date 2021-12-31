@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dto.Video;
+import dto.Videolike;
 
 public class VideoDao extends DB {
 	public static VideoDao videoDAO = new VideoDao();
@@ -219,6 +220,79 @@ public class VideoDao extends DB {
 		}
 		return null;
 	}
+
+	// 해당 영상 비디오의 좋아요 개수 확인하기
+	public int videolikeCount(int v_no) {
+		String sql = null;
+		sql = "select count(vl_no) from videolike where v_no=" + v_no;
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return resultSet.getInt(1);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return 0;
+	}
+
+	// 멤버의 영상 비디오 총 좋아요 개수 확인하기
+	public int videoliketotalCount(int m_no) {
+		String sql = null;
+		sql = "select count(vl_no) from videolike where m_no=" + m_no;
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return resultSet.getInt(1);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return 0;
+	}
+
+	public ArrayList<Video> Search(String searchtext) {
+		try {
+
+			ArrayList<Video> videos = new ArrayList<>();
+			String sql = "select * from video where v_title like '%" + searchtext + "%'";
+			preparedStatement = connection.prepareStatement(sql);
+
+			resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Video video = new Video(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3),
+						resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7),
+						resultSet.getInt(8), resultSet.getString(9));
+				videos.add(video);
+			}
+			return videos;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+	}
+	
+	// 좋아요한 m_no -> v_no
+	public ArrayList<Videolike> findlikev_no(int m_no) {
+		ArrayList<Videolike> videolikes = new ArrayList<>();
+		String sql = "select v_no from videolike where m_no = " + m_no;
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, m_no);
+			resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Videolike videolike = new Videolike(resultSet.getInt(1));
+				videolikes.add(videolike);
+			}
+			return videolikes;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
 	
 	
+
 }

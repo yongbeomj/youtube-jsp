@@ -29,7 +29,7 @@
 		
 		
 	%>
-	
+	<%! int vl_totalcheck = 0; %>
 	<div class="container">
 
 		<div class="col">
@@ -39,7 +39,7 @@
 					<div class="row">
 						<div class="pl-2">
 							<!-- 21.12.25 임시적으로 이미지 채널 배경이미지로 했음 추후에 member에서 이미지 가져오기 -->
-							<a href="#"><img src="../../upload/<%=channel.getC_image()%>" width="116px"
+							<a href="#"><img src="../../upload/<%=member.getM_image()%>" width="116px"
 								height="116px" style="border-radius: 50%;"></a>
 						</div>
 						<div class="col-md-2">
@@ -67,23 +67,16 @@
 							<span style="font-weight: bold"><%=f_checkcount%></span> 팔로워
 						</div>
 						<div class="">
-							<span style="font-weight: bold">7M</span> 좋아요
+							<span style="font-weight: bold"><%=vl_totalcheck%></span> 좋아요
 						</div>
 						<div class="offset-6"></div>
 						<div class="mx-4"></div>
-						<%
-							if(channel.getC_no() != MemberDao.getMemberDao().getmemberno(loginid)){
-						%>
-								<div></div>
-						<%	
-							} else {
-						%>
+						<% vl_totalcheck = 0; %>
+						
 								<div class="mx-5">
 									<a href="../channel/upload.jsp"> <button type="button" class="btn btn-danger">업로드</button> </a>
 								</div>
-						<%
-							}
-						%>
+						
 					</div>
 					<%if(channel.getC_present() == null){ %>
 						<div style="font-weight: bold">아직 자기소개가 없습니다.</div>
@@ -152,16 +145,22 @@
 									%>
 									<div class="col-md-3 mb-4" style="border-radius: 15px;">
 										<div>
-											<a href="../clipviewmain.jsp"> <img src="../../img/<%=temp.getV_thumbnail().split("_")[0] %>"
+											<a href="../clipviewmain.jsp?v_no=<%=temp.getV_no()%>"> <img src="../../upload/<%=temp.getV_thumbnail().split("_")[0] %>"
 												class="recommendclips"
 												style="border-radius: 15px; width: 100%;">
 											</a>
+											<%
+											int v_no = temp.getV_no();
+											vl_totalcheck += VideoDao.getVideoDAO().videolikeCount(v_no);
+											System.out.println(v_no + "fsadfsdafsd");
+											System.out.println(vl_totalcheck + "f");
+											%>
 										</div>
 										<div class="col-md-12 mt-2 pr-0">
-											<h5>Card title</h5>
-											<a href="#"> <img src="../../img/woman.jpg" width="20"
+											<h5><%=temp.getV_title() %></h5>
+											<a href="../channel/otherchannel.jsp?c_no=<%=c_no%>"> <img src="../../upload/<%=member.getM_image()%>" width="20"
 												height="20" style="border-radius: 50%;">
-											</a> <a href="#"> <span>채널명</span>
+											</a> <a href="../channel/otherchannel.jsp?c_no=<%=c_no%>"> <span><%=channel.getC_name() %></span>
 											</a>
 										</div>
 									</div>
