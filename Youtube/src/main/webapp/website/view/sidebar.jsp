@@ -99,6 +99,7 @@
            <%
               if(loginid != null){
                  int m_no = MemberDao.getMemberDao().getmemberno(loginid);
+                 ArrayList<Follow> cno = FollowDao.getFollowDao().getfollow2(m_no);
              %>
                  <li class = "my-2">
                      <a href="#" data-toggle="collapse" data-target="#menu-collapse-3">
@@ -108,9 +109,10 @@
                      <ul id="menu-collapse-3" class="collapse">
                          <li>
                                <%
-                               int fc_no = FollowDao.getFollowDao().getfollow(m_no);
-                               int f_count = FollowDao.getFollowDao().getFollowCount(fc_no, m_no);
-                                  for(int i = 0; i < 2; i++){
+                               //int fc_no = FollowDao.getFollowDao().getfollow(m_no);
+                               //int f_count = FollowDao.getFollowDao().getFollowCount(fc_no, m_no);
+                                  for(int i = 0; i < cno.size(); i++){
+                                	int fc_no = cno.get(i).getC_no();
                                 Channel channel = ChannelDao.getChannelDAO().getSoloChannel(fc_no);
                                 int cm_no = channel.getM_no();
                                 System.out.println("cmno : "+ cm_no);

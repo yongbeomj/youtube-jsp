@@ -90,45 +90,55 @@ public class FollowDao extends DB {
 		return 0;
 	}
 
-	
+	/*
+	 * public int getfollow( int m_no) { try {
+	 * 
+	 * String sql = "select c_no from follow where m_no = ?"; preparedStatement =
+	 * connection.prepareStatement(sql);
+	 * 
+	 * preparedStatement.setInt(1, m_no);
+	 * 
+	 * resultSet = preparedStatement.executeQuery(); while(resultSet.next()) {
+	 * return resultSet.getInt(1); } return 0; } catch (Exception e) {
+	 * System.out.println(e.getMessage()); } return 0; }
+	 */
 
-    public int getfollow( int m_no) {
-        try {
-           
-           String sql = "select c_no from follow where m_no = ?";
-           preparedStatement = connection.prepareStatement(sql);
-           
-           preparedStatement.setInt(1, m_no);
-           
-           resultSet = preparedStatement.executeQuery();
-           while(resultSet.next()) {
-              return resultSet.getInt(1);
-           }
-           return 0;
-        } catch (Exception e) {
-           System.out.println(e.getMessage());
-        }
-        return 0;
-     }
-     
-     public int getFollowCount(int c_no, int m_no) {
-        try {
-           
-           String sql = "select count(*) from follow where c_no = ? and m_no = ?";
-           preparedStatement = connection.prepareStatement(sql);
-           
-           preparedStatement.setInt(1, c_no);
-           preparedStatement.setInt(2, m_no);
-           
-           resultSet = preparedStatement.executeQuery();
-           if(resultSet.next()) {
-              return resultSet.getInt(1);
-           }
-           return 0;
-        } catch (SQLException e) {
-           System.out.println(e.getMessage());
-           return 0;
-        }
-     }
+	public ArrayList<Follow> getfollow2(int m_no) {
+		ArrayList<Follow> follows = new ArrayList<>();
+		String sql = "select c_no from follow where m_no = ?";		
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, m_no);
+			resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Follow follow = new Follow(resultSet.getInt(1));
+				follows.add(follow);
+			}
+			return follows;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+
+	public int getFollowCount(int c_no, int m_no) {
+		try {
+
+			String sql = "select count(*) from follow where c_no = ? and m_no = ?";
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setInt(1, c_no);
+			preparedStatement.setInt(2, m_no);
+
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return resultSet.getInt(1);
+			}
+			return 0;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return 0;
+		}
+	}
 
 }
