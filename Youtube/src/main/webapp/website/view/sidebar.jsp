@@ -1,168 +1,161 @@
+<%@page import="dto.Follow"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="dao.ChannelDao"%>
+<%@page import="dto.Channel"%>
+<%@page import="dao.FollowDao"%>
 <%@page import="dao.MemberDao"%>
 <%@page import="dto.Member"%>
 <%@page import="dto.Login"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- 부트스트랩css 설정 -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	
-	<!-- 본인 css 호출 -->
-	<link rel="stylesheet" href="/Youtube/website/css/main.css">
+<!-- 부트스트랩css 설정 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- 본인 css 호출 -->
+<link rel="stylesheet" href="/Youtube/website/css/main.css">
 </head>
 <body>
-	
+
 	<!-- jquery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-	
+
 	<!-- google CDN -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	
+
 	<!-- 부트스트랩 js 설정 -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 	<!-- 본인 js 호출 -->
-	<script type = "text/javascript" src="/Youtube/website/js/main.js"></script>
-	
+	<script type="text/javascript" src="/Youtube/website/js/main.js"></script>
+
 	<%
-		Login login = (Login)session.getAttribute("login");
-		String loginid = null;
-		if (login != null) { // 세션 있을경우 (로그인)
-			loginid = login.getM_id(); // 아이디 반환
-		}
-		Member member = MemberDao.getMemberDao().getmember(loginid);
+	Login login = (Login) session.getAttribute("login");
+	String loginid = null;
+	if (login != null) { // 세션 있을경우 (로그인)
+		loginid = login.getM_id(); // 아이디 반환
+	}
+	Member member = MemberDao.getMemberDao().getmember(loginid);
 	%>
 
 	<div class="sidebar fixed">
-	    <span class="sidebar-brand" aria-hidden="true">
-	        <a href="#" data-toggle="sidebar">
-	        	<i class="glyphicon glyphicon-arrow-left" style="color: red;">◀</i>
-	       	</a>
-	       	<br>
-	    </span>
-	        <a href = "/Youtube/website/view/main.jsp" style="margin-left: 20px;"><img alt="" src="/Youtube/website/img/로고.png"></a>
-	    <ul class="sidebar-nav my-3">
-	    	<%
-	    		if (loginid != null){
-	    	%>
-	    	<li class = "d-flex justify-content-end" style="font-size: 13px;">
-	        	<a href="/Youtube/website/view/member/memberinfo.jsp">
-	               <span><%=loginid %>님</span>
-	            </a>
-	            <a href="/Youtube/website/controller/member/logoutcontroller.jsp"><span>로그아웃</span></a>
-	               
-	        </li>
-	    	<%		
-	    		} else {
-	    	%>		
-	    	<li class = "d-flex justify-content-end" style="font-size: 13px;">
-	            <a href="/Youtube/website/view/member/login.jsp">
-	               <span>로그인</span>
-	            </a>
-	        </li>	
-	    	<%	
-	    		}
-	    	%>
-	        
-	        <li class = "my-2">
-	        	<input type = "text" placeholder="Search" style="margin-left: 20px; margin-bottom: 5px; width: 11rem;" class = "form-control">
-	        </li>
-	        <li>
-	            <a href="/Youtube/website/view/main.jsp">
-	               <h4>홈</h4>
-	            </a>
-	        </li>
-	        <li class = "my-2">
-	            <a href="/Youtube/website/controller/channel/mychannelcontroller.jsp?id=<%= loginid %>">
-	                <h4>내 채널</h4>
-	            </a>
-	        </li>
-	        <li class = "my-2">
-	            <a href="#" data-toggle="collapse" data-target="#menu-collapse-1">
-	            </a>
-	            <a href = "#">
-	                <h4>구독</h4>
-	            </a>
-	        </li>
-	        <li class = "my-2">
-	            <a href="#" data-toggle="collapse" data-target="#menu-collapse-2">
-	            </a>
-	            <a href = "#">
-	                <h4>보관함</h4>
-	            </a>
-	            <ul id="menu-collapse-2" class="collapse"> <!-- class="collapse in" : 콜랩스가 펼쳐진 상태 -->
-	                <li>
-	                    <a href="javascript:void(0)">
-	                        &emsp;&emsp;시청기록
-	                    </a>
-	                </li>
-	                <li>
-	                    <a href="javascript:void(0)">
-	                        &emsp;&emsp;나중에 볼 영상
-	                    </a>
-	                </li>
-	                <li>
-	                    <a href="javascript:void(0)">
-	                        &emsp;&emsp;재생목록
-	                    </a>
-	                </li>
-	            </ul>
-	        </li>
-	        <li class = "my-2">
-	            <a href="#" data-toggle="collapse" data-target="#menu-collapse-3">
-	                <h4>구독채널</h4>
-	            </a>
-	            <ul id="menu-collapse-3" class="collapse">
-	                <li>
-	                   	<%
-	                   		for(int i = 0; i < 13; i++){
-	                   	%>
-		                    	<a href = "#">
-			                    	<img alt="" src="">&emsp;image
-			                    	<span>&emsp;채널명</span><br>
-		                    	</a>
-	                   	<%	
-	                   		}
-	                   	%>
-	               </li>
-	            </ul>
-	        </li>
-	        <li>
-	            <a href="#" data-toggle="collapse" data-target="#menu-collapse-5">
-	            	<h4>▼</h4>
-	            </a>
-                <ul id = "menu-collapse-5" class = "collapse">
-                	<li>
-	                	<a href = "footer1.jsp">
-	                		<span>&emsp;개인정보처리방침</span><br>
-	                	</a>
-	                	<a href = "footer2.jsp">
-		                	<span>&emsp;약관</span><br>
-	                	</a>
-	                	<a href = "footer3.jsp">
-		                	<span>&emsp;정보</span><br>
-	                	</a>
-	                	<a href = "footer4.jsp">
-		                	<span>&emsp;위치</span>
-	                	</a>
-	                </li>
-                </ul>
+		<span class="sidebar-brand" aria-hidden="true"> <a href="#" data-toggle="sidebar"> <i class="glyphicon glyphicon-arrow-left"
+				style="color: red;">◀</i>
+		</a> <br>
+		</span> <a href="/Youtube/website/view/main.jsp" style="margin-left: 20px;"><img alt="" src="/Youtube/website/img/로고.png"></a>
+		<ul class="sidebar-nav my-3">
+			<%
+			if (loginid != null) {
+			%>
+			<li class="d-flex justify-content-end" style="font-size: 13px;"><a href="/Youtube/website/view/member/memberinfo.jsp"> <span><%=loginid%>님</span>
+			</a> <a href="/Youtube/website/controller/member/logoutcontroller.jsp"><span>로그아웃</span></a></li>
+			<%
+			} else {
+			%>
+			<li class="d-flex justify-content-end" style="font-size: 13px;"><a href="/Youtube/website/view/member/login.jsp"> <span>로그인</span>
+			</a></li>
+			<%
+			}
+			%>
+
+			<li class="my-2">
+				<form action="/Youtube/website/view/main.jsp">
+					<div class="row">
+						<div class="col-md-8 no-gutters">
+							<input type="text" placeholder="Search" style="margin-left: 20px; margin-bottom: 5px; width: 10rem;" class="form-control" name="searchtext">
+						</div>
+						<div class="col-md-4 no-gutters">
+							<button class="btn" style="height: 39px; margin-bottom: 5px; margin-right: 4px; text-align: center;" id="searchbtn">검색</button>
+						</div>
+					</div>
+				</form>
 			</li>
-	    </ul>
+			<li><a href="/Youtube/website/view/main.jsp">
+					<h4>홈</h4>
+			</a></li>
+			<li class="my-2"><a href="/Youtube/website/controller/channel/mychannelcontroller.jsp?id=<%=loginid%>">
+					<h4>내 채널</h4>
+			</a></li>
+			<li class="my-2"><a href="#" data-toggle="collapse" data-target="#menu-collapse-1"> </a> <a href="#">
+					<h4>구독</h4>
+			</a></li>
+			<li class="my-2"><a href="#" data-toggle="collapse" data-target="#menu-collapse-2"> </a> <a href="#">
+					<h4>보관함</h4>
+			</a>
+				<ul id="menu-collapse-2" class="collapse">
+					<!-- class="collapse in" : 콜랩스가 펼쳐진 상태 -->
+					<li><a href="javascript:void(0)"> &emsp;&emsp;시청기록 </a></li>
+					<li><a href="javascript:void(0)"> &emsp;&emsp;나중에 볼 영상 </a></li>
+					<li><a href="javascript:void(0)"> &emsp;&emsp;재생목록 </a></li>
+				</ul></li>
+
+           <%
+              if(loginid != null){
+                 int m_no = MemberDao.getMemberDao().getmemberno(loginid);
+             %>
+                 <li class = "my-2">
+                     <a href="#" data-toggle="collapse" data-target="#menu-collapse-3">
+                        <h4>구독채널</h4>
+                     </a>
+                      
+                     <ul id="menu-collapse-3" class="collapse">
+                         <li>
+                               <%
+                               int fc_no = FollowDao.getFollowDao().getfollow(m_no);
+                               int f_count = FollowDao.getFollowDao().getFollowCount(fc_no, m_no);
+                                  for(int i = 0; i < 2; i++){
+                                Channel channel = ChannelDao.getChannelDAO().getSoloChannel(fc_no);
+                                int cm_no = channel.getM_no();
+                                System.out.println("cmno : "+ cm_no);
+                                Member member2 = MemberDao.getMemberDao().mnoselect(cm_no);
+                                if(fc_no == 0){
+                                   out.println("구독중인 채널이 없습니다.");
+                                } else {
+                               %>
+                                      <div class = "row" style=" border: solid 1px white;">
+                                         <div class = "col-md-2 offset-1">
+                                            <a href = "channel/otherchannel.jsp?c_no=<%= channel.getC_no() %>" style="height: 38px; width: 38px; padding: 0px;"><img alt="" src="../upload/<%= member2.getM_image() %> %>" style="width: 100%; height: 100%; border-radius: 70%;"></a>
+                                         </div>
+                                         <div class = "col-md-8 offset-1">
+                                            <a href = "channel/otherchannel.jsp?c_no=<%= channel.getC_no() %>"><span><%= channel.getC_name() %></span></a>
+                                         </div>
+                                      </div>
+                               <%   
+                                }
+                                  }
+                               %>
+                        </li>
+                     </ul>
+                 </li>
+             <%
+              } 
+           %>
+
+			
+			<li><a href="#" data-toggle="collapse" data-target="#menu-collapse-5">
+					<h4>▼</h4>
+			</a>
+				<ul id="menu-collapse-5" class="collapse">
+					<li><a href="footer1.jsp"> <span>&emsp;개인정보처리방침</span><br>
+					</a> <a href="footer2.jsp"> <span>&emsp;약관</span><br>
+					</a> <a href="footer3.jsp"> <span>&emsp;정보</span><br>
+					</a> <a href="footer4.jsp"> <span>&emsp;위치</span>
+					</a></li>
+				</ul></li>
+		</ul>
 	</div>
 	<div class="container">
-	    <a href="main.jsp" class="btn btn-default" data-toggle="sidebar" style="width: 100%;">
-	        <img alt="" src="/Youtube/website/img/메인로고.png">
-	    </a>
+		<a href="/Youtube/website/view/main.jsp" class="btn btn-default" data-toggle="sidebar" style="width: 100%;"> <img alt=""
+			src="/Youtube/website/img/메인로고.png">
+		</a>
 	</div>
-	
+
 </body>
 </html>

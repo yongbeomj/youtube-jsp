@@ -16,7 +16,7 @@
 <body>
 <%
 // String folderpath2 = request.getSession().getServletContext().getRealPath("");  // 서버 경로 설정 
-String folderpath = "C:/Users/ez201209/git/youtube-jsp/Youtube/src/main/webapp/website/upload";
+String folderpath = request.getSession().getServletContext().getRealPath("website/upload");;
 MultipartRequest multi = new MultipartRequest(request, folderpath, 1024 * 1024 * 10, "UTF-8",
 		new DefaultFileRenamePolicy());
 

@@ -542,14 +542,54 @@ function c_follow(c_no, m_no){
 			success:function(result){ //좋아요 빼기
 			//alert(result);
 				if(result == 1){
-					//alert(result);
+					alert("성공1");
 					document.getElementById("follow").innerHTML = "<button type='button' class='btn btn-danger btn-block'><span>팔로우</span> </button>";
+					document.getElementById("followbtn").innerHTML = "<button type='button' class='btn btn-danger btn-block'><span>팔로우</span> </button>";
 				}else if(result==2){ //좋아요 추가하기
-					//alert(result);
+					alert("실패1");
 					document.getElementById("follow").innerHTML = "<button type='button' class='btn btn-danger btn-block'><span>팔로우 중</span> </button>";
+					document.getElementById("followbtn").innerHTML = "<button type='button' class='btn btn-danger btn-block'><span>팔로우 중</span> </button>";
 				}
 			}
 		})
 	});
 }
 /*팔로우 끝 */
+
+
+
+/*clipviewmain 팔로우 시작 */
+function c_follow2(c_no, m_no){
+   alert("팔로우 통신");
+   if(m_no==0){
+      alert("로그인 후 팔로우를 할 수 있습니다.");
+      return;
+   }
+   //비동기식 통신용
+   $(function(){
+      alert("팔로우 통신2");
+      $.ajax({
+         url : "../controller/follow/followupdatecontroller.jsp",
+         data:{c_no : c_no, m_no : m_no }, //인수 담아서 넘기기
+         //follodwupdatecontroller.jsp 에서 out.print로 넘어온 값 result에 저장
+         success:function(result){ //좋아요 빼기
+         //alert(result);
+            if(result == 1){
+               alert("성공2");
+					document.getElementById("followbtn").innerHTML = "<button type='button' class='btn btn-danger btn-block'><span>팔로우</span> </button>";
+					document.getElementById("follow").innerHTML = "<button type='button' class='btn btn-danger btn-block'><span>팔로우</span> </button>";
+					
+               //$( "#fallobox" ).load(window.location.href + " #fallobox" );
+            }else if(result==2){ //좋아요 추가하기
+               alert("실패2");
+					document.getElementById("followbtn").innerHTML = "<button type='button' class='btn btn-danger btn-block'><span>팔로우 중</span> </button>";
+					document.getElementById("follow").innerHTML = "<button type='button' class='btn btn-danger btn-block'><span>팔로우 중</span> </button>";
+					
+               //$( "#fallobox" ).load(window.location.href + " #fallobox" );
+               
+            }
+         }
+      })
+   });
+}
+/*clipviewmain 팔로우 끝 */
